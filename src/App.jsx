@@ -59,8 +59,8 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/enrollment" element={<EnrollList />} />
+        <Route path="/enrollment" element={<Dashboard />} />
+        <Route path="/" element={<EnrollList />} />
         {/* <Route path="/souviner-book" element={<SouvinerBook />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>

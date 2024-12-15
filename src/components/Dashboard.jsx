@@ -64,7 +64,7 @@ try {
 // Teachers List
 let teachersList = [];
 try {
-  fetch("./teachers.json")
+  fetch("/teachers.json")
     .then((response) => response.json()) // Parse the JSON
     .then((data) => {
       // console.log("data", data);
@@ -308,6 +308,12 @@ const previousDonations = [
     amount: 300000,
     date: "2023-09-01",
     purpose: "For Golden jubilee",
+  },
+  {
+    name: "Ganketi.Venkateshwar Reddy",
+    amount: 0,
+    date: "2023-09-01",
+    purpose: "Food for two days",
   },
 ];
 
@@ -922,7 +928,7 @@ const Dashboard = () => {
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
         {/* Header */}
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar>
             {/* Add logo */}
             <Box
@@ -1036,8 +1042,7 @@ const Dashboard = () => {
                 {/* <MenuItem onClick={handleOpenStudentsModal}>*/}
                 <MenuItem
                   onClick={() => {
-                    window.location.href =
-                      "https://zphs-school.vercel.app/enroll-list";
+                    window.location.href = "/enrollment";
                   }}
                 >
                   <span
@@ -1132,8 +1137,7 @@ const Dashboard = () => {
               <Button
                 color="inherit"
                 onClick={() => {
-                  window.location.href =
-                    "https://zphs-school.vercel.app/enroll-list";
+                  window.location.href = "/enrollment";
                 }}
               >
                 Students
@@ -2752,7 +2756,7 @@ const Dashboard = () => {
               }}
             >
               <img
-                src="./QRCode.jpg"
+                src="/QRCode.jpg"
                 alt="Donation QR Code removed"
                 style={{
                   border: "2px solid",
@@ -3286,20 +3290,24 @@ const Dashboard = () => {
                       },
                     }}
                   >
-                    <CardMedia
+                    {/* <CardMedia
                       component="img"
                       height="240"
                       image={teacher.photo}
                       alt={teacher.name}
                       sx={{ objectFit: "cover" }}
-                    />
+                    /> */}
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h6"
                         gutterBottom
                         sx={{ fontWeight: "bold" }}
                       >
-                        {teacher.name}
+                        {teacher.name
+                          ? teacher.name.charAt(0).toUpperCase() +
+                            teacher.name.slice(1).toLowerCase() +
+                            " garu"
+                          : ""}
                       </Typography>
 
                       <Box
@@ -3900,7 +3908,7 @@ const Dashboard = () => {
                 {students
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((student, ind) => (
-                    <TableRow key={student.ind}>
+                    <TableRow key={student.name + ind}>
                       <TableCell>{student.name}</TableCell>
                       <TableCell>{student.present ? "Yes" : "No"}</TableCell>
                       <TableCell>

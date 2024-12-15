@@ -36,13 +36,34 @@
 
 import React from "react";
 import "./App.css";
-import EnrollList from "./components/EnrollList";
 import Dashboard from "./components/Dashboard";
+import EnrollList from "./components/EnrollList";
+import NotFound from "./components/NotFound";
+import { Routes, Route } from "react-router-dom";
+// import SouvinerBook from "./components/SouvinerBook";
+
+// import { pdfjs } from "react-pdf";
+
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist@4.9.155/build/pdf.worker.min.mjs",
+//   import.meta.url
+// ).toString();
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+//   import.meta.url
+// ).toString();
 const App = () => {
   return (
     <div>
-      <Dashboard />
-      <EnrollList />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/enrollment" element={<EnrollList />} />
+        {/* <Route path="/souviner-book" element={<SouvinerBook />} /> */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 };

@@ -142,9 +142,12 @@ const EnrollList = () => {
         Object.keys(errors).length === 0 &&
         Object.values(student).every((val) => val !== "")
       ) {
-        // fetch("https://zphs-school.vercel.app/new-enroll", {
         axios
-          .post("http://localhost:1954/new-enroll", JSON.stringify(student))
+          // .post("http://localhost:1954/new-enroll", JSON.stringify(student))
+          .post(
+            "https://zphs-school.vercel.app/new-enroll",
+            JSON.stringify(student)
+          )
           .then((response) => response.json())
           .then((data) => {
             alert(data.message);
@@ -171,7 +174,7 @@ const EnrollList = () => {
   useEffect(() => {
     setLoading(true);
     try {
-      fetch("http://localhost:1954/all-enrolls", {
+      fetch("https://zphs-school.vercel.app/all-enrolls", {
         // fetch("http://localhost:1954/all-enrolls", {
         method: "POST",
         headers: {

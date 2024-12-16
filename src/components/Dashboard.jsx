@@ -218,68 +218,88 @@ const newsUpdates = [
 
 const nriStories = [
   {
-    name: "Dr. Ramesh Kumar",
-    location: "San Francisco, USA",
-    profession: "Senior Software Engineer at Google",
-    batch: "1995",
-    story:
-      "After graduating from ZPHS Kunur in 1995, I pursued computer science and eventually landed at Google. I'm proud of my roots and regularly contribute to our school's technology initiatives.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    name: "Mr. Thota.Ravinder",
   },
   {
-    name: "Dr. Priya Sharma",
-    location: "London, UK",
-    profession: "Cardiovascular Surgeon",
-    batch: "1988",
-    story:
-      "ZPHS Kunur gave me the foundation for my medical career. Today, I lead a cardiac surgery department in London and organize medical camps back home.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    name: "Mr. Mutcha.Shyamsundar Reddy",
   },
   {
-    name: "Mr. Suresh Reddy",
-    location: "Dubai, UAE",
-    profession: "Business Magnate",
-    batch: "1992",
-    story:
-      "From humble beginnings at ZPHS Kunur to building a business empire in Dubai. I believe in giving back and have established a scholarship fund for deserving students.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    name: "Mr. Chenda. Ramesh",
   },
+  {
+    name: "Mr. Chenda. Harinadh",
+  },
+  {
+    name: "Mrs. Chenda. Swarnalatha",
+  },
+  {
+    name: "Mr. Pallepati.Raju",
+  },
+  {
+    name: "Mr. Bulle.Mallesh",
+  },
+  {
+    name: "Mr. Bommineni.Laxmareddy",
+  },
+  {
+    name: "Mr. Bommineni.Jagan mohan Reddy",
+  },
+  {
+    name: "Mr. Pinninti.Raghothham Reddy",
+  },
+  // {
+  //   name: "Dr. Ramesh Kumar",
+  //   location: "San Francisco, USA",
+  //   profession: "Senior Software Engineer at Google",
+  //   batch: "1995",
+  //   story:
+  //     "After graduating from ZPHS Kunur in 1995, I pursued computer science and eventually landed at Google. I'm proud of my roots and regularly contribute to our school's technology initiatives.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+  // },
+  // {
+  //   name: "Dr. Priya Sharma",
+  //   location: "London, UK",
+  //   profession: "Cardiovascular Surgeon",
+  //   batch: "1988",
+  //   story:
+  //     "ZPHS Kunur gave me the foundation for my medical career. Today, I lead a cardiac surgery department in London and organize medical camps back home.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+  // },
+  // {
+  //   name: "Mr. Suresh Reddy",
+  //   location: "Dubai, UAE",
+  //   profession: "Business Magnate",
+  //   batch: "1992",
+  //   story:
+  //     "From humble beginnings at ZPHS Kunur to building a business empire in Dubai. I believe in giving back and have established a scholarship fund for deserving students.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  // },
 ];
 
 // New developer data
 const developers = [
   {
-    name: "Ravi Kumar",
-    role: "Lead Developer",
-    expertise: "Full Stack Development",
+    name: "Sakinala.Raju",
+    role: "Lead Developement",
+    expertise: "Full Stack Developer",
     technologies: ["React", "Node.js", "MongoDB"],
-    githubProfile: "https://github.com/ravikumar",
-    linkedinProfile: "https://linkedin.com/in/ravikumar",
+    githubProfile: "https://github.com/raju",
+    linkedinProfile: "https://linkedin.com/in/raju",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
   },
   {
-    name: "Priya Sharma",
-    role: "UI/UX Developer",
-    expertise: "Frontend Development",
+    name: "Suthri. Murali",
+    role: "Lead Deployment",
+    expertise: "Full Stack Developer",
     technologies: ["React", "Material-UI", "CSS"],
-    githubProfile: "https://github.com/priyasharma",
-    linkedinProfile: "https://linkedin.com/in/priyasharma",
+    githubProfile: "https://github.com/murali",
+    linkedinProfile: "https://linkedin.com/in/murali",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    name: "Amit Patel",
-    role: "Backend Developer",
-    expertise: "API Development",
-    technologies: ["Node.js", "Express", "SQL"],
-    githubProfile: "https://github.com/amitpatel",
-    linkedinProfile: "https://linkedin.com/in/amitpatel",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
   },
 ];
 
@@ -740,11 +760,7 @@ const Dashboard = () => {
   };
   const getFilteredNRIs = () => {
     return nriStories.filter((nriMember) => {
-      return (
-        nriMember.name.toLowerCase().includes(NRIFilter.toLowerCase()) ||
-        nriMember.profession.toLowerCase().includes(NRIFilter.toLowerCase()) ||
-        nriMember.location.toLowerCase().includes(NRIFilter.toLowerCase())
-      );
+      return nriMember.name.toLowerCase().includes(NRIFilter.toLowerCase());
     });
   };
 
@@ -1169,6 +1185,14 @@ const Dashboard = () => {
           open={Boolean(schoolAnchorEl)}
           onClose={handleClose}
           sx={{ mt: "15px" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
         >
           {[
             { title: "About School", onClick: handleClose },
@@ -2469,84 +2493,25 @@ const Dashboard = () => {
                       display: "flex",
                       flexDirection: "column",
                       transition: "all 0.3s ease",
+                      backgroundColor: "primary.light", // Added background color
                       "&:hover": {
                         transform: "translateY(-8px)",
                         boxShadow: 6,
+                        backgroundColor: "primary.main", // Change background on hover
                       },
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      height="240"
-                      image={story.image}
-                      alt={story.name}
-                      sx={{
-                        objectFit: "cover",
-                      }}
-                    />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h6"
                         gutterBottom
-                        sx={{ fontWeight: "bold" }}
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                          color: "white", // Changed text color to white
+                        }}
                       >
                         {story.name}
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                          mb: 1,
-                          color: "primary.main",
-                        }}
-                      >
-                        <span
-                          className="material-icons"
-                          style={{ fontSize: "18px" }}
-                        >
-                          location_on
-                        </span>
-                        <Typography variant="subtitle2">
-                          {story.location}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                          mb: 2,
-                          color: "text.secondary",
-                        }}
-                      >
-                        <span
-                          className="material-icons"
-                          style={{ fontSize: "18px" }}
-                        >
-                          work
-                        </span>
-                        <Typography variant="subtitle2">
-                          {story.profession}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          bgcolor: "primary.light",
-                          color: "primary.dark",
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: "15px",
-                          display: "inline-block",
-                          mb: 2,
-                        }}
-                      >
-                        <Typography variant="caption">
-                          Batch of {story.batch}
-                        </Typography>
-                      </Box>
-                      <Typography variant="body2" color="text.secondary">
-                        {story.story}
                       </Typography>
                     </CardContent>
                     <Box
@@ -2554,14 +2519,24 @@ const Dashboard = () => {
                         p: 2,
                         borderTop: "1px solid",
                         borderColor: "divider",
+                        bgcolor: "secondary.main", // Added background color for the button box
                       }}
                     >
                       <Button
                         fullWidth
+                        size="small"
                         variant="outlined"
                         startIcon={
                           <span className="material-icons">contact_mail</span>
                         }
+                        sx={{
+                          color: "white", // Changed button text color to white
+                          borderColor: "white", // Changed button border color to white
+                          "&:hover": {
+                            bgcolor: "white", // Change background on hover
+                            color: "primary.main", // Change text color on hover
+                          },
+                        }}
                       >
                         Connect
                       </Button>
@@ -4013,94 +3988,35 @@ const Dashboard = () => {
 
           <Grid container spacing={4}>
             {getFilteredNRIs().map((story, index) => (
-              <Grid item xs={12} md={4} key={story.name + index}>
-                {" "}
-                // Changed to use a combination of `story.name` and `index` for
-                uniqueness
+              <Grid item xs={12} sm={6} md={4} lg={3} key={story.name + index}>
                 <Card
                   sx={{
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     transition: "all 0.3s ease",
+                    backgroundColor: "info.light", // Added background color
                     "&:hover": {
                       transform: "translateY(-8px)",
-                      boxShadow: 6,
+                      boxShadow: "0 4px 20px gold", // Updated box shadow color
+                      backgroundColor: "white", // Change background on hover
                     },
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="240"
-                    image={story.image}
-                    alt={story.name}
-                    sx={{
-                      objectFit: "cover",
-                    }}
-                  />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography
                       variant="h6"
-                      gutterBottom
-                      sx={{ fontWeight: "bold" }}
+                      // gutterBottom
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                        color: "gold", // Changed text color to white
+                        "&:hover": {
+                          color: "gold",
+                        },
+                      }}
                     >
                       {story.name}
-                    </Typography>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                        mb: 1,
-                        color: "primary.main",
-                      }}
-                    >
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "18px" }}
-                      >
-                        location_on
-                      </span>
-                      <Typography variant="subtitle2">
-                        {story.location}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                        mb: 2,
-                        color: "text.secondary",
-                      }}
-                    >
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "18px" }}
-                      >
-                        work
-                      </span>
-                      <Typography variant="subtitle2">
-                        {story.profession}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        bgcolor: "primary.light",
-                        color: "primary.dark",
-                        px: 2,
-                        py: 0.5,
-                        borderRadius: "15px",
-                        display: "inline-block",
-                        mb: 2,
-                      }}
-                    >
-                      <Typography variant="caption">
-                        Batch of {story.batch}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" color="text.secondary">
-                      {story.story}
                     </Typography>
                   </CardContent>
                   <Box
@@ -4108,14 +4024,24 @@ const Dashboard = () => {
                       p: 2,
                       borderTop: "1px solid",
                       borderColor: "divider",
+                      bgcolor: "primary.main", // Added background color for the button box
                     }}
                   >
                     <Button
                       fullWidth
-                      variant="outlined"
+                      size="small"
+                      variant="contained"
                       startIcon={
                         <span className="material-icons">contact_mail</span>
                       }
+                      sx={{
+                        color: "gold", // Changed button text color to white
+                        borderColor: "white", // Changed button border color to white
+                        "&:hover": {
+                          bgcolor: "white", // Change background on hover
+                          color: "gold", // Change text color on hover
+                        },
+                      }}
                     >
                       Connect
                     </Button>

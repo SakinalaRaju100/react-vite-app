@@ -2445,7 +2445,7 @@ const Dashboard = () => {
         </Box>
 
         {/* NRI Stories Section */}
-        <Box id="success-stories" sx={{ py: 6, bgcolor: "grey.50" }}>
+        {/*<Box id="success-stories" sx={{ py: 6, bgcolor: "grey.50" }}>
           <Container maxWidth="lg">
             <Typography
               variant="h4"
@@ -2494,62 +2494,7 @@ const Dashboard = () => {
                       >
                         {story.name}
                       </Typography>
-                      {/* <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                          mb: 1,
-                          color: "primary.main",
-                        }}
-                      >
-                        <span
-                          className="material-icons"
-                          style={{ fontSize: "18px" }}
-                        >
-                          location_on
-                        </span>
-                        <Typography variant="subtitle2">
-                          {story.location}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 1,
-                          mb: 2,
-                          color: "text.secondary",
-                        }}
-                      >
-                        <span
-                          className="material-icons"
-                          style={{ fontSize: "18px" }}
-                        >
-                          work
-                        </span>
-                        <Typography variant="subtitle2">
-                          {story.profession}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          bgcolor: "primary.light",
-                          color: "primary.dark",
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: "15px",
-                          display: "inline-block",
-                          mb: 2,
-                        }}
-                      >
-                        <Typography variant="caption">
-                          Batch of {story.batch}
-                        </Typography>
-                      </Box>
-                      <Typography variant="body2" color="text.secondary">
-                        {story.story}
-                      </Typography> */}
+                      
                     </CardContent>
                     <Box
                       sx={{
@@ -2595,7 +2540,7 @@ const Dashboard = () => {
               </Button>
             </Box>
           </Container>
-        </Box>
+        </Box>*/}
 
         {/* About Us Section */}
         <Box sx={{ py: 6, bgcolor: "grey.100" }}>
@@ -3395,7 +3340,15 @@ const Dashboard = () => {
           sx={{ bgcolor: "primary.main", color: "white" }}
         >
           <Container maxWidth="lg">
-            <Grid container spacing={4}>
+            <Grid
+              container
+              spacing={4}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                px: 3,
+              }}
+            >
               <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
@@ -3512,7 +3465,7 @@ const Dashboard = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12} md={4}>
+              {/* <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
                   gutterBottom
@@ -3566,7 +3519,7 @@ const Dashboard = () => {
                     </Typography>
                   ))}
                 </Box>
-              </Grid>
+              </Grid> */}
 
               <Grid item xs={12} md={4}>
                 <Typography
@@ -3650,48 +3603,43 @@ const Dashboard = () => {
 
               {/* feedback */}
 
-              <Grid
-                item
-                xs={12}
-                sx={{
-                  m: 1,
-                  bgcolor: "white",
-                  color: "gray",
-                  border: "1px solid #ccc", // Changed to solid border for better visibility
-                  borderRadius: "8px",
-
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    mb: 1,
-                    textAlign: "left",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                    Feedback
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    We value your feedback for improving our website.
-                  </Typography>
-                </Box>
+              <Grid item xs={12} sx={{}}>
                 <Box
                   sx={{
                     bgcolor: "white",
+                    color: "black",
+                    m: 2,
+                    p: 2,
+                    borderRadius: "8px",
                   }}
                 >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                    }}
+                  >
+                    Feedback
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      mb: 2,
+                      fontSize: { xs: "8px", md: "12px", lg: "15px" },
+                    }}
+                  >
+                    We value your feedback for improving our website.
+                  </Typography>
                   <TextField
+                    sx={{
+                      fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                    }}
                     label="Your Feedback"
                     variant="outlined"
                     placeholder="Add your feedback here..."
-                    value={""}
                     fullWidth
-                    multiline // Added multiline for better input
-                    rows={3} // Set default rows for multiline
+                    multiline
+                    rows={3}
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
@@ -3700,6 +3648,7 @@ const Dashboard = () => {
                             // onClick={handleSendFeedback}
                             aria-label="send feedback"
                           >
+                            {/* Submit &nbsp;{" "} */}
                             <span className="material-icons">send</span>
                           </IconButton>
                         </InputAdornment>
@@ -3714,7 +3663,6 @@ const Dashboard = () => {
                   sx={{
                     borderTop: "1px solid rgba(255,255,255,0.1)",
 
-                    mt: 2,
                     textAlign: "center",
                   }}
                 >

@@ -394,25 +394,26 @@ const achievements = [
 // Future Focus
 const futureFocus = [
   {
-    title: "Innovation Hub",
+    title: "Global Connect",
     description:
-      "Establishing a state-of-the-art innovation lab to foster creativity and technological advancement among students",
-    icon: "lightbulb",
+      "Collaboration programs and exchange initiatives to provide global exposure to our students",
+    icon: "public",
     target: "2024",
   },
   {
-    title: "Global Connect",
+    title: "Digital library",
     description:
-      "International collaboration programs and exchange initiatives to provide global exposure to our students",
-    icon: "public",
+      "Establishing a state of the degital library for frequent technologies.",
+    icon: "lightbulb",
     target: "2025",
   },
+
   {
     title: "Research Center",
     description:
       "Development of advanced research facilities to promote scientific thinking and innovation",
     icon: "science",
-    target: "2024",
+    target: "2028",
   },
 ];
 
@@ -671,6 +672,7 @@ const Dashboard = () => {
   const [alumniAnchorEl, setAlumniAnchorEl] = React.useState(null);
   const [eventsAnchorEl, setEventsAnchorEl] = React.useState(null);
   const [schoolAnchorEl, setSchoolAnchorEl] = React.useState(null);
+  const [careersAnchorEl, setCareersAnchorEl] = React.useState(null);
   const [selectedGalleryItem, setSelectedGalleryItem] = React.useState(null);
   const [openGalleryModal, setOpenGalleryModal] = React.useState(false);
   const [galleryCarouselIndex, setGalleryCarouselIndex] = React.useState(0);
@@ -684,6 +686,7 @@ const Dashboard = () => {
   const [openDevelopersModal, setOpenDevelopersModal] = React.useState(false);
   const [openPrincipalMotiveModal, setOpenPrincipalMotiveModal] =
     React.useState(false);
+  const [openComingSoonModal, setOpenComingSoonModal] = React.useState(false);
   const [openAdsModal, setOpenAdsModal] = React.useState(false);
 
   const [nameFilter, setNameFilter] = React.useState("");
@@ -846,11 +849,15 @@ const Dashboard = () => {
   const handleSchoolMenu = (event) => {
     setSchoolAnchorEl(event.currentTarget);
   };
+  const handleCareersMenu = (event) => {
+    setCareersAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
     setAlumniAnchorEl(null);
     setEventsAnchorEl(null);
     setSchoolAnchorEl(null);
+    setCareersAnchorEl(null);
   };
   const AttendanceModalTrue = () => {
     setOpenAttendanceModal(true);
@@ -924,9 +931,17 @@ const Dashboard = () => {
     setOpenPrincipalMotiveModal(true);
     handleClose();
   };
+  const handleOpenComingSoonModal = () => {
+    setOpenComingSoonModal(true);
+    handleClose();
+  };
 
   const handleClosePrincipalMotiveModal = () => {
     setOpenPrincipalMotiveModal(false);
+  };
+  const handleCloseComingSoonModal = () => {
+    setOpenComingSoonModal(false);
+    handleClose();
   };
 
   const handleOpenAdsModal = () => {
@@ -1011,7 +1026,7 @@ const Dashboard = () => {
                   >
                     people
                   </span>
-                  Savineer
+                  Souviner
                 </MenuItem>
                 <MenuItem onClick={handleSchoolMenu}>
                   <span
@@ -1063,19 +1078,7 @@ const Dashboard = () => {
                   </span>
                   NRI's
                 </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    scrollToSuccessStories();
-                  }}
-                >
-                  <span
-                    className="material-icons"
-                    style={{ marginRight: "8px" }}
-                  >
-                    star
-                  </span>
-                  Stories
-                </MenuItem>
+
                 <MenuItem onClick={scrollToGallery}>
                   <span
                     className="material-icons"
@@ -1103,6 +1106,15 @@ const Dashboard = () => {
                   </span>
                   Ads
                 </MenuItem>
+                <MenuItem onClick={handleCareersMenu}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    star
+                  </span>
+                  Careers ▾
+                </MenuItem>
                 <MenuItem
                   onClick={() => {
                     scrollToContact();
@@ -1115,7 +1127,7 @@ const Dashboard = () => {
                   >
                     contact_mail
                   </span>
-                  Contact
+                  Contact us
                 </MenuItem>
               </Menu>
             </Box>
@@ -1123,7 +1135,7 @@ const Dashboard = () => {
             {/* Desktop Menu */}
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               <Button color="inherit" onClick={handleSavineerModal}>
-                Savineer
+                Souviner
               </Button>
               <Button color="inherit" onClick={handleSchoolMenu}>
                 School ▾
@@ -1146,9 +1158,7 @@ const Dashboard = () => {
               <Button color="inherit" onClick={OpenSuccessStoriesModalFunction}>
                 NRI's
               </Button>
-              <Button color="inherit" onClick={scrollToSuccessStories}>
-                Stories
-              </Button>
+
               <Button color="inherit" onClick={scrollToGallery}>
                 Gallery
               </Button>
@@ -1158,13 +1168,78 @@ const Dashboard = () => {
               <Button color="inherit" onClick={handleOpenAdsModal}>
                 Ads
               </Button>
+              <Button color="inherit" onClick={handleCareersMenu}>
+                Careers ▾
+              </Button>
               <Button color="inherit" onClick={scrollToContact}>
-                Contact
+                Contact us
               </Button>
             </Box>
           </Toolbar>
         </AppBar>
 
+        <Menu
+          anchorEl={careersAnchorEl}
+          open={Boolean(careersAnchorEl)}
+          onClose={handleClose}
+          sx={{ mt: "15px" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          {[
+            { title: "Guidence", onClick: handleClose },
+
+            {
+              title: "jobs",
+              onClick: handleOpenComingSoonModal,
+            },
+            { title: "Employers", onClick: handleOpenComingSoonModal },
+
+            { title: "Sports", onClick: handleClose },
+            { title: "Business", onClick: handleClose },
+            { title: "Internships", onClick: handleClose },
+            { title: "Arts", onClick: handleClose },
+            { title: "Finance", onClick: handleClose },
+            { title: "Health", onClick: handleClose },
+            { title: "Technology", onClick: handleOpenComingSoonModal },
+            { title: "Subjects", onClick: handleOpenComingSoonModal },
+          ].map((item, menuItemIdex) => (
+            <MenuItem
+              key={menuItemIdex}
+              onClick={item.onClick}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                py: 1.5,
+                "&:hover": {
+                  backgroundColor: "primary.light",
+                  "& .menu-dot": {
+                    backgroundColor: "primary.main",
+                  },
+                },
+              }}
+            >
+              <Box
+                className="menu-dot"
+                sx={{
+                  width: 6,
+                  height: 6,
+                  backgroundColor: "grey.500",
+                  borderRadius: "50%",
+                  transition: "background-color 0.2s",
+                }}
+              />
+              <Typography variant="body2">{item.title}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
         <Menu
           anchorEl={schoolAnchorEl}
           open={Boolean(schoolAnchorEl)}
@@ -1275,6 +1350,76 @@ const Dashboard = () => {
           ))}
         </Menu>
 
+        {/* Feature Coming soon*/}
+        <Dialog
+          open={openComingSoonModal}
+          onClose={handleCloseComingSoonModal}
+          maxWidth="sm"
+          fullWidth
+        >
+          <Box sx={{ p: 1, fontSize: { xs: "8px", md: "9px", lg: "10px" } }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{
+                  fontSize: { xs: "10px", md: "12px", lg: "15px" },
+                }}
+              >
+                Feature coming soon...
+              </Typography>
+              <IconButton onClick={handleCloseComingSoonModal} size="small">
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            <Box
+              sx={{
+                backgroundColor: "primary.light",
+                borderRadius: 2,
+                p: 1,
+                position: "relative",
+              }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -10,
+                  left: -20,
+                  backgroundColor: "success.main",
+                  borderRadius: "50%",
+                  width: 30,
+                  height: 30,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span className="material-icons" style={{ color: "white" }}>
+                  star
+                </span>
+              </Box>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "white",
+                  lineHeight: 1.8,
+                  textAlign: "start",
+                  fontSize: { xs: "10px", md: "12px", lg: "15px" },
+                }}
+              >
+                This Feature under development, available soon...
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
         {/* Principal's Motive Modal */}
         <Dialog
           open={openPrincipalMotiveModal}
@@ -2000,22 +2145,27 @@ const Dashboard = () => {
               News & Updates
             </Typography>
             <div>
-              <div className="notification success">
-                <span className="icon">✔</span> Success.. Everything is good!
+              <div className="notification general">
+                <span className="icon">✔</span> Souviner Book release on 21st
+                December 2024
+              </div>
+              <div className="notification warning">
+                <span className="icon">✔</span> Website release on 21st December
+                2024
+              </div>
+              <div className="notification general">
+                <span className="icon">✔</span> ZPHS Kunur Golden Jubilee
+                celebrations on December 21st & 22nd 2024
               </div>
 
-              <div className="notification error">
-                <span className="icon">✘</span> Error.. Something has gone
-                wrong!
-              </div>
+              {/* <div className="notification warning">
+                <span className="icon">✔</span> Attention towords every single
+                one
+              </div> */}
 
               <div className="notification warning">
-                <span className="icon">⚠</span> Warning.. A little warning...
-              </div>
-
-              <div className="notification general">
-                <span className="icon">ℹ</span> General.. Just a little
-                information...
+                <span className="icon">✔</span> Gathering Previous 50 Years
+                Students Data to One place
               </div>
             </div>
 
@@ -3551,11 +3701,7 @@ const Dashboard = () => {
                       name: "Facebook",
                       link: "https://facebook.com",
                     },
-                    {
-                      icon: "spatial_tracking",
-                      name: "X (Twitter)",
-                      link: "https://twitter.com",
-                    },
+
                     {
                       icon: "photo_camera",
                       name: "Instagram",
@@ -3565,11 +3711,6 @@ const Dashboard = () => {
                       icon: "play_circle",
                       name: "YouTube",
                       link: "https://youtube.com",
-                    },
-                    {
-                      icon: "work",
-                      name: "LinkedIn",
-                      link: "https://linkedin.com",
                     },
                   ].map((social, socialindex) => (
                     <Button
@@ -3667,7 +3808,7 @@ const Dashboard = () => {
                   }}
                 >
                   <Typography variant="body2">
-                    © 2023 ZPHS Kunur. All rights reserved.
+                    © 2024 ZPHS Kunur. All rights reserved.
                   </Typography>
                 </Box>
               </Grid>
@@ -3956,7 +4097,7 @@ const Dashboard = () => {
             }}
           >
             <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
-              Our Success Stories
+              Our NRI's
             </Typography>
             <IconButton onClick={() => setOpenSuccessStoriesModal(false)}>
               <span className="material-icons">close</span>

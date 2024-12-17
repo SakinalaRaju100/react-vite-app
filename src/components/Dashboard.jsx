@@ -1474,7 +1474,7 @@ const Dashboard = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  color: "primary.dark",
+                  color: "white",
                   lineHeight: 1.8,
                   textAlign: "justify",
                 }}
@@ -2455,7 +2455,7 @@ const Dashboard = () => {
               </Grid>
             )}
 
-            <Box sx={{ textAlign: "center", mt: 4 }}>
+            {/* <Box sx={{ textAlign: "center", mt: 4 }}>
               <Button
                 variant="contained"
                 endIcon={<span className="material-icons">arrow_forward</span>}
@@ -2475,7 +2475,7 @@ const Dashboard = () => {
               >
                 View Gallery..
               </Button>
-            </Box>
+            </Box> */}
           </Container>
         </Box>
         {/* Future Focus Section */}
@@ -3487,7 +3487,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
-          sx={{ bgcolor: "primary.main", color: "white" }}
+          sx={{ bgcolor: "primary.main", color: "white", px: 4 }}
         >
           <Container maxWidth="lg">
             <Grid
@@ -3609,7 +3609,7 @@ const Dashboard = () => {
                     <Typography variant="body2">
                       Monday - Saturday
                       <br />
-                      9:00 AM - 5:00 PM
+                      9:30 AM - 4:40 PM
                     </Typography>
                   </Box>
                 </Box>
@@ -3679,6 +3679,7 @@ const Dashboard = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: 1,
+
                     color: "#FF69B4",
                     fontWeight: "bold",
                     marginBottom: 3,
@@ -3691,6 +3692,7 @@ const Dashboard = () => {
                   sx={{
                     display: "flex",
                     gap: 2,
+                    justifyContent: "start",
                     mb: 2,
                     flexWrap: "wrap",
                   }}

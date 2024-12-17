@@ -660,6 +660,7 @@ const AdCarousel = () => {
 
 const Dashboard = () => {
   const [openAttendanceModal, setOpenAttendanceModal] = React.useState(false); // Step 1: State for Attendance Modal
+  const [feedback, setFeedback] = React.useState(""); // Step 1: State for Attendance Modal
 
   const [selectedStudent, setSelectedStudent] = React.useState(null);
   const [openStudentDetailsModal, setOpenStudentDetailsModal] =
@@ -1315,9 +1316,9 @@ const Dashboard = () => {
               title: "Developers Team",
               onClick: handleOpenDevelopersModal,
             },
-            // { title: "Alumni Meetings", onClick: handleClose },
+            { title: "Organization", onClick: handleClose },
             { title: "Alumni Events", onClick: handleClose },
-            { title: "Downloads", onClick: handleClose },
+            { title: "Downloads & Links", onClick: handleClose },
           ].map((item, itemIdex) => (
             <MenuItem
               key={itemIdex}
@@ -3488,7 +3489,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
-          sx={{ bgcolor: "primary.main", color: "white" }}
+          sx={{ bgcolor: "primary.light", color: "white" }}
         >
           <Container maxWidth="lg">
             <Grid
@@ -3754,6 +3755,7 @@ const Dashboard = () => {
                     m: { xs: 1, md: 2 },
                     p: { xs: 1, md: 2 },
                     borderRadius: "8px",
+                    boxShadow: "0 4px 20px gold",
                   }}
                 >
                   <Typography
@@ -3778,6 +3780,12 @@ const Dashboard = () => {
                       fontSize: { xs: "12px", md: "15px", lg: "18px" },
                     }}
                     label="Your Feedback"
+                    value={feedback}
+                    onChange={(e) => {
+                      if (feedback.length < 300) {
+                        setFeedback(e.target.value);
+                      }
+                    }}
                     variant="outlined"
                     placeholder="Add your feedback here..."
                     fullWidth
@@ -3790,6 +3798,9 @@ const Dashboard = () => {
                             color="warning"
                             size="small"
                             // onClick={handleSendFeedback}
+                            onClick={() => {
+                              setFeedback("");
+                            }}
                             aria-label="send feedback"
                           >
                             {/* Submit &nbsp;{" "} */}

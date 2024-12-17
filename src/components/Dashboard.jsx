@@ -403,7 +403,7 @@ const futureFocus = [
   {
     title: "Digital library",
     description:
-      "Establishing a state of the degital library for frequent technologies.",
+      "Establishing a state of the digital library for frequent technologies.",
     icon: "lightbulb",
     target: "2025",
   },
@@ -962,7 +962,7 @@ const Dashboard = () => {
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
         {/* Header */}
-        <AppBar position="sticky">
+        <AppBar position="sticky" sx={{ bgcolor: "#b388ff", coloe: "gold" }}>
           <Toolbar>
             {/* Add logo */}
             <Box
@@ -1315,7 +1315,7 @@ const Dashboard = () => {
               title: "Developers Team",
               onClick: handleOpenDevelopersModal,
             },
-            { title: "Alumni Meetings", onClick: handleClose },
+            // { title: "Alumni Meetings", onClick: handleClose },
             { title: "Alumni Events", onClick: handleClose },
             { title: "Downloads", onClick: handleClose },
           ].map((item, itemIdex) => (
@@ -1972,10 +1972,10 @@ const Dashboard = () => {
                       transform: achievement.isViewMore
                         ? "translateY(-5px)"
                         : "translateY(-5px)",
-                      boxShadow: 3,
+                      // boxShadow: 3,
                     },
                     ...(achievement.isViewMore && {
-                      backgroundColor: "primary.main",
+                      backgroundColor: "#b388ff",
                       color: "white",
                       display: "flex",
                       alignItems: "center",
@@ -1983,7 +1983,8 @@ const Dashboard = () => {
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       "&:hover": {
-                        backgroundColor: "primary.dark",
+                        backgroundColor: "warning.dark",
+                        color: "red",
                         transform: "translateY(-5px)",
                         boxShadow: 3,
                       },
@@ -2052,7 +2053,7 @@ const Dashboard = () => {
                       >
                         <Box
                           sx={{
-                            backgroundColor: "primary.main",
+                            backgroundColor: "#b388ff",
                             borderRadius: "50%",
                             p: 1,
                             mr: 2,
@@ -3487,7 +3488,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
-          sx={{ bgcolor: "primary.main", color: "white", px: 4 }}
+          sx={{ bgcolor: "primary.main", color: "white" }}
         >
           <Container maxWidth="lg">
             <Grid
@@ -3692,7 +3693,6 @@ const Dashboard = () => {
                   sx={{
                     display: "flex",
                     gap: 2,
-                    justifyContent: "start",
                     mb: 2,
                     flexWrap: "wrap",
                   }}
@@ -3751,8 +3751,8 @@ const Dashboard = () => {
                   sx={{
                     bgcolor: "white",
                     color: "black",
-                    m: 2,
-                    p: 2,
+                    m: { xs: 1, md: 2 },
+                    p: { xs: 1, md: 2 },
                     borderRadius: "8px",
                   }}
                 >
@@ -3771,7 +3771,7 @@ const Dashboard = () => {
                       fontSize: { xs: "8px", md: "12px", lg: "15px" },
                     }}
                   >
-                    We value your feedback for improving our website.
+                    We value your feedback...
                   </Typography>
                   <TextField
                     sx={{
@@ -3787,7 +3787,8 @@ const Dashboard = () => {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
-                            color="primary"
+                            color="warning"
+                            size="small"
                             // onClick={handleSendFeedback}
                             aria-label="send feedback"
                           >
@@ -4173,12 +4174,12 @@ const Dashboard = () => {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    transition: "all 0.3s ease",
-                    // backgroundColor: "primary.light", // Added background color
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition for transform and box-shadow
+                    backgroundColor: "#b388ff", // Added background color
                     "&:hover": {
-                      transform: "translateY(-8px)",
+                      transform: "scale(1.05) translateY(-8px)", // Scale up and translate on hover
                       boxShadow: "0 4px 20px gold", // Updated box shadow color
-                      backgroundColor: "white", // Change background on hover
+                      backgroundColor: "gold", // Change background on hover
                     },
                   }}
                 >
@@ -4189,9 +4190,9 @@ const Dashboard = () => {
                       sx={{
                         fontWeight: "bold",
                         fontSize: { xs: "12px", md: "15px", lg: "18px" },
-                        color: "gold", // Changed text color to white
+                        color: "white", // Changed text color to white
                         "&:hover": {
-                          color: "gold",
+                          color: "black",
                         },
                       }}
                     >
@@ -4203,7 +4204,7 @@ const Dashboard = () => {
                       p: 2,
                       borderTop: "1px solid",
                       borderColor: "divider",
-                      bgcolor: "primary.main", // Added background color for the button box
+                      bgcolor: "primary.light", // Added background color for the button box
                     }}
                   >
                     <Button
@@ -4216,6 +4217,7 @@ const Dashboard = () => {
                       sx={{
                         color: "gold", // Changed button text color to white
                         borderColor: "white", // Changed button border color to white
+                        bgcolor: "white", // Changed button border color to white
                         "&:hover": {
                           bgcolor: "white", // Change background on hover
                           color: "gold", // Change text color on hover

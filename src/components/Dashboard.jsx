@@ -3654,19 +3654,21 @@ const Dashboard = () => {
                 item
                 xs={12}
                 sx={{
+                  m: 1,
                   bgcolor: "white",
                   color: "gray",
                   border: "1px solid #ccc", // Changed to solid border for better visibility
                   borderRadius: "8px",
-                  boxShadow: 2, // Added shadow for depth
-                  p: 2, // Added padding for spacing
-                  mb: 3, // Added margin bottom for spacing between elements
+
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <Box
                   sx={{
-                    borderBottom: "1px solid rgba(0,0,0,0.1)", // Changed to a more subtle border
-                    mb: 2, // Added margin bottom for spacing
+                    mb: 1,
                     textAlign: "left",
                   }}
                 >
@@ -3685,9 +3687,11 @@ const Dashboard = () => {
                   <TextField
                     label="Your Feedback"
                     variant="outlined"
+                    placeholder="Add your feedback here..."
+                    value={""}
                     fullWidth
                     multiline // Added multiline for better input
-                    rows={4} // Set default rows for multiline
+                    rows={3} // Set default rows for multiline
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
@@ -3709,7 +3713,7 @@ const Dashboard = () => {
                 <Box
                   sx={{
                     borderTop: "1px solid rgba(255,255,255,0.1)",
-                    pt: 2,
+
                     mt: 2,
                     textAlign: "center",
                   }}

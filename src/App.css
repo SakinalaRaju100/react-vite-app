@@ -76,6 +76,9 @@ h2 {
 .css-1ex1afd-MuiTableCell-root {
   padding: 4px !important;
 }
+/* .css-4z7gnm-MuiGrid-root > .MuiGrid-item {
+  padding-left: 12px;
+} */
 
 /* Center the loader */
 .loader-container {

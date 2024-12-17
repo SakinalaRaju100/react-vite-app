@@ -1,8 +1,11 @@
 import React from "react";
+
 import {
   AppBar,
   Box,
   Button,
+  // Textarea,
+  InputAdornment,
   Card,
   CardContent,
   CardMedia,
@@ -954,41 +957,23 @@ const Dashboard = () => {
                 mr: 2,
               }}
             >
-              <svg width="40" height="40" viewBox="0 0 40 40">
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="19"
-                  fill="#ffffff"
-                  stroke="#1976d2"
-                  strokeWidth="2"
-                />
-                <text
-                  x="20"
-                  y="17"
-                  textAnchor="middle"
-                  fill="#1976d2"
-                  style={{
-                    fontFamily: "Roboto",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  ZPHS
-                </text>
-                <text
-                  x="20"
-                  y="27"
-                  textAnchor="middle"
-                  fill="#1976d2"
-                  style={{
-                    fontFamily: "Roboto",
-                    fontSize: "10px",
-                  }}
-                >
-                  KUNUR
-                </text>
-              </svg>
+              {/* <svg width="40" height="40" viewBox="0 0 40 40"> */}
+              {/* <img width="50" height="50" src="./logo.PNG" alt="logo" />{" "}
+               */}
+              <img
+                src="./logo.PNG"
+                alt="logo"
+                style={{
+                  width: "40px", // Adjusted width
+                  height: "40px", // Maintain aspect ratio
+                  objectFit: "cover", // Cover the area
+                  border: "1px dashed gold",
+                  borderRadius: "50%",
+                  position: "relative", // Positioning
+                  // top: "10px", // Adjust vertical position
+                }}
+              />
+              {/* </svg> */}
             </Box>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               ZPHS Kunur
@@ -2505,38 +2490,80 @@ const Dashboard = () => {
                       <Typography
                         variant="h6"
                         gutterBottom
-                        sx={{
-                          fontWeight: "bold",
-                          fontSize: { xs: "12px", md: "15px", lg: "18px" },
-                          color: "white", // Changed text color to white
-                        }}
+                        sx={{ fontWeight: "bold" }}
                       >
                         {story.name}
                       </Typography>
+                      {/* <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                          mb: 1,
+                          color: "primary.main",
+                        }}
+                      >
+                        <span
+                          className="material-icons"
+                          style={{ fontSize: "18px" }}
+                        >
+                          location_on
+                        </span>
+                        <Typography variant="subtitle2">
+                          {story.location}
+                        </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                          mb: 2,
+                          color: "text.secondary",
+                        }}
+                      >
+                        <span
+                          className="material-icons"
+                          style={{ fontSize: "18px" }}
+                        >
+                          work
+                        </span>
+                        <Typography variant="subtitle2">
+                          {story.profession}
+                        </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          bgcolor: "primary.light",
+                          color: "primary.dark",
+                          px: 2,
+                          py: 0.5,
+                          borderRadius: "15px",
+                          display: "inline-block",
+                          mb: 2,
+                        }}
+                      >
+                        <Typography variant="caption">
+                          Batch of {story.batch}
+                        </Typography>
+                      </Box>
+                      <Typography variant="body2" color="text.secondary">
+                        {story.story}
+                      </Typography> */}
                     </CardContent>
                     <Box
                       sx={{
                         p: 2,
                         borderTop: "1px solid",
                         borderColor: "divider",
-                        bgcolor: "secondary.main", // Added background color for the button box
                       }}
                     >
                       <Button
                         fullWidth
-                        size="small"
                         variant="outlined"
                         startIcon={
                           <span className="material-icons">contact_mail</span>
                         }
-                        sx={{
-                          color: "white", // Changed button text color to white
-                          borderColor: "white", // Changed button border color to white
-                          "&:hover": {
-                            bgcolor: "white", // Change background on hover
-                            color: "primary.main", // Change text color on hover
-                          },
-                        }}
                       >
                         Connect
                       </Button>
@@ -2761,7 +2788,7 @@ const Dashboard = () => {
                   pb: 1,
                 }}
               >
-                Recent Donations
+                Donations
               </Typography>
               <Typography
                 variant="h6"
@@ -3365,7 +3392,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
-          sx={{ bgcolor: "primary.main", color: "white", py: 6, mt: 4 }}
+          sx={{ bgcolor: "primary.main", color: "white" }}
         >
           <Container maxWidth="lg">
             <Grid container spacing={4}>
@@ -3615,10 +3642,67 @@ const Dashboard = () => {
                     </Button>
                   ))}
                 </Box>
-                <Typography variant="body2" sx={{ mt: 2 }}>
+                <Typography variant="body2" sx={{ mt: 1 }}>
                   Stay connected with us on social media for the latest updates
                   and news.
                 </Typography>
+              </Grid>
+
+              {/* feedback */}
+
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  bgcolor: "white",
+                  color: "gray",
+                  border: "1px solid #ccc", // Changed to solid border for better visibility
+                  borderRadius: "8px",
+                  boxShadow: 2, // Added shadow for depth
+                  p: 2, // Added padding for spacing
+                  mb: 3, // Added margin bottom for spacing between elements
+                }}
+              >
+                <Box
+                  sx={{
+                    borderBottom: "1px solid rgba(0,0,0,0.1)", // Changed to a more subtle border
+                    mb: 2, // Added margin bottom for spacing
+                    textAlign: "left",
+                  }}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    Feedback
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    We value your feedback for improving our website.
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    bgcolor: "white",
+                  }}
+                >
+                  <TextField
+                    label="Your Feedback"
+                    variant="outlined"
+                    fullWidth
+                    multiline // Added multiline for better input
+                    rows={4} // Set default rows for multiline
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            color="primary"
+                            // onClick={handleSendFeedback}
+                            aria-label="send feedback"
+                          >
+                            <span className="material-icons">send</span>
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Box>
               </Grid>
 
               <Grid item xs={12}>
@@ -3995,7 +4079,7 @@ const Dashboard = () => {
                     display: "flex",
                     flexDirection: "column",
                     transition: "all 0.3s ease",
-                    backgroundColor: "info.light", // Added background color
+                    // backgroundColor: "primary.light", // Added background color
                     "&:hover": {
                       transform: "translateY(-8px)",
                       boxShadow: "0 4px 20px gold", // Updated box shadow color
@@ -4006,7 +4090,7 @@ const Dashboard = () => {
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography
                       variant="h6"
-                      // gutterBottom
+                      gutterBottom
                       sx={{
                         fontWeight: "bold",
                         fontSize: { xs: "12px", md: "15px", lg: "18px" },

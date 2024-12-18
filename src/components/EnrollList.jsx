@@ -177,8 +177,8 @@ const EnrollList = () => {
   useEffect(() => {
     setLoading(true);
     try {
-      fetch("https://zphs-school.vercel.app/all-enrolls", {
-        // fetch("http://localhost:1954/all-enrolls", {
+      // fetch("https://zphs-school.vercel.app/all-enrolls", {
+      fetch("http://localhost:1954/all-enrolls", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -225,7 +225,7 @@ const EnrollList = () => {
 
   const [nameFilter, setNameFilter] = React.useState("");
 
-  const [batchYearFilter, setBatchYearFilter] = React.useState("");
+  const [batchYearFilter, setBatchYearFilter] = React.useState("1999-2000");
 
   const getFilteredlist = () => {
     // console.log("filter", nameFilter, batchYearFilter);
@@ -285,7 +285,37 @@ const EnrollList = () => {
                 gutterBottom
                 sx={{ fontWeight: "bold", fontSize: "1.25rem" }} // Reduced font size
               >
-                Enrollments ( {getFilteredlist().length} )
+                Enrollments
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                // mb: 3,
+              }}
+            >
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
+              >
+                All :{" "}
+                {listData.reduce((acc, el) => acc + (el.enrolled ? 1 : 0), 0)} /{" "}
+                {listData.length}
+              </Typography>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
+              >
+                Search :{" "}
+                {getFilteredlist().reduce(
+                  (acc, el) => acc + (el.enrolled ? 1 : 0),
+                  0
+                )}{" "}
+                / {getFilteredlist().length}
               </Typography>
             </Box>
 
@@ -376,6 +406,11 @@ const EnrollList = () => {
                     <input
                       type="text"
                       value={nameFilter}
+                      // onChange={(e) => {
+                      //   // if (e.target.value.length >= 2) {
+                      //     setNameFilter(e.target.value);
+                      //   // }
+                      // }}
                       onChange={(e) => setNameFilter(e.target.value)}
                       placeholder="Filter by name, profession, gender or village..."
                       style={{

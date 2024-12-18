@@ -231,7 +231,7 @@ const EnrollList = () => {
     return listData.filter((student) => {
       return (
         (student?.fullName.toLowerCase().includes(nameFilter.toLowerCase()) ||
-          student?.father.toLowerCase().includes(nameFilter.toLowerCase()) ||
+          // student?.father.toLowerCase().includes(nameFilter.toLowerCase()) ||
           student?.gender.toLowerCase().includes(nameFilter.toLowerCase()) ||
           student?.village.toLowerCase().includes(nameFilter.toLowerCase()) ||
           student?.profession
@@ -249,12 +249,13 @@ const EnrollList = () => {
     setBatchYearFilter("");
   };
   const getBatchYears = () => {
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear() - 1;
     const years = Array.from({ length: 55 }, (_, i) => {
       const year = currentYear - i;
       return `${year}-${year + 1}`;
     });
-    return years.reverse(); // Reverse to get the latest years first
+    // return years.reverse(); // Reverse to get the latest years first
+    return years; // Reverse to get the latest years first
   };
   const handleRowClick = (student) => {
     console.log("student", student);
@@ -281,7 +282,7 @@ const EnrollList = () => {
                 gutterBottom
                 sx={{ fontWeight: "bold", fontSize: "1.25rem" }} // Reduced font size
               >
-                All enrollments
+                Enrollments ( {getFilteredlist().length} )
               </Typography>
             </Box>
 
@@ -326,53 +327,6 @@ const EnrollList = () => {
                     }}
                   >
                     <span className="material-icons" sx={{ color: "grey.500" }}>
-                      search
-                    </span>
-                    <input
-                      type="text"
-                      value={nameFilter}
-                      onChange={(e) => setNameFilter(e.target.value)}
-                      placeholder="Filter by name, father, profession, gender or village..."
-                      style={{
-                        border: "none",
-                        outline: "none",
-                        padding: "8px",
-                        backgroundColor: "transparent",
-                        width: "100%",
-                      }}
-                    />
-                    {nameFilter && (
-                      <IconButton
-                        onClick={() => setNameFilter("")}
-                        sx={{ ml: 1 }}
-                      >
-                        <span
-                          className="material-icons"
-                          style={{ color: "grey.500" }}
-                        >
-                          clear
-                        </span>
-                      </IconButton>
-                    )}
-                  </Box>
-                </Box>
-
-                <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    sx={{ fontSize: "0.875rem" }}
-                  ></Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      bgcolor: "grey.100",
-                      borderRadius: 1,
-                      px: 2,
-                    }}
-                  >
-                    <span className="material-icons" sx={{ color: "grey.500" }}>
                       school
                     </span>
                     <select
@@ -396,6 +350,52 @@ const EnrollList = () => {
                         </option>
                       ))}
                     </select>
+                  </Box>
+                </Box>
+                <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    sx={{ fontSize: "0.875rem" }}
+                  ></Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      bgcolor: "grey.100",
+                      borderRadius: 1,
+                      px: 2,
+                    }}
+                  >
+                    <span className="material-icons" sx={{ color: "grey.500" }}>
+                      search
+                    </span>
+                    <input
+                      type="text"
+                      value={nameFilter}
+                      onChange={(e) => setNameFilter(e.target.value)}
+                      placeholder="Filter by name, profession, gender or village..."
+                      style={{
+                        border: "none",
+                        outline: "none",
+                        padding: "8px",
+                        backgroundColor: "transparent",
+                        width: "100%",
+                      }}
+                    />
+                    {nameFilter && (
+                      <IconButton
+                        onClick={() => setNameFilter("")}
+                        sx={{ ml: 1 }}
+                      >
+                        <span
+                          className="material-icons"
+                          style={{ color: "grey.500" }}
+                        >
+                          clear
+                        </span>
+                      </IconButton>
+                    )}
                   </Box>
                 </Box>
               </Box>
@@ -433,14 +433,14 @@ const EnrollList = () => {
                     <TableCell sx={{ color: "white", fontWeight: "bold" }}>
                       Full Name
                     </TableCell>
-                    <TableCell
+                    {/* <TableCell
                       sx={{
                         color: "white",
                         fontWeight: "bold",
                       }}
                     >
                       Father
-                    </TableCell>
+                    </TableCell> */}
 
                     <TableCell
                       sx={{
@@ -489,17 +489,17 @@ const EnrollList = () => {
                           zIndex: 1,
                         }}
                       >
-                        {ind + 1}
+                        {student?.Code ?? "-"}
                       </TableCell>
-                      <TableCell>{student?.fullName}</TableCell>
-                      <TableCell>{student?.father}</TableCell>
-                      <TableCell>{student?.gender}</TableCell>
-                      <TableCell>{student?.phone}</TableCell>
+                      <TableCell>{student?.fullName ?? "-"}</TableCell>
+                      {/* <TableCell>{student?.father}</TableCell> */}
+                      <TableCell>{student?.gender ?? "-"}</TableCell>
+                      <TableCell>{student?.phone ?? "-"}</TableCell>
                       <TableCell>
                         {student?.profession ? student?.profession : "-"}
                       </TableCell>
-                      <TableCell>{student?.village}</TableCell>
-                      <TableCell>{student?.batchYear}</TableCell>
+                      <TableCell>{student?.village ?? "-"}</TableCell>
+                      <TableCell>{student?.batchYear ?? "-"}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -724,9 +724,10 @@ const EnrollList = () => {
                 {/* Display student's photo in a circle */}
                 <Box
                   component="img"
-                  src={
-                    "https://drive.google.com/thumbnail?id=1cPyIpmPL-n24bhuBv7XPzP2hXmS5E7FD&sz=w1000"
-                  }
+                  // src={
+                  //   "https://drive.google.com/thumbnail?id=1cPyIpmPL-n24bhuBv7XPzP2hXmS5E7FD&sz=w1000"
+                  // }
+                  src={"./studentEmoji.png"}
                   alt={selectedStudent?.fullName}
                   sx={{
                     width: { xs: 60, sm: 100 },
@@ -738,25 +739,30 @@ const EnrollList = () => {
 
                 {/* Display student details */}
                 <Typography variant="body1">
-                  <strong>Full Name:</strong> {selectedStudent.fullName}
+                  <strong>Enroll Code:</strong> {selectedStudent?.Code ?? "-"}
                 </Typography>
                 <Typography variant="body1">
+                  <strong>Full Name:</strong> {selectedStudent?.fullName ?? "-"}
+                </Typography>
+                {/* <Typography variant="body1">
                   <strong>Father:</strong> {selectedStudent.father}
                 </Typography>
                 <Typography variant="body1">
                   <strong>Email:</strong> {selectedStudent.email}
+                </Typography> */}
+                <Typography variant="body1">
+                  <strong>Phone:</strong> {selectedStudent?.phone ?? "-"}
                 </Typography>
                 <Typography variant="body1">
-                  <strong>Phone:</strong> {selectedStudent.phone}
+                  <strong>Village:</strong> {selectedStudent?.village ?? "-"}
                 </Typography>
                 <Typography variant="body1">
-                  <strong>Village:</strong> {selectedStudent.village}
+                  <strong>Profession:</strong>{" "}
+                  {selectedStudent?.profession ?? "-"}
                 </Typography>
                 <Typography variant="body1">
-                  <strong>Profession:</strong> {selectedStudent.profession}
-                </Typography>
-                <Typography variant="body1">
-                  <strong>Batch Year:</strong> {selectedStudent.batchYear}
+                  <strong>Batch Year:</strong>{" "}
+                  {selectedStudent?.batchYear ?? "-"}
                 </Typography>
               </Box>
             )}

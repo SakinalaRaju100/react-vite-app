@@ -39,7 +39,10 @@ import {
 } from "@mui/material";
 
 const EnrollList = () => {
+  // let baseURL = "http://localhost:1954";
+  let baseURL = "https://zphs-school.vercel.app";
   const [checked, setChecked] = useState(false);
+  const [submitted, setSubmitted] = useState(true);
   const [familyMembers, setFamilyMembers] = useState(0);
   const [listData, setListData] = useState([]);
   const [showList, setShowList] = useState(true);
@@ -55,7 +58,7 @@ const EnrollList = () => {
     email: "",
     phone: "",
     profession: "",
-    village: "",
+    village: "Kunur",
     batchYear: "",
   });
 
@@ -146,20 +149,17 @@ const EnrollList = () => {
         Object.values(student).every((val) => val !== "")
       ) {
         axios
-          // .post("http://localhost:1954/new-enroll", JSON.stringify(student))
-          .post(
-            "https://zphs-school.vercel.app/new-enroll",
-            JSON.stringify(student)
-          )
-          .then((response) => response.json())
-          .then((data) => {
-            alert(data.message);
-            if (data.message != "Same details enrolled") {
+          .post(`${baseURL}/new-enroll`, student)
+
+          .then((res) => {
+            alert(res.data.message);
+            if (res.data.message != "Same details enrolled") {
               setShowList(true);
               fetchListDate();
             }
           })
           .catch((error) => {
+            // setShowList(true);
             // setShowList(false);
             // alert("catch", error);
             alert(error.message);
@@ -177,8 +177,7 @@ const EnrollList = () => {
   useEffect(() => {
     setLoading(true);
     try {
-      fetch("https://zphs-school.vercel.app/all-enrolls", {
-        // fetch("http://localhost:1954/all-enrolls", {
+      fetch(`${baseURL}/all-enrolls`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -203,8 +202,7 @@ const EnrollList = () => {
   }, []);
   const fetchListDate = () => {
     try {
-      fetch("https://zphs-school.vercel.app/all-enrolls", {
-        // fetch("http://localhost:1954/all-enrolls", {
+      fetch(`${baseURL}/all-enrolls`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -311,6 +309,17 @@ const EnrollList = () => {
                 gutterBottom
                 sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
               >
+                Family Members :{" "}
+                {listData.reduce(
+                  (acc, el) => acc + (el.enrolled ? 1 : 0) + el.familyMembers,
+                  0
+                )}{" "}
+              </Typography>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
+              >
                 Search :{" "}
                 {getFilteredlist().reduce(
                   (acc, el) => acc + (el.enrolled ? 1 : 0),
@@ -318,12 +327,26 @@ const EnrollList = () => {
                 )}{" "}
                 / {getFilteredlist().length}
               </Typography>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
+              >
+                Family Members :{" "}
+                {getFilteredlist().reduce(
+                  (acc, el) => acc + (el.enrolled ? 1 : 0) + el.familyMembers,
+                  0
+                )}{" "}
+              </Typography>
             </Box>
 
             {/* New Student Button */}
-            {/* <Box sx={{ mb: 3, textAlign: "right" }}>
+            <Box sx={{ mb: 3, textAlign: "right" }}>
               <Button
-                onClick={() => setShowList(false)}
+                onClick={() => {
+                  alert("Contact administrator");
+                  setShowList(false);
+                }}
                 variant="contained"
                 color="primary"
                 // href="https://zphs-school.vercel.app/enroll-form"
@@ -331,7 +354,7 @@ const EnrollList = () => {
               >
                 New enroll
               </Button>
-            </Box> */}
+            </Box>
 
             {/* Filters Section */}
 
@@ -524,6 +547,7 @@ const EnrollList = () => {
                         setSelectedStudent(student);
                         setOpenStudentDetailsModal(true);
                         setChecked(student?.enrolled);
+                        setFamilyMembers(student?.familyMembers);
                       }}
                       sx={{
                         "&:nth-of-type(odd)": { bgcolor: "grey.50" },
@@ -683,11 +707,17 @@ const EnrollList = () => {
                 onChange={handleChange}
               >
                 <MenuItem value="Kunur">Kunur</MenuItem>
-                <MenuItem value="Raghunathpalle">Raghunathpalle</MenuItem>
+                <MenuItem value="Raghunathpalle">Raghunathpally</MenuItem>
                 <MenuItem value="Konaichelam">Konaichelam</MenuItem>
                 <MenuItem value="Garmilapally">Garmilapally</MenuItem>
                 <MenuItem value="Thammadapally">Thammadapally</MenuItem>
                 <MenuItem value="Uppugal">Uppugal</MenuItem>
+                <MenuItem value="Dharmapuram">Dharmapuram</MenuItem>
+                <MenuItem value="Venkatapuram">Venkatapuram</MenuItem>
+                <MenuItem value="Mallakpally">Mallakpally</MenuItem>
+                <MenuItem value="Reddypuram">Reddypuram</MenuItem>
+                <MenuItem value="Lingamorigudem">Lingamorigudem</MenuItem>
+                <MenuItem value="Others">Others</MenuItem>
               </Select>
             </FormControl>
 
@@ -763,7 +793,12 @@ const EnrollList = () => {
               >
                 Enrollment Details
               </Typography>
-              <IconButton onClick={() => setOpenStudentDetailsModal(false)}>
+              <IconButton
+                onClick={() => {
+                  fetchListDate();
+                  setOpenStudentDetailsModal(false);
+                }}
+              >
                 <span className="material-icons">close</span>
               </IconButton>
             </Box>
@@ -807,12 +842,32 @@ const EnrollList = () => {
                     checked={checked ?? false}
                     onChange={(e) => {
                       setChecked(e.target.checked);
+                      setSubmitted(e.target.checked);
+                      if (e.target.checked == false) {
+                        axios
+                          .post(`${baseURL}/switch-turn`, {
+                            Code: selectedStudent?.Code,
+                            checked: false,
+                            familyMembers: 0,
+                          })
+                          .then((res) => {
+                            setSubmitted(false);
+                            console.log("res", res);
+                            alert("Turned off");
+                            fetchListDate();
+                            setOpenStudentDetailsModal(false);
+                          })
+                          .catch((er) => {
+                            console.log("er", er);
+                            alert(er.message);
+                          });
+                      }
                     }}
                     // value={selectedStudent?.enrolled}
                     defaultChecked
                   />
                 </Typography>
-                {checked && (
+                {checked && submitted && (
                   <Typography
                     variant="body1"
                     sx={{
@@ -845,6 +900,24 @@ const EnrollList = () => {
                       }}
                       onClick={() => {
                         console.log("Checked", checked, familyMembers);
+
+                        axios
+                          .post(`${baseURL}/switch-turn`, {
+                            Code: selectedStudent?.Code,
+                            checked,
+                            familyMembers,
+                          })
+                          .then((res) => {
+                            setSubmitted(false);
+                            fetchListDate();
+                            setOpenStudentDetailsModal(false);
+                            // console.log("res", res);
+                            alert(res.data?.message ?? "Successful");
+                          })
+                          .catch((er) => {
+                            console.log("er", er);
+                            alert(er.message);
+                          });
                       }}
                     >
                       <span className="material-icons">done</span>
@@ -910,6 +983,15 @@ const EnrollList = () => {
                 >
                   <strong>Profession:</strong>{" "}
                   {selectedStudent?.profession ?? "-"}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
+                  <strong>Family Members:</strong>{" "}
+                  {selectedStudent?.familyMembers ?? ""}
                 </Typography>
 
                 {/* <Box>

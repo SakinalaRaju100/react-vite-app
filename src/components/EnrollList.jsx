@@ -174,8 +174,8 @@ const EnrollList = () => {
   useEffect(() => {
     setLoading(true);
     try {
-      fetch("https://zphs-school.vercel.app/all-enrolls", {
-        // fetch("http://localhost:1954/all-enrolls", {
+      // fetch("https://zphs-school.vercel.app/all-enrolls", {
+      fetch("http://localhost:1954/all-enrolls", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

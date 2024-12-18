@@ -35,6 +35,7 @@ import {
   TextField,
   TableContainer,
 } from "@mui/material";
+import Counting from "./Counting";
 let addData = [];
 try {
   fetch("./ads.json")
@@ -661,8 +662,10 @@ const AdCarousel = () => {
 const Dashboard = () => {
   const [openAttendanceModal, setOpenAttendanceModal] = React.useState(false); // Step 1: State for Attendance Modal
   const [feedback, setFeedback] = React.useState(""); // Step 1: State for Attendance Modal
-  const [counting, setCounting] = React.useState(false); // Step 1: State for Attendance Modal
-
+  const [counting, setCounting] = React.useState(true); // Step 1: State for Attendance Modal
+  setTimeout(() => {
+    setCounting(false);
+  }, 2000);
   const [selectedStudent, setSelectedStudent] = React.useState(null);
   const [openStudentDetailsModal, setOpenStudentDetailsModal] =
     React.useState(false);
@@ -963,7 +966,7 @@ const Dashboard = () => {
   return (
     <ThemeProvider theme={theme}>
       {counting ? (
-        <Box sx={{ flexGrow: 1 }}>countng</Box>
+        <Box sx={{ flexGrow: 1 }}>{/* <Counting /> */}</Box>
       ) : (
         <Box sx={{ flexGrow: 1 }}>
           {/* Header */}

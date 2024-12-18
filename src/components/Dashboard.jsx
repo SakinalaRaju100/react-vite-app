@@ -36,6 +36,7 @@ import {
   TableContainer,
 } from "@mui/material";
 import Counting from "./Counting";
+import axios from "axios";
 let addData = [];
 try {
   fetch("./ads.json")
@@ -660,8 +661,11 @@ const AdCarousel = () => {
 };
 
 const Dashboard = () => {
+  // let baseURL = "http://localhost:1954";
+  let baseURL = "https://zphs-school.vercel.app";
   const [openAttendanceModal, setOpenAttendanceModal] = React.useState(false); // Step 1: State for Attendance Modal
   const [feedback, setFeedback] = React.useState(""); // Step 1: State for Attendance Modal
+  const [feedbackName, setFeedbackName] = React.useState(""); // Step 1: State for Attendance Modal
   const [counting, setCounting] = React.useState(true); // Step 1: State for Attendance Modal
   setTimeout(() => {
     setCounting(false);
@@ -3165,7 +3169,7 @@ const Dashboard = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  href="http://localhost:1954/form"
+                  // href="http://localhost:1954/form"
                   // href="https://sakinalaraju100.github.io/zphs-school/public/addStudentForm.html"
                 >
                   New Student
@@ -3818,12 +3822,31 @@ const Dashboard = () => {
                     <Typography
                       variant="body2"
                       sx={{
-                        mb: 2,
                         fontSize: { xs: "8px", md: "12px", lg: "15px" },
                       }}
                     >
                       We value your feedback...
                     </Typography>
+                    <TextField
+                      label="Your name"
+                      type="text"
+                      size="small"
+                      // defaultValue={0}
+                      variant="standard"
+                      value={feedbackName}
+                      onChange={(e) => {
+                        setFeedbackName(e.target.value);
+                      }}
+                      sx={{
+                        fontSize: { xs: "8px", md: "10px", lg: "12px" },
+                        width: "150px",
+                        color: "blue",
+                        mb: 2,
+                        // bgcolor: "red",
+                        // border: "1px solid pink",
+                        borderRadius: "4px",
+                      }}
+                    ></TextField>
                     <TextField
                       sx={{
                         fontSize: { xs: "12px", md: "15px", lg: "18px" },
@@ -3839,7 +3862,7 @@ const Dashboard = () => {
                       placeholder="Add your feedback here..."
                       fullWidth
                       multiline
-                      rows={3}
+                      rows={2}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -3848,7 +3871,26 @@ const Dashboard = () => {
                               size="small"
                               // onClick={handleSendFeedback}
                               onClick={() => {
-                                setFeedback("");
+                                if (
+                                  feedback.length > 0 &&
+                                  feedbackName.length > 0
+                                ) {
+                                  axios
+                                    .post(`${baseURL}/save-comments`, {
+                                      person: feedbackName,
+                                      feedback: feedback,
+                                    })
+                                    .then((res) => {
+                                      console.log("res", res);
+                                      alert("Thanks for feedback..");
+                                    })
+                                    .catch((er) => {
+                                      alert("Not able to submit.");
+                                      console.log("er", er);
+                                    });
+                                  setFeedback("");
+                                  setFeedbackName("");
+                                }
                               }}
                               aria-label="send feedback"
                             >

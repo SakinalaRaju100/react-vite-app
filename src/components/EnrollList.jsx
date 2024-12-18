@@ -284,7 +284,12 @@ const EnrollList = () => {
                 gutterBottom
                 sx={{ fontWeight: "bold", fontSize: "1.25rem" }} // Reduced font size
               >
-                Enrollments
+                Enrollments (active:{" "}
+                {listData.reduce(
+                  (acc, el) => acc + (el.enrolled ? 1 : 0) + el.familyMembers,
+                  0
+                )}
+                )
               </Typography>
             </Box>
             <Box
@@ -304,17 +309,7 @@ const EnrollList = () => {
                 {listData.reduce((acc, el) => acc + (el.enrolled ? 1 : 0), 0)} /{" "}
                 {listData.length}
               </Typography>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
-              >
-                Family Members :{" "}
-                {listData.reduce(
-                  (acc, el) => acc + (el.enrolled ? 1 : 0) + el.familyMembers,
-                  0
-                )}{" "}
-              </Typography>
+
               <Typography
                 variant="h5"
                 gutterBottom
@@ -327,17 +322,6 @@ const EnrollList = () => {
                 )}{" "}
                 / {getFilteredlist().length}
               </Typography>
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ fontWeight: "bold", fontSize: "1rem" }} // Reduced font size
-              >
-                Family Members :{" "}
-                {getFilteredlist().reduce(
-                  (acc, el) => acc + (el.enrolled ? 1 : 0) + el.familyMembers,
-                  0
-                )}{" "}
-              </Typography>
             </Box>
 
             {/* New Student Button */}
@@ -345,7 +329,7 @@ const EnrollList = () => {
               <Button
                 onClick={() => {
                   alert("Contact administrator");
-                  setShowList(false);
+                  // setShowList(false);
                 }}
                 variant="contained"
                 color="primary"
@@ -560,7 +544,9 @@ const EnrollList = () => {
                           fontWeight: "bold",
                           position: "sticky",
                           left: 0,
-                          backgroundColor: "lightblue",
+                          backgroundColor: student?.enrolled
+                            ? "lightblue"
+                            : "lightgreen",
                           zIndex: 1,
                         }}
                       >
@@ -586,6 +572,9 @@ const EnrollList = () => {
                 variant="body2"
                 color="text.secondary"
                 sx={{ fontSize: "0.875rem" }}
+                onClick={() => {
+                  setShowList(false);
+                }}
               >
                 For any updates to student information, please contact the
                 school administration.

@@ -3876,7 +3876,7 @@ const Dashboard = () => {
                                   feedbackName.length > 0
                                 ) {
                                   axios
-                                    .post(`${baseURL}/save-comments`, {
+                                    .post(`${baseURL}/save-feedbacks`, {
                                       person: feedbackName,
                                       feedback: feedback,
                                     })

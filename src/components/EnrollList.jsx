@@ -34,6 +34,7 @@ import {
   FormControl,
   InputLabel,
   Select,
+  Switch,
   FormHelperText,
 } from "@mui/material";
 
@@ -677,6 +678,7 @@ const EnrollList = () => {
           fullWidth
           maxWidth="sm"
           sx={{
+            fontSize: "6px",
             "& .MuiDialogContent-root": {
               padding: "16px",
               display: "flex",
@@ -702,9 +704,14 @@ const EnrollList = () => {
               <Typography
                 variant="h5"
                 gutterBottom
-                sx={{ fontWeight: "bold", textAlign: "center", flex: 1 }}
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  flex: 1,
+                  fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                }}
               >
-                Student Details
+                Enrollment Details
               </Typography>
               <IconButton onClick={() => setOpenStudentDetailsModal(false)}>
                 <span className="material-icons">close</span>
@@ -719,6 +726,7 @@ const EnrollList = () => {
                   alignItems: "center",
                   textAlign: "center",
                   gap: 2,
+                  fontSize: { xs: "12px", md: "15px", lg: "18px" },
                 }}
               >
                 {/* Display student's photo in a circle */}
@@ -738,10 +746,33 @@ const EnrollList = () => {
                 />
 
                 {/* Display student details */}
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
+                  <Switch
+                    checked={selectedStudent?.enrolled ?? false}
+                    onChange={() => {}}
+                    // value={selectedStudent?.enrolled}
+                    defaultChecked
+                  />
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Enroll Code:</strong> {selectedStudent?.Code ?? "-"}
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Full Name:</strong> {selectedStudent?.fullName ?? "-"}
                 </Typography>
                 {/* <Typography variant="body1">
@@ -750,20 +781,43 @@ const EnrollList = () => {
                 <Typography variant="body1">
                   <strong>Email:</strong> {selectedStudent.email}
                 </Typography> */}
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Phone:</strong> {selectedStudent?.phone ?? "-"}
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Village:</strong> {selectedStudent?.village ?? "-"}
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Profession:</strong>{" "}
                   {selectedStudent?.profession ?? "-"}
                 </Typography>
-                <Typography variant="body1">
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
                   <strong>Batch Year:</strong>{" "}
                   {selectedStudent?.batchYear ?? "-"}
                 </Typography>
+                <Box>
+                  <Button variant="outlined">Edit</Button>
+                </Box>
               </Box>
             )}
           </Box>

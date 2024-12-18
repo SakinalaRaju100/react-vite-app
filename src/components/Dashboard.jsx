@@ -349,45 +349,45 @@ const previousDonations = [
 // Achievements Section
 const achievements = [
   {
-    title: "State Level Science Fair Winners",
-    date: "August 2023",
-    description:
-      "Our students won first place in the State Level Science Fair Competition",
-    icon: "emoji_events",
-  },
-  {
-    title: "100% Pass Rate in Class X",
-    date: "May 2023",
+    title: "100% Pass percentage in SSC",
+    date: "May 2024",
     description:
       "All our students successfully passed Class X examinations with distinction",
     icon: "school",
   },
+  // {
+  //   title: "State Level Science Fair Winners",
+  //   date: "August 2023",
+  //   description:
+  //     "Our students won first place in the State Level Science Fair Competition",
+  //   icon: "emoji_events",
+  // },
+
   {
-    title: "Best School Award",
-    date: "July 2023",
+    title: "Securing seats in IIIT Basara",
+    date: "2024",
     description:
-      "Received Best School Award from the District Education Department",
+      "Every year our students are securing seats across the india institutions",
     icon: "stars",
   },
   {
-    title: "National Sports Championship",
-    date: "July 2023",
-    description:
-      "Our school team won Gold in National Level Sports Championship",
+    title: "Participation in National Sports",
+    date: "2023",
+    description: "Our school team Participated in National Level Sports",
     icon: "sports_score",
   },
-  {
-    title: "Math Olympiad Winners",
-    date: "June 2023",
-    description: "Students secured top positions in State Math Olympiad",
-    icon: "calculate",
-  },
-  {
-    title: "Cultural Excellence",
-    date: "May 2023",
-    description: "First prize in State Level Cultural Competition",
-    icon: "theater_comedy",
-  },
+  // {
+  //   title: "Math Olympiad Winners",
+  //   date: "June 2023",
+  //   description: "Students secured top positions in State Math Olympiad",
+  //   icon: "calculate",
+  // },
+  // {
+  //   title: "Cultural Excellence",
+  //   date: "2024",
+  //   description: "Our Cultural events are actively ",
+  //   icon: "theater_comedy",
+  // },
   {
     title: "View More Achievements",
     date: "",

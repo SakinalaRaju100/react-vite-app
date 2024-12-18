@@ -39,6 +39,8 @@ import {
 } from "@mui/material";
 
 const EnrollList = () => {
+  const [checked, setChecked] = useState(false);
+  const [familyMembers, setFamilyMembers] = useState(0);
   const [listData, setListData] = useState([]);
   const [showList, setShowList] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -166,7 +168,7 @@ const EnrollList = () => {
       } else {
         alert("some fileds missing");
       }
-    } catch (er) {
+    } catch (err) {
       console.log("err", err);
     }
     // Final validation before submission
@@ -175,8 +177,8 @@ const EnrollList = () => {
   useEffect(() => {
     setLoading(true);
     try {
-      // fetch("https://zphs-school.vercel.app/all-enrolls", {
-      fetch("http://localhost:1954/all-enrolls", {
+      fetch("https://zphs-school.vercel.app/all-enrolls", {
+        // fetch("http://localhost:1954/all-enrolls", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -216,7 +218,7 @@ const EnrollList = () => {
         })
         .catch((error) => console.error("Error loading JSON:", error));
     } catch (er) {
-      console.log("ar", ar);
+      console.log("er", er);
       alert("catch");
     }
   };
@@ -226,9 +228,9 @@ const EnrollList = () => {
   const [batchYearFilter, setBatchYearFilter] = React.useState("");
 
   const getFilteredlist = () => {
-    console.log("filter", nameFilter, batchYearFilter);
+    // console.log("filter", nameFilter, batchYearFilter);
 
-    console.log("listData", listData);
+    // console.log("listData", listData);
     return listData.filter((student) => {
       return (
         (student?.fullName.toLowerCase().includes(nameFilter.toLowerCase()) ||
@@ -242,7 +244,7 @@ const EnrollList = () => {
       );
     });
   };
-  console.log("getFilteredlist", getFilteredlist());
+  // console.log("getFilteredlist", getFilteredlist());
 
   const clearStudentFilters = () => {
     setNameFilter("");
@@ -259,7 +261,7 @@ const EnrollList = () => {
     return years; // Reverse to get the latest years first
   };
   const handleRowClick = (student) => {
-    console.log("student", student);
+    // console.log("student", student);
   };
   return (
     <div>
@@ -288,7 +290,7 @@ const EnrollList = () => {
             </Box>
 
             {/* New Student Button */}
-            <Box sx={{ mb: 3, textAlign: "right" }}>
+            {/* <Box sx={{ mb: 3, textAlign: "right" }}>
               <Button
                 onClick={() => setShowList(false)}
                 variant="contained"
@@ -298,7 +300,7 @@ const EnrollList = () => {
               >
                 New enroll
               </Button>
-            </Box>
+            </Box> */}
 
             {/* Filters Section */}
 
@@ -333,7 +335,7 @@ const EnrollList = () => {
                     <select
                       value={batchYearFilter}
                       onChange={(e) => {
-                        console.log("batchYearFilter", e.target.value);
+                        // console.log("batchYearFilter", e.target.value);
                         setBatchYearFilter(e.target.value);
                       }}
                       style={{
@@ -474,6 +476,7 @@ const EnrollList = () => {
                       onClick={() => {
                         setSelectedStudent(student);
                         setOpenStudentDetailsModal(true);
+                        setChecked(student?.enrolled);
                       }}
                       sx={{
                         "&:nth-of-type(odd)": { bgcolor: "grey.50" },
@@ -752,16 +755,60 @@ const EnrollList = () => {
                     fontSize: { xs: "12px", md: "15px", lg: "18px" },
                   }}
                 >
+                  Enroll :{" "}
                   <Switch
-                    checked={selectedStudent?.enrolled ?? false}
-                    onChange={() => {}}
+                    checked={checked ?? false}
+                    onChange={(e) => {
+                      setChecked(e.target.checked);
+                    }}
                     // value={selectedStudent?.enrolled}
                     defaultChecked
                   />
                 </Typography>
+                {checked && (
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      width: "100%",
+                      fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                    }}
+                  >
+                    <TextField
+                      label="Peoples with you"
+                      type="number"
+                      size="small"
+                      // defaultValue={0}
+                      // variant="standard"
+                      value={familyMembers}
+                      onChange={(e) => {
+                        setFamilyMembers(e.target.value);
+                      }}
+                      sx={{
+                        width: "100px",
+                        color: "blue",
+                        // bgcolor: "red",
+                        // border: "1px solid pink",
+                        borderRadius: "4px",
+                      }}
+                    ></TextField>
+
+                    <IconButton
+                      sx={{
+                        color: "blue",
+                      }}
+                      onClick={() => {
+                        console.log("Checked", checked, familyMembers);
+                      }}
+                    >
+                      <span className="material-icons">done</span>
+                    </IconButton>
+                    {/* <strong>Enroll Code:</strong> {selectedStudent?.Code ?? "-"} */}
+                  </Typography>
+                )}
                 <Typography
                   variant="body1"
                   sx={{
+                    width: "100%",
                     fontSize: { xs: "12px", md: "15px", lg: "18px" },
                   }}
                 >
@@ -769,11 +816,22 @@ const EnrollList = () => {
                 </Typography>
                 <Typography
                   variant="body1"
+                  xs={12}
                   sx={{
                     fontSize: { xs: "12px", md: "15px", lg: "18px" },
                   }}
                 >
                   <strong>Full Name:</strong> {selectedStudent?.fullName ?? "-"}
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
+                  }}
+                >
+                  <strong>Batch Year:</strong>{" "}
+                  {selectedStudent?.batchYear ?? "-"}
                 </Typography>
                 {/* <Typography variant="body1">
                   <strong>Father:</strong> {selectedStudent.father}
@@ -806,18 +864,10 @@ const EnrollList = () => {
                   <strong>Profession:</strong>{" "}
                   {selectedStudent?.profession ?? "-"}
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: { xs: "12px", md: "15px", lg: "18px" },
-                  }}
-                >
-                  <strong>Batch Year:</strong>{" "}
-                  {selectedStudent?.batchYear ?? "-"}
-                </Typography>
-                <Box>
+
+                {/* <Box>
                   <Button variant="outlined">Edit</Button>
-                </Box>
+                </Box> */}
               </Box>
             )}
           </Box>

@@ -114,8 +114,12 @@ const youtubeVideos = [
     title: "School celebrations",
   },
   {
-    id: "7Y5q41D8_hs",
-    title: "Sports events",
+    id: "zUkM3yEBB6U",
+    title: "Invitation",
+  },
+  {
+    id: "fnzp3QrhGnk",
+    title: "Speech",
   },
 ];
 
@@ -2152,7 +2156,7 @@ const Dashboard = () => {
           </Container>
 
           {/* News & Updates */}
-          <Box sx={{ bgcolor: "grey.100", py: 6 }}>
+          <Box sx={{ bgcolor: "grey.100", py: { xs: 2, md: 4, lg: 6 } }}>
             <Container maxWidth="lg">
               <Typography
                 variant="h4"
@@ -2282,7 +2286,7 @@ const Dashboard = () => {
           </Box>
 
           {/* Gallery Section */}
-          <Box id="photo-gallery" sx={{ py: 6 }}>
+          <Box id="photo-gallery" sx={{ py: { xs: 2, md: 4, lg: 6 } }}>
             <Container maxWidth="lg">
               <Typography
                 variant="h4"
@@ -2342,7 +2346,7 @@ const Dashboard = () => {
               {/* Conditional rendering based on selected tab */}
               {tabValue === 0 ? (
                 <Grid container spacing={3}>
-                  {galleryImages.map((item, index) => (
+                  {galleryImages.slice(0, 3).map((item, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
                       <Card
                         sx={{
@@ -2514,7 +2518,7 @@ const Dashboard = () => {
             </Container>
           </Box>
           {/* Future Focus Section */}
-          <Box sx={{ py: 6, bgcolor: "grey.100" }}>
+          <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, bgcolor: "grey.100" }}>
             <Container maxWidth="lg">
               <Typography
                 variant="h4"
@@ -2728,7 +2732,7 @@ const Dashboard = () => {
         </Box>*/}
 
           {/* About Us Section */}
-          <Box sx={{ py: 6, bgcolor: "grey.100" }}>
+          <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, mb: 4, bgcolor: "grey.100" }}>
             <Container maxWidth="lg">
               <Typography
                 variant="h4"
@@ -2787,10 +2791,11 @@ const Dashboard = () => {
                       Our History
                     </Typography>
                     <Typography variant="body1" paragraph>
-                      Established in 1953, ZPHS Kunur has been a beacon of
-                      learning in our community for over 71 years. What started
-                      as a small school with just 50 students has grown into a
-                      prestigious institution serving over 600 students today.
+                      Established in 1950, ZPHS Kunur has been a beacon of
+                      learning in our community for over 74 years. What started
+                      as a small school with few students has grown into a
+                      prestigious institution serving over 500 students per year
+                      today.
                     </Typography>
                     <Typography variant="body1" paragraph>
                       Our journey has been marked by continuous growth and
@@ -3766,7 +3771,7 @@ const Dashboard = () => {
                       {
                         icon: "play_circle",
                         name: "YouTube",
-                        link: "https://youtube.com",
+                        link: "https://www.youtube.com/@zphskunur-t7b",
                       },
                     ].map((social, socialindex) => (
                       <Button

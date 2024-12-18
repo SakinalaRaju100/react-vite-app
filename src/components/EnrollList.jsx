@@ -224,6 +224,7 @@ const EnrollList = () => {
   };
 
   const [nameFilter, setNameFilter] = React.useState("");
+  const [nameFilterTemp, setNameFilterTemp] = React.useState("");
 
   const [batchYearFilter, setBatchYearFilter] = React.useState("1999-2000");
 
@@ -405,13 +406,21 @@ const EnrollList = () => {
                     </span>
                     <input
                       type="text"
-                      value={nameFilter}
-                      // onChange={(e) => {
-                      //   // if (e.target.value.length >= 2) {
-                      //     setNameFilter(e.target.value);
-                      //   // }
-                      // }}
-                      onChange={(e) => setNameFilter(e.target.value)}
+                      // value={nameFilter}
+                      // onChange={(e) => setNameFilter(e.target.value)}
+                      value={nameFilterTemp}
+                      onChange={(e) => {
+                        setNameFilterTemp(e.target.value);
+                        console.log(
+                          "e.target.value.length",
+                          e.target.value.length
+                        );
+                        if (e.target.value.length > 2) {
+                          setNameFilter(e.target.value);
+                        } else {
+                          setNameFilter("");
+                        }
+                      }}
                       placeholder="Filter by name, profession, gender or village..."
                       style={{
                         border: "none",
@@ -423,7 +432,10 @@ const EnrollList = () => {
                     />
                     {nameFilter && (
                       <IconButton
-                        onClick={() => setNameFilter("")}
+                        onClick={() => {
+                          setNameFilter("");
+                          setNameFilterTemp("");
+                        }}
                         sx={{ ml: 1 }}
                       >
                         <span

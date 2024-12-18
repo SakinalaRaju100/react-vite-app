@@ -1850,6 +1850,20 @@ const Dashboard = () => {
 
           {/* Hero Section with Carousel */}
           <Box
+            style={{
+              fontSize: "8px",
+              backgroundColor: "#b388ff",
+              color: "white",
+              // "&:hover": {
+              //   fontSize: "12px",
+              // },
+            }}
+          >
+            <marquee behavior="scroll" direction="left">
+              Here all advertisements scroll.
+            </marquee>
+          </Box>
+          <Box
             sx={{
               position: "relative",
               height: { xs: "40vh", sm: "50vh", md: "75vh" },

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./counting.css";
 import axios from "axios";
+import { color } from "@mui/system";
 
 const Counting = ({ setIsReady }) => {
   // let baseURL = "http://localhost:1954";
@@ -99,6 +100,8 @@ const Counting = ({ setIsReady }) => {
           <div id="timer">
             {timeLeft.hours > 0 && (
               <div>
+                {/* <div style={{ color: "#b388ff" }}>ZPHS KUNUR</div> */}
+                <div style={{ marginBottom: "10px" }}>ZPHS KUNUR</div>
                 {timeLeft.days}Days {timeLeft.hours}Hours
               </div>
             )}

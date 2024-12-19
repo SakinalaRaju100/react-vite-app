@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./counting.css";
 
 const Counting = (props) => {
-  const [count, setCount] = useState(10); // Countdown starts at 10
+  const [count, setCount] = useState(3); // Countdown starts at 10
   // const [isReady, setIsReady] = useState(false); // Determines if the countdown is complete
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Counting = (props) => {
       // console.log("props", props);
       setTimeout(() => {
         props.setIsReady(true);
-      }, 3000);
+      }, 2000);
     }
   }, [count]);
 
@@ -25,10 +25,11 @@ const Counting = (props) => {
         {/* <h1>School Countdown</h1> */}
         {count == 0 ? (
           <div
-            className="entering scaleUp"
-            style={{ fontSize: "30px", color: "gold" }}
+            id="countdown2"
+            // className="entering scaleUp"
+            // style={{ fontSize: "30px", color: "gold" }}
           >
-            Entering into School!
+            Entering...!
           </div>
         ) : (
           <div id="countdown">{count}</div>

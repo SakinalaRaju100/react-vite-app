@@ -3729,13 +3729,13 @@ const Dashboard = () => {
                     {
                       icon: "facebook",
                       name: "Facebook",
-                      link: "https://facebook.com",
+                      link: "https://www.facebook.com/zphskunur",
                     },
 
                     {
                       icon: "photo_camera",
                       name: "Instagram",
-                      link: "https://instagram.com",
+                      link: "https://www.instagram.com/zphskunur",
                     },
                     {
                       icon: "play_circle",

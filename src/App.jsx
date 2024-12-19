@@ -38,6 +38,7 @@ import React from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import EnrollList from "./components/EnrollList";
+import Counting from "./components/Counting";
 import NotFound from "./components/NotFound";
 import { Routes, Route } from "react-router-dom";
 import zIndex from "@mui/material/styles/zIndex";
@@ -57,10 +58,17 @@ import zIndex from "@mui/material/styles/zIndex";
 //   import.meta.url
 // ).toString();
 const App = () => {
+  const [isReady, setIsReady] = React.useState(false); // Determines if the countdown is complete
+
+  // const counting = true;
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        {!isReady ? (
+          <Route path="/" element={<Counting setIsReady={setIsReady} />} />
+        ) : (
+          <Route path="/" element={<Dashboard />} />
+        )}
         <Route path="/enrollment" element={<EnrollList />} />
         {/* <Route path="/souviner-book" element={<SouvinerBook />} /> */}
         <Route path="*" element={<NotFound />} />

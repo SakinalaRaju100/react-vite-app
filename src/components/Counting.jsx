@@ -43,7 +43,7 @@ const Counting = ({ setIsReady }) => {
       target.setDate(target.getDate() + 2);
       target.setHours(11, 0, 0, 0);
 
-      // target.setHours(22, 46, 0, 0);
+      // target.setHours(22, 51, 0, 0);
 
       console.log("now, target", now, target);
       // If the target time has already passed today, set it for tomorrow
@@ -97,8 +97,14 @@ const Counting = ({ setIsReady }) => {
       <div className="countdown-container">
         {timer && timeLeft.seconds > 0 && (
           <div id="timer">
-            {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
-            {timeLeft.seconds}s
+            {timeLeft.hours > 0 && (
+              <div>
+                {timeLeft.days}Days {timeLeft.hours}Hours
+              </div>
+            )}
+            <div>
+              {timeLeft.minutes} mins {timeLeft.seconds}s
+            </div>
           </div>
         )}
 

@@ -3942,17 +3942,17 @@ const Dashboard = () => {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 alignItems: "center",
-                mb: 3,
+                mb: 2,
                 bgcolor: "primary.light", // Background color for the box
-                p: 2, // Padding for the box
+                p: 1, // Padding for the box
                 borderRadius: 2, // Rounded corners
                 boxShadow: 2, // Subtle shadow for depth
               }}
               onClick={handleCloseAdsModal}
             >
-              <Typography
+              {/* <Typography
                 variant="h5"
                 gutterBottom
                 sx={{
@@ -3962,7 +3962,7 @@ const Dashboard = () => {
                 }}
               >
                 Souviner Advertisements
-              </Typography>
+              </Typography> */}
               <IconButton>
                 {/*<span className="material-icons" style={{ color: "red" }}>
                         close
@@ -3973,8 +3973,7 @@ const Dashboard = () => {
                   gutterBottom
                   sx={{
                     fontWeight: "bold",
-                    color: "primary.main", // Text color
-                    ml: 1, // Margin left for spacing
+                    color: "white", // Text color
                     fontSize: { xs: "14px", md: "25px" },
                   }}
                 >

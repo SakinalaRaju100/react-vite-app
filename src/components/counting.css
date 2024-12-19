@@ -10,6 +10,27 @@
   overflow: hidden;
 }
 
+.entering {
+  /* fontSize: { sx: "35px", md: "70px", lg: "500px" }, */
+  color: "gold";
+  transform: "scale(1)";
+  opacity: 1;
+  transition: "transform 2s, opacity 1.5s ease-in-out";
+  animation: "fadeInScale 2s forwards";
+}
+.entering:hover {
+  transform: "scale(1)";
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
 /* Countdown Container */
 .countdown-container {
   text-align: center;

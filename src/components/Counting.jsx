@@ -1,29 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./counting.css";
-const Counting = () => {
-  let countdownElement = document.getElementById("countdown");
-  let readyMessage = document.getElementById("readyMessage");
-  let count = 10;
 
-  // Countdown Logic
-  let timer = setInterval(() => {
-    count--;
-    countdownElement.textContent = count;
+const Counting = (props) => {
+  const [count, setCount] = useState(10); // Countdown starts at 10
+  // const [isReady, setIsReady] = useState(false); // Determines if the countdown is complete
 
-    if (count === 0) {
-      clearInterval(timer);
-      countdownElement.style.display = "none";
-      readyMessage.style.display = "block";
+  useEffect(() => {
+    if (count > 0) {
+      const timer = setInterval(() => {
+        setCount((prevCount) => prevCount - 1);
+      }, 1000);
+      return () => clearInterval(timer); // Cleanup the interval on component unmount or when count changes
+    } else {
+      // console.log("props", props);
+      setTimeout(() => {
+        props.setIsReady(true);
+      }, 3000);
     }
-  }, 1000);
+  }, [count]);
+
   return (
-    <div class="body">
-      <div class="countdown-container">
-        <h1>School Countdown</h1>
-        <div id="countdown">10</div>
-        <div class="ready-message" id="readyMessage">
-          Ready to Enter the School!
-        </div>
+    <div className="body">
+      <div className="countdown-container">
+        {/* <h1>School Countdown</h1> */}
+        {count == 0 ? (
+          <div
+            className="entering scaleUp"
+            style={{ fontSize: "30px", color: "gold" }}
+          >
+            Entering into School!
+          </div>
+        ) : (
+          <div id="countdown">{count}</div>
+        )}
       </div>
     </div>
   );

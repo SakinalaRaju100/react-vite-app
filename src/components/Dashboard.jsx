@@ -973,984 +973,1190 @@ const Dashboard = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      {counting ? (
-        <Box sx={{ flexGrow: 1 }}>{/* <Counting /> */}</Box>
-      ) : (
-        <Box sx={{ flexGrow: 1 }}>
-          {/* Header */}
-          <AppBar position="sticky" sx={{ bgcolor: "#b388ff", coloe: "gold" }}>
-            <Toolbar>
-              {/* Add logo */}
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  mr: 2,
+      <Box sx={{ flexGrow: 1 }}>
+        {/* Header */}
+        <AppBar position="sticky" sx={{ bgcolor: "#b388ff", coloe: "gold" }}>
+          <Toolbar>
+            {/* Add logo */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                mr: 2,
+              }}
+            >
+              {/* <svg width="40" height="40" viewBox="0 0 40 40"> */}
+              {/* <img width="50" height="50" src="./logo.PNG" alt="logo" />{" "}
+               */}
+              <img
+                src="./logo.PNG"
+                alt="logo"
+                style={{
+                  width: "40px", // Adjusted width
+                  height: "40px", // Maintain aspect ratio
+                  objectFit: "cover", // Cover the area
+                  border: "1px dashed gold",
+                  borderRadius: "50%",
+                  position: "relative", // Positioning
+                  // top: "10px", // Adjust vertical position
+                }}
+              />
+              {/* </svg> */}
+            </Box>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              ZPHS Kunur
+            </Typography>
+
+            {/* Mobile Menu */}
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleMobileMenuOpen}
+              >
+                <span className="material-icons">menu</span>
+              </IconButton>
+              <Menu
+                anchorEl={mobileMenuAnchorEl}
+                open={Boolean(mobileMenuAnchorEl)}
+                onClose={handleMobileMenuClose}
+                sx={{ mt: "45px" }}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
                 }}
               >
-                {/* <svg width="40" height="40" viewBox="0 0 40 40"> */}
-                {/* <img width="50" height="50" src="./logo.PNG" alt="logo" />{" "}
-                 */}
-                <img
-                  src="./logo.PNG"
-                  alt="logo"
-                  style={{
-                    width: "40px", // Adjusted width
-                    height: "40px", // Maintain aspect ratio
-                    objectFit: "cover", // Cover the area
-                    border: "1px dashed gold",
-                    borderRadius: "50%",
-                    position: "relative", // Positioning
-                    // top: "10px", // Adjust vertical position
-                  }}
-                />
-                {/* </svg> */}
-              </Box>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                ZPHS Kunur
-              </Typography>
-
-              {/* Mobile Menu */}
-              <Box sx={{ display: { xs: "block", md: "none" } }}>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  onClick={handleMobileMenuOpen}
-                >
-                  <span className="material-icons">menu</span>
-                </IconButton>
-                <Menu
-                  anchorEl={mobileMenuAnchorEl}
-                  open={Boolean(mobileMenuAnchorEl)}
-                  onClose={handleMobileMenuClose}
-                  sx={{ mt: "45px" }}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-                  <MenuItem onClick={handleSavineerModal}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      people
-                    </span>
-                    Souviner
-                  </MenuItem>
-                  <MenuItem onClick={handleSchoolMenu}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      school
-                    </span>
-                    School ▾
-                  </MenuItem>
-                  <MenuItem onClick={handleAlumniMenu}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      people
-                    </span>
-                    Alumni ▾
-                  </MenuItem>
-                  <MenuItem onClick={handleOpenTeachersModal}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      person
-                    </span>
-                    Teachers
-                  </MenuItem>
-                  {/* <MenuItem onClick={handleOpenStudentsModal}>*/}
-                  <MenuItem
-                    onClick={() => {
-                      window.location.href = "/enrollment";
-                    }}
+                <MenuItem onClick={handleSavineerModal}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
                   >
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      school
-                    </span>
-                    Students
-                  </MenuItem>
-                  <MenuItem onClick={OpenSuccessStoriesModalFunction}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      star
-                    </span>
-                    NRI's
-                  </MenuItem>
-
-                  <MenuItem onClick={scrollToGallery}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      photo
-                    </span>
-                    Gallery
-                  </MenuItem>
-                  <MenuItem onClick={handleOpenDonateModal}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      attach_money
-                    </span>
-                    Donate
-                  </MenuItem>
-                  <MenuItem onClick={handleOpenAdsModal}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      ad_units
-                    </span>
-                    Ads
-                  </MenuItem>
-                  <MenuItem onClick={handleCareersMenu}>
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      star
-                    </span>
-                    Careers ▾
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => {
-                      scrollToContact();
-                      handleMobileMenuClose();
-                    }}
-                  >
-                    <span
-                      className="material-icons"
-                      style={{ marginRight: "8px" }}
-                    >
-                      contact_mail
-                    </span>
-                    Contact us
-                  </MenuItem>
-                </Menu>
-              </Box>
-
-              {/* Desktop Menu */}
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <Button color="inherit" onClick={handleSavineerModal}>
+                    people
+                  </span>
                   Souviner
-                </Button>
-                <Button color="inherit" onClick={handleSchoolMenu}>
+                </MenuItem>
+                <MenuItem onClick={handleSchoolMenu}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    school
+                  </span>
                   School ▾
-                </Button>
-                <Button color="inherit" onClick={handleAlumniMenu}>
+                </MenuItem>
+                <MenuItem onClick={handleAlumniMenu}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    people
+                  </span>
                   Alumni ▾
-                </Button>
-                <Button color="inherit" onClick={handleOpenTeachersModal}>
+                </MenuItem>
+                <MenuItem onClick={handleOpenTeachersModal}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    person
+                  </span>
                   Teachers
-                </Button>
-                {/*<Button color="inherit" onClick={handleOpenStudentsModal}>*/}
-                <Button
-                  color="inherit"
+                </MenuItem>
+                {/* <MenuItem onClick={handleOpenStudentsModal}>*/}
+                <MenuItem
                   onClick={() => {
                     window.location.href = "/enrollment";
                   }}
                 >
-                  Students
-                </Button>
-                <Button
-                  color="inherit"
-                  onClick={OpenSuccessStoriesModalFunction}
-                >
-                  NRI's
-                </Button>
-
-                <Button color="inherit" onClick={scrollToGallery}>
-                  Gallery
-                </Button>
-                <Button color="inherit" onClick={handleOpenDonateModal}>
-                  Donate
-                </Button>
-                <Button color="inherit" onClick={handleOpenAdsModal}>
-                  Ads
-                </Button>
-                <Button color="inherit" onClick={handleCareersMenu}>
-                  Careers ▾
-                </Button>
-                <Button color="inherit" onClick={scrollToContact}>
-                  Contact us
-                </Button>
-              </Box>
-            </Toolbar>
-          </AppBar>
-
-          <Menu
-            anchorEl={careersAnchorEl}
-            open={Boolean(careersAnchorEl)}
-            onClose={handleClose}
-            sx={{ mt: "15px" }}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-          >
-            {[
-              { title: "Guidence", onClick: handleClose },
-
-              {
-                title: "jobs",
-                onClick: handleOpenComingSoonModal,
-              },
-              { title: "Employers", onClick: handleOpenComingSoonModal },
-
-              { title: "Sports", onClick: handleClose },
-              { title: "Business", onClick: handleClose },
-              { title: "Internships", onClick: handleClose },
-              { title: "Arts", onClick: handleClose },
-              { title: "Finance", onClick: handleClose },
-              { title: "Health", onClick: handleClose },
-              { title: "Technology", onClick: handleOpenComingSoonModal },
-              { title: "Subjects", onClick: handleOpenComingSoonModal },
-            ].map((item, menuItemIdex) => (
-              <MenuItem
-                key={menuItemIdex}
-                onClick={item.onClick}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  py: 1.5,
-                  "&:hover": {
-                    backgroundColor: "primary.light",
-                    "& .menu-dot": {
-                      backgroundColor: "primary.main",
-                    },
-                  },
-                }}
-              >
-                <Box
-                  className="menu-dot"
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    backgroundColor: "grey.500",
-                    borderRadius: "50%",
-                    transition: "background-color 0.2s",
-                  }}
-                />
-                <Typography variant="body2">{item.title}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-          <Menu
-            anchorEl={schoolAnchorEl}
-            open={Boolean(schoolAnchorEl)}
-            onClose={handleClose}
-            sx={{ mt: "15px" }}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-          >
-            {[
-              { title: "About School", onClick: handleClose },
-              {
-                title: "Principal's Motive",
-                onClick: handleOpenPrincipalMotiveModal,
-              },
-              { title: "Notice board", onClick: handleClose },
-              // { title: "Admissions", onClick: handleClose },
-              // { title: "Academics", onClick: handleClose },
-              // {
-              //   title: "Attendance",
-              //   onClick: AttendanceModalTrue,
-              // },
-              { title: "Administration", onClick: handleClose },
-              { title: "Achievements", onClick: handleClose },
-              { title: "Events & Exhibition", onClick: handleClose },
-              { title: "Rules & Regulations", onClick: handleClose },
-            ].map((item, menuItemIdex) => (
-              <MenuItem
-                key={menuItemIdex}
-                onClick={item.onClick}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  py: 1.5,
-                  "&:hover": {
-                    backgroundColor: "primary.light",
-                    "& .menu-dot": {
-                      backgroundColor: "primary.main",
-                    },
-                  },
-                }}
-              >
-                <Box
-                  className="menu-dot"
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    backgroundColor: "grey.500",
-                    borderRadius: "50%",
-                    transition: "background-color 0.2s",
-                  }}
-                />
-                <Typography variant="body2">{item.title}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-
-          <Menu
-            anchorEl={alumniAnchorEl}
-            open={Boolean(alumniAnchorEl)}
-            onClose={handleClose}
-            sx={{ mt: "15px" }}
-          >
-            {[
-              { title: "Alumni Members", onClick: handleOpenAlumniModal },
-              {
-                title: "Developers Team",
-                onClick: handleOpenDevelopersModal,
-              },
-              { title: "Organization", onClick: handleClose },
-              { title: "Alumni Events", onClick: handleClose },
-              { title: "Downloads & Links", onClick: handleClose },
-            ].map((item, itemIdex) => (
-              <MenuItem
-                key={itemIdex}
-                onClick={item.onClick}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  py: 1.5,
-                  "&:hover": {
-                    backgroundColor: "primary.light",
-                    "& .menu-dot": {
-                      backgroundColor: "primary.main",
-                    },
-                  },
-                }}
-              >
-                <Box
-                  className="menu-dot"
-                  sx={{
-                    width: 6,
-                    height: 6,
-                    backgroundColor: "grey.500",
-                    borderRadius: "50%",
-                    transition: "background-color 0.2s",
-                  }}
-                />
-                <Typography variant="body2">{item.title}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-
-          {/* Feature Coming soon*/}
-          <Dialog
-            open={openComingSoonModal}
-            onClose={handleCloseComingSoonModal}
-            maxWidth="sm"
-            fullWidth
-          >
-            <Box sx={{ p: 1, fontSize: { xs: "8px", md: "9px", lg: "10px" } }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: "10px", md: "12px", lg: "15px" },
-                  }}
-                >
-                  Feature coming soon...
-                </Typography>
-                <IconButton onClick={handleCloseComingSoonModal} size="small">
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
-
-              <Box
-                sx={{
-                  backgroundColor: "primary.light",
-                  borderRadius: 2,
-                  p: 1,
-                  position: "relative",
-                }}
-              >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: -10,
-                    left: -20,
-                    backgroundColor: "success.main",
-                    borderRadius: "50%",
-                    width: 30,
-                    height: 30,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <span className="material-icons" style={{ color: "white" }}>
-                    star
-                  </span>
-                </Box>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "white",
-                    lineHeight: 1.8,
-                    textAlign: "start",
-                    fontSize: { xs: "10px", md: "12px", lg: "15px" },
-                  }}
-                >
-                  This Feature under development, available soon...
-                </Typography>
-              </Box>
-            </Box>
-          </Dialog>
-          {/* Principal's Motive Modal */}
-          <Dialog
-            open={openPrincipalMotiveModal}
-            onClose={handleClosePrincipalMotiveModal}
-            maxWidth="sm"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Principal's Motive
-                </Typography>
-                <IconButton onClick={handleClosePrincipalMotiveModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
-
-              <Box
-                sx={{
-                  backgroundColor: "primary.light",
-                  borderRadius: 2,
-                  p: 3,
-                  position: "relative",
-                }}
-              >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: -20,
-                    left: -20,
-                    backgroundColor: "primary.main",
-                    borderRadius: "50%",
-                    width: 40,
-                    height: 40,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <span className="material-icons" style={{ color: "white" }}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
                     school
                   </span>
-                </Box>
+                  Students
+                </MenuItem>
+                <MenuItem onClick={OpenSuccessStoriesModalFunction}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    star
+                  </span>
+                  NRI's
+                </MenuItem>
 
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "white",
-                    lineHeight: 1.8,
-                    textAlign: "justify",
+                <MenuItem onClick={scrollToGallery}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    photo
+                  </span>
+                  Gallery
+                </MenuItem>
+                <MenuItem onClick={handleOpenDonateModal}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    attach_money
+                  </span>
+                  Donate
+                </MenuItem>
+                <MenuItem onClick={handleOpenAdsModal}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    ad_units
+                  </span>
+                  Ads
+                </MenuItem>
+                <MenuItem onClick={handleCareersMenu}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    star
+                  </span>
+                  Careers ▾
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    scrollToContact();
+                    handleMobileMenuClose();
                   }}
                 >
-                  The primary motive of a school principal is to foster an
-                  environment that promotes academic excellence, holistic
-                  student development, and inclusivity. They aim to ensure
-                  high-quality education by implementing effective teaching
-                  strategies and supporting professional growth for teachers.
-                </Typography>
-              </Box>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    contact_mail
+                  </span>
+                  Contact us
+                </MenuItem>
+              </Menu>
             </Box>
-          </Dialog>
 
-          {/* Alumni Members Modal */}
-          <Dialog
-            open={openAlumniModal}
-            onClose={handleCloseAlumniModal}
-            maxWidth="lg"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
+            {/* Desktop Menu */}
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+              <Button color="inherit" onClick={handleSavineerModal}>
+                Souviner
+              </Button>
+              <Button color="inherit" onClick={handleSchoolMenu}>
+                School ▾
+              </Button>
+              <Button color="inherit" onClick={handleAlumniMenu}>
+                Alumni ▾
+              </Button>
+              <Button color="inherit" onClick={handleOpenTeachersModal}>
+                Teachers
+              </Button>
+              {/*<Button color="inherit" onClick={handleOpenStudentsModal}>*/}
+              <Button
+                color="inherit"
+                onClick={() => {
+                  window.location.href = "/enrollment";
                 }}
               >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Alumni Members
-                </Typography>
-                <IconButton onClick={handleCloseAlumniModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
+                Students
+              </Button>
+              <Button color="inherit" onClick={OpenSuccessStoriesModalFunction}>
+                NRI's
+              </Button>
 
-              <Grid container spacing={3}>
-                {studentsList.map((alumni, alumniIndex) => (
-                  <Grid item xs={12} sm={6} md={4} key={alumniIndex}>
-                    <Card
-                      sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-8px)",
-                          boxShadow: 6,
-                        },
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={alumni.photo}
-                        alt={alumni.fullName}
-                        sx={{
-                          objectFit: "cover",
-                          borderRadius: "8px 8px 0 0", // Rounded top corners
-                        }}
-                      />
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography
-                          variant="h6"
-                          gutterBottom
-                          sx={{ fontWeight: "bold", textAlign: "center" }} // Centered text
-                        >
-                          {alumni.fullName}
-                        </Typography>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            bgcolor: "primary.light",
-                            color: "primary.dark",
-                            px: 2,
-                            py: 0.5,
-                            borderRadius: "15px",
-                            // display: "inline-block",
-                            mb: 2,
-                            textAlign: "center", // Centered text
-                          }}
-                        >
-                          <Typography variant="body2">
-                            Batch {alumni.batchYear}
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: 1,
-                            textAlign: "center", // Centered text
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              display: "flex",
-                              justifyContent: "center", // Centered content
-                              alignItems: "center",
-                              gap: 1,
-                            }}
-                          >
-                            <span
-                              className="material-icons"
-                              style={{
-                                fontSize: "18px",
-                                color: "primary.main",
-                              }}
-                            >
-                              work
-                            </span>
-                            <Typography variant="body2">
-                              {alumni.profession}
-                            </Typography>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              display: "flex",
-                              justifyContent: "center", // Centered content
-                              alignItems: "center",
-                              gap: 1,
-                            }}
-                          >
-                            <span
-                              className="material-icons"
-                              style={{
-                                fontSize: "18px",
-                                color: "primary.main",
-                              }}
-                            >
-                              location_on
-                            </span>
-                            <Typography variant="body2">
-                              {alumni.address}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </CardContent>
-
-                      <Box
-                        sx={{
-                          p: 2,
-                          borderTop: "1px solid",
-                          borderColor: "divider",
-                        }}
-                      >
-                        <Box sx={{ display: "flex", gap: 1 }}>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">email</span>
-                            }
-                            href={`mailto:${alumni.email}`}
-                            sx={{ flex: 1 }}
-                          >
-                            Email
-                          </Button>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">phone</span>
-                            }
-                            href={`tel:${alumni.phone}`}
-                            sx={{ flex: 1 }}
-                          >
-                            Call
-                          </Button>
-                        </Box>
-                      </Box>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-
-              <Box sx={{ mt: 3, textAlign: "center" }}>
-                <Typography variant="body2" color="text.secondary">
-                  For updates to alumni information, please contact the school
-                  administration.
-                </Typography>
-              </Box>
+              <Button color="inherit" onClick={scrollToGallery}>
+                Gallery
+              </Button>
+              <Button color="inherit" onClick={handleOpenDonateModal}>
+                Donate
+              </Button>
+              <Button color="inherit" onClick={handleOpenAdsModal}>
+                Ads
+              </Button>
+              <Button color="inherit" onClick={handleCareersMenu}>
+                Careers ▾
+              </Button>
+              <Button color="inherit" onClick={scrollToContact}>
+                Contact us
+              </Button>
             </Box>
-          </Dialog>
+          </Toolbar>
+        </AppBar>
 
-          {/* Developers Modal */}
-          <Dialog
-            open={openDevelopersModal}
-            onClose={handleCloseDevelopersModal}
-            maxWidth="lg"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Development Team
-                </Typography>
-                <IconButton onClick={handleCloseDevelopersModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
+        <Menu
+          anchorEl={careersAnchorEl}
+          open={Boolean(careersAnchorEl)}
+          onClose={handleClose}
+          sx={{ mt: "15px" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          {[
+            { title: "Guidence", onClick: handleClose },
 
-              <Grid container spacing={3}>
-                {developers.map((developer, index) => (
-                  <Grid item xs={12} md={4} key={index}>
-                    <Card
-                      sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-8px)",
-                          boxShadow: 6,
-                        },
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="240"
-                        image={developer.image}
-                        alt={developer.name}
-                        sx={{ objectFit: "cover" }}
-                      />
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography
-                          variant="h6"
-                          gutterBottom
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          {developer.name}
-                        </Typography>
-                        <Box
-                          sx={{
-                            bgcolor: "primary.light",
-                            color: "primary.dark",
-                            px: 2,
-                            py: 0.5,
-                            borderRadius: "15px",
-                            display: "inline-block",
-                            mb: 2,
-                          }}
-                        >
-                          <Typography variant="body2">
-                            {developer.role}
-                          </Typography>
-                        </Box>
+            {
+              title: "jobs",
+              onClick: handleOpenComingSoonModal,
+            },
+            { title: "Employers", onClick: handleOpenComingSoonModal },
 
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          gutterBottom
-                        >
-                          {developer.expertise}
-                        </Typography>
-
-                        <Box sx={{ mt: 2 }}>
-                          <Typography variant="subtitle2" gutterBottom>
-                            Technologies:
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              flexWrap: "wrap",
-                              gap: 1,
-                            }}
-                          >
-                            {developer.technologies.map((tech, i) => (
-                              <Chip
-                                key={i}
-                                label={tech}
-                                size="small"
-                                sx={{
-                                  bgcolor: "primary.light",
-                                  color: "primary.dark",
-                                }}
-                              />
-                            ))}
-                          </Box>
-                        </Box>
-                      </CardContent>
-
-                      <Box
-                        sx={{
-                          p: 2,
-                          borderTop: "1px solid",
-                          borderColor: "divider",
-                        }}
-                      >
-                        <Box sx={{ display: "flex", gap: 1 }}>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">code</span>
-                            }
-                            href={developer.githubProfile}
-                            target="_blank"
-                            sx={{ flex: 1 }}
-                          >
-                            GitHub
-                          </Button>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">work</span>
-                            }
-                            href={developer.linkedinProfile}
-                            target="_blank"
-                            sx={{ flex: 1 }}
-                          >
-                            LinkedIn
-                          </Button>
-                        </Box>
-                      </Box>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-
-              <Box sx={{ mt: 3, textAlign: "center" }}>
-                <Typography variant="body2" color="text.secondary">
-                  This project was developed with ❤️ by our dedicated team.
-                </Typography>
-              </Box>
-            </Box>
-          </Dialog>
-
-          {/* Hero Section with Carousel */}
-          <Box
-            style={{
-              fontSize: "8px",
-              backgroundColor: "#b388ff",
-              color: "white",
-              // "&:hover": {
-              //   fontSize: "12px",
-              // },
-            }}
-          >
-            <marquee behavior="scroll" direction="left">
-              Here all advertisements scroll.
-            </marquee>
-          </Box>
-          <Box
-            sx={{
-              position: "relative",
-              height: { xs: "40vh", sm: "50vh", md: "75vh" },
-            }}
-          >
-            <Paper
-              square
-              elevation={0}
+            { title: "Sports", onClick: handleClose },
+            { title: "Business", onClick: handleClose },
+            { title: "Internships", onClick: handleClose },
+            { title: "Arts", onClick: handleClose },
+            { title: "Finance", onClick: handleClose },
+            { title: "Health", onClick: handleClose },
+            { title: "Technology", onClick: handleOpenComingSoonModal },
+            { title: "Subjects", onClick: handleOpenComingSoonModal },
+          ].map((item, menuItemIdex) => (
+            <MenuItem
+              key={menuItemIdex}
+              onClick={item.onClick}
               sx={{
-                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                py: 1.5,
+                "&:hover": {
+                  backgroundColor: "primary.light",
+                  "& .menu-dot": {
+                    backgroundColor: "primary.main",
+                  },
+                },
+              }}
+            >
+              <Box
+                className="menu-dot"
+                sx={{
+                  width: 6,
+                  height: 6,
+                  backgroundColor: "grey.500",
+                  borderRadius: "50%",
+                  transition: "background-color 0.2s",
+                }}
+              />
+              <Typography variant="body2">{item.title}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+        <Menu
+          anchorEl={schoolAnchorEl}
+          open={Boolean(schoolAnchorEl)}
+          onClose={handleClose}
+          sx={{ mt: "15px" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          {[
+            { title: "About School", onClick: handleClose },
+            {
+              title: "Principal's Motive",
+              onClick: handleOpenPrincipalMotiveModal,
+            },
+            { title: "Notice board", onClick: handleClose },
+            // { title: "Admissions", onClick: handleClose },
+            // { title: "Academics", onClick: handleClose },
+            // {
+            //   title: "Attendance",
+            //   onClick: AttendanceModalTrue,
+            // },
+            { title: "Administration", onClick: handleClose },
+            { title: "Achievements", onClick: handleClose },
+            { title: "Events & Exhibition", onClick: handleClose },
+            { title: "Rules & Regulations", onClick: handleClose },
+          ].map((item, menuItemIdex) => (
+            <MenuItem
+              key={menuItemIdex}
+              onClick={item.onClick}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                py: 1.5,
+                "&:hover": {
+                  backgroundColor: "primary.light",
+                  "& .menu-dot": {
+                    backgroundColor: "primary.main",
+                  },
+                },
+              }}
+            >
+              <Box
+                className="menu-dot"
+                sx={{
+                  width: 6,
+                  height: 6,
+                  backgroundColor: "grey.500",
+                  borderRadius: "50%",
+                  transition: "background-color 0.2s",
+                }}
+              />
+              <Typography variant="body2">{item.title}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+
+        <Menu
+          anchorEl={alumniAnchorEl}
+          open={Boolean(alumniAnchorEl)}
+          onClose={handleClose}
+          sx={{ mt: "15px" }}
+        >
+          {[
+            { title: "Alumni Members", onClick: handleOpenAlumniModal },
+            {
+              title: "Developers Team",
+              onClick: handleOpenDevelopersModal,
+            },
+            { title: "Organization", onClick: handleClose },
+            { title: "Alumni Events", onClick: handleClose },
+            { title: "Downloads & Links", onClick: handleClose },
+          ].map((item, itemIdex) => (
+            <MenuItem
+              key={itemIdex}
+              onClick={item.onClick}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                py: 1.5,
+                "&:hover": {
+                  backgroundColor: "primary.light",
+                  "& .menu-dot": {
+                    backgroundColor: "primary.main",
+                  },
+                },
+              }}
+            >
+              <Box
+                className="menu-dot"
+                sx={{
+                  width: 6,
+                  height: 6,
+                  backgroundColor: "grey.500",
+                  borderRadius: "50%",
+                  transition: "background-color 0.2s",
+                }}
+              />
+              <Typography variant="body2">{item.title}</Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+
+        {/* Feature Coming soon*/}
+        <Dialog
+          open={openComingSoonModal}
+          onClose={handleCloseComingSoonModal}
+          maxWidth="sm"
+          fullWidth
+        >
+          <Box sx={{ p: 1, fontSize: { xs: "8px", md: "9px", lg: "10px" } }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{
+                  fontSize: { xs: "10px", md: "12px", lg: "15px" },
+                }}
+              >
+                Feature coming soon...
+              </Typography>
+              <IconButton onClick={handleCloseComingSoonModal} size="small">
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            <Box
+              sx={{
+                backgroundColor: "primary.light",
+                borderRadius: 2,
+                p: 1,
                 position: "relative",
-                backgroundColor: "grey.800",
-                color: "#fff",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundImage: `url(${carouselImages[activeStep].imgPath})`,
-                transition: "background-image 0.5s ease-in-out",
               }}
             >
               <Box
                 sx={{
                   position: "absolute",
-                  top: 0,
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  backgroundColor: "rgba(0,0,0,.5)",
-                }}
-              />
-              <Container
-                maxWidth="md"
-                sx={{
-                  position: "relative",
-                  height: "100%",
+                  top: -10,
+                  left: -20,
+                  backgroundColor: "success.main",
+                  borderRadius: "50%",
+                  width: 30,
+                  height: 30,
                   display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
                   alignItems: "center",
-                  textAlign: "center",
-                  px: { xs: 2, sm: 3, md: 4 },
+                  justifyContent: "center",
                 }}
               >
-                <Typography
-                  variant="h2"
-                  component="h1"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: "2rem", sm: "3rem", md: "3.75rem" },
-                  }}
-                >
-                  {carouselImages[activeStep].label}
-                </Typography>
-                <Typography
-                  variant="h5"
-                  paragraph
-                  sx={{
-                    fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.5rem" },
-                  }}
-                >
-                  {carouselImages[activeStep].description}
-                </Typography>
-              </Container>
-            </Paper>
-            <MobileStepper
-              steps={maxSteps}
-              position="static"
-              activeStep={activeStep}
+                <span className="material-icons" style={{ color: "white" }}>
+                  star
+                </span>
+              </Box>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "white",
+                  lineHeight: 1.8,
+                  textAlign: "start",
+                  fontSize: { xs: "10px", md: "12px", lg: "15px" },
+                }}
+              >
+                This Feature under development, available soon...
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+        {/* Principal's Motive Modal */}
+        <Dialog
+          open={openPrincipalMotiveModal}
+          onClose={handleClosePrincipalMotiveModal}
+          maxWidth="sm"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+                Principal's Motive
+              </Typography>
+              <IconButton onClick={handleClosePrincipalMotiveModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            <Box
+              sx={{
+                backgroundColor: "primary.light",
+                borderRadius: 2,
+                p: 3,
+                position: "relative",
+              }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -20,
+                  left: -20,
+                  backgroundColor: "primary.main",
+                  borderRadius: "50%",
+                  width: 40,
+                  height: 40,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span className="material-icons" style={{ color: "white" }}>
+                  school
+                </span>
+              </Box>
+
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "white",
+                  lineHeight: 1.8,
+                  textAlign: "justify",
+                }}
+              >
+                The primary motive of a school principal is to foster an
+                environment that promotes academic excellence, holistic student
+                development, and inclusivity. They aim to ensure high-quality
+                education by implementing effective teaching strategies and
+                supporting professional growth for teachers.
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Alumni Members Modal */}
+        <Dialog
+          open={openAlumniModal}
+          onClose={handleCloseAlumniModal}
+          maxWidth="lg"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+                Alumni Members
+              </Typography>
+              <IconButton onClick={handleCloseAlumniModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            <Grid container spacing={3}>
+              {studentsList.map((alumni, alumniIndex) => (
+                <Grid item xs={12} sm={6} md={4} key={alumniIndex}>
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={alumni.photo}
+                      alt={alumni.fullName}
+                      sx={{
+                        objectFit: "cover",
+                        borderRadius: "8px 8px 0 0", // Rounded top corners
+                      }}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography
+                        variant="h6"
+                        gutterBottom
+                        sx={{ fontWeight: "bold", textAlign: "center" }} // Centered text
+                      >
+                        {alumni.fullName}
+                      </Typography>
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          bgcolor: "primary.light",
+                          color: "primary.dark",
+                          px: 2,
+                          py: 0.5,
+                          borderRadius: "15px",
+                          // display: "inline-block",
+                          mb: 2,
+                          textAlign: "center", // Centered text
+                        }}
+                      >
+                        <Typography variant="body2">
+                          Batch {alumni.batchYear}
+                        </Typography>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 1,
+                          textAlign: "center", // Centered text
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center", // Centered content
+                            alignItems: "center",
+                            gap: 1,
+                          }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{
+                              fontSize: "18px",
+                              color: "primary.main",
+                            }}
+                          >
+                            work
+                          </span>
+                          <Typography variant="body2">
+                            {alumni.profession}
+                          </Typography>
+                        </Box>
+
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center", // Centered content
+                            alignItems: "center",
+                            gap: 1,
+                          }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{
+                              fontSize: "18px",
+                              color: "primary.main",
+                            }}
+                          >
+                            location_on
+                          </span>
+                          <Typography variant="body2">
+                            {alumni.address}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </CardContent>
+
+                    <Box
+                      sx={{
+                        p: 2,
+                        borderTop: "1px solid",
+                        borderColor: "divider",
+                      }}
+                    >
+                      <Box sx={{ display: "flex", gap: 1 }}>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">email</span>
+                          }
+                          href={`mailto:${alumni.email}`}
+                          sx={{ flex: 1 }}
+                        >
+                          Email
+                        </Button>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">phone</span>
+                          }
+                          href={`tel:${alumni.phone}`}
+                          sx={{ flex: 1 }}
+                        >
+                          Call
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography variant="body2" color="text.secondary">
+                For updates to alumni information, please contact the school
+                administration.
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Developers Modal */}
+        <Dialog
+          open={openDevelopersModal}
+          onClose={handleCloseDevelopersModal}
+          maxWidth="lg"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+                Development Team
+              </Typography>
+              <IconButton onClick={handleCloseDevelopersModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            <Grid container spacing={3}>
+              {developers.map((developer, index) => (
+                <Grid item xs={12} md={4} key={index}>
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="240"
+                      image={developer.image}
+                      alt={developer.name}
+                      sx={{ objectFit: "cover" }}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography
+                        variant="h6"
+                        gutterBottom
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        {developer.name}
+                      </Typography>
+                      <Box
+                        sx={{
+                          bgcolor: "primary.light",
+                          color: "primary.dark",
+                          px: 2,
+                          py: 0.5,
+                          borderRadius: "15px",
+                          display: "inline-block",
+                          mb: 2,
+                        }}
+                      >
+                        <Typography variant="body2">
+                          {developer.role}
+                        </Typography>
+                      </Box>
+
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
+                        {developer.expertise}
+                      </Typography>
+
+                      <Box sx={{ mt: 2 }}>
+                        <Typography variant="subtitle2" gutterBottom>
+                          Technologies:
+                        </Typography>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 1,
+                          }}
+                        >
+                          {developer.technologies.map((tech, i) => (
+                            <Chip
+                              key={i}
+                              label={tech}
+                              size="small"
+                              sx={{
+                                bgcolor: "primary.light",
+                                color: "primary.dark",
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    </CardContent>
+
+                    <Box
+                      sx={{
+                        p: 2,
+                        borderTop: "1px solid",
+                        borderColor: "divider",
+                      }}
+                    >
+                      <Box sx={{ display: "flex", gap: 1 }}>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">code</span>
+                          }
+                          href={developer.githubProfile}
+                          target="_blank"
+                          sx={{ flex: 1 }}
+                        >
+                          GitHub
+                        </Button>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">work</span>
+                          }
+                          href={developer.linkedinProfile}
+                          target="_blank"
+                          sx={{ flex: 1 }}
+                        >
+                          LinkedIn
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography variant="body2" color="text.secondary">
+                This project was developed with ❤️ by our dedicated team.
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Hero Section with Carousel */}
+        <Box
+          style={{
+            fontSize: "8px",
+            backgroundColor: "#b388ff",
+            color: "white",
+            // "&:hover": {
+            //   fontSize: "12px",
+            // },
+          }}
+        >
+          <marquee behavior="scroll" direction="left">
+            Here all advertisements scroll.
+          </marquee>
+        </Box>
+        <Box
+          sx={{
+            position: "relative",
+            height: { xs: "40vh", sm: "50vh", md: "75vh" },
+          }}
+        >
+          <Paper
+            square
+            elevation={0}
+            sx={{
+              height: "100%",
+              position: "relative",
+              backgroundColor: "grey.800",
+              color: "#fff",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundImage: `url(${carouselImages[activeStep].imgPath})`,
+              transition: "background-image 0.5s ease-in-out",
+            }}
+          >
+            <Box
               sx={{
                 position: "absolute",
-                bottom: 0, // You can adjust the bottom distance as needed
-                left: "50%", // Centers horizontally
-                transform: "translateX(-50%)", // Ensures the element is centered by shifting it back by 50%
-                width: "auto", // Use auto or a fixed width if needed
-                background: "transparent",
+                top: 0,
+                bottom: 0,
+                right: 0,
+                left: 0,
+                backgroundColor: "rgba(0,0,0,.5)",
               }}
             />
-          </Box>
+            <Container
+              maxWidth="md"
+              sx={{
+                position: "relative",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                px: { xs: 2, sm: 3, md: 4 },
+              }}
+            >
+              <Typography
+                variant="h2"
+                component="h1"
+                gutterBottom
+                sx={{
+                  fontSize: { xs: "2rem", sm: "3rem", md: "3.75rem" },
+                }}
+              >
+                {carouselImages[activeStep].label}
+              </Typography>
+              <Typography
+                variant="h5"
+                paragraph
+                sx={{
+                  fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.5rem" },
+                }}
+              >
+                {carouselImages[activeStep].description}
+              </Typography>
+            </Container>
+          </Paper>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            sx={{
+              position: "absolute",
+              bottom: 0, // You can adjust the bottom distance as needed
+              left: "50%", // Centers horizontally
+              transform: "translateX(-50%)", // Ensures the element is centered by shifting it back by 50%
+              width: "auto", // Use auto or a fixed width if needed
+              background: "transparent",
+            }}
+          />
+        </Box>
 
-          {/* Achievements Section */}
-          <Container maxWidth="lg" sx={{ my: 4 }}>
+        {/* Achievements Section */}
+        <Container maxWidth="lg" sx={{ my: 4 }}>
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              textAlign: "center",
+              mb: 4,
+              fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" },
+              position: "relative",
+              "&:after": {
+                content: '""',
+                position: "absolute",
+                bottom: "-10px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "60px",
+                height: "3px",
+                backgroundColor: "primary.main",
+              },
+            }}
+          >
+            Latest Achievements
+          </Typography>
+
+          <Box sx={{ position: "relative" }}>
+            <IconButton
+              sx={{
+                position: "absolute",
+                left: -20,
+                top: "50%",
+                transform: "translateY(-50%)",
+                backgroundColor: "white",
+                boxShadow: 2,
+                "&:hover": { backgroundColor: "grey.100" },
+                zIndex: 2,
+              }}
+              onClick={() => {
+                const container = document.getElementById(
+                  "achievements-scroll"
+                );
+                container.scrollBy({ left: -300, behavior: "smooth" });
+              }}
+            >
+              <span className="material-icons">chevron_left</span>
+            </IconButton>
+
+            <Box
+              id="achievements-scroll"
+              sx={{
+                display: "flex",
+                overflowX: "auto",
+                gap: 3,
+                pb: 2,
+                scrollBehavior: "smooth",
+                "&::-webkit-scrollbar": { display: "none" },
+                msOverflowStyle: "none",
+                scrollbarWidth: "none",
+              }}
+            >
+              {achievements.map((achievement, index) => (
+                <Card
+                  key={index}
+                  sx={{
+                    minWidth: 300,
+                    maxWidth: 300,
+                    height: "300px",
+                    flex: "0 0 auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    transition: "transform 0.2s",
+                    "&:hover": {
+                      transform: achievement.isViewMore
+                        ? "translateY(-5px)"
+                        : "translateY(-5px)",
+                      // boxShadow: 3,
+                    },
+                    ...(achievement.isViewMore && {
+                      backgroundColor: "#b388ff",
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        backgroundColor: "warning.dark",
+                        color: "red",
+                        transform: "translateY(-5px)",
+                        boxShadow: 3,
+                      },
+                    }),
+                  }}
+                >
+                  {achievement.isViewMore ? (
+                    <CardContent
+                      sx={{
+                        textAlign: "center",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                        padding: "24px",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          backgroundColor: "rgba(255,255,255,0.2)",
+                          borderRadius: "50%",
+                          width: 80,
+                          height: 80,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          mb: 2,
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <span
+                          className="material-icons"
+                          style={{ fontSize: "40px" }}
+                        >
+                          {achievement.icon}
+                        </span>
+                      </Box>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ mt: 2, fontWeight: "bold" }}
+                      >
+                        {achievement.title}
+                      </Typography>
+                      <Typography variant="body1" sx={{ mt: 1, opacity: 0.9 }}>
+                        Click to explore more achievements
+                      </Typography>
+                    </CardContent>
+                  ) : (
+                    <CardContent
+                      sx={{
+                        flexGrow: 1,
+                        padding: "24px",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 2,
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            backgroundColor: "#b388ff",
+                            borderRadius: "50%",
+                            p: 1,
+                            mr: 2,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{ color: "white" }}
+                          >
+                            {achievement.icon}
+                          </span>
+                        </Box>
+                        <Typography variant="h6" component="div">
+                          {achievement.title}
+                        </Typography>
+                      </Box>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
+                        {achievement.date}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 4,
+                          WebkitBoxOrient: "vertical",
+                        }}
+                      >
+                        {achievement.description}
+                      </Typography>
+                    </CardContent>
+                  )}
+                </Card>
+              ))}
+            </Box>
+
+            <IconButton
+              sx={{
+                position: "absolute",
+                right: -20,
+                top: "50%",
+                transform: "translateY(-50%)",
+                backgroundColor: "white",
+                boxShadow: 2,
+                "&:hover": { backgroundColor: "grey.100" },
+                zIndex: 2,
+              }}
+              onClick={() => {
+                const container = document.getElementById(
+                  "achievements-scroll"
+                );
+                container.scrollBy({ left: 300, behavior: "smooth" });
+              }}
+            >
+              <span className="material-icons">chevron_right</span>
+            </IconButton>
+          </Box>
+        </Container>
+
+        {/* News & Updates */}
+        <Box sx={{ bgcolor: "grey.100", py: { xs: 2, md: 4, lg: 6 } }}>
+          <Container maxWidth="lg">
             <Typography
               variant="h4"
               gutterBottom
               sx={{
                 textAlign: "center",
                 mb: 4,
-                fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" },
                 position: "relative",
                 "&:after": {
                   content: '""',
@@ -1964,261 +2170,34 @@ const Dashboard = () => {
                 },
               }}
             >
-              Latest Achievements
+              News & Updates
             </Typography>
+            <div>
+              <div className="notification general">
+                <span className="icon">✔</span> Souviner Book release on 21st
+                December 2024
+              </div>
+              <div className="notification warning">
+                <span className="icon">✔</span> Website release on 21st December
+                2024
+              </div>
+              <div className="notification general">
+                <span className="icon">✔</span> ZPHS Kunur Golden Jubilee
+                celebrations on December 21st & 22nd 2024
+              </div>
 
-            <Box sx={{ position: "relative" }}>
-              <IconButton
-                sx={{
-                  position: "absolute",
-                  left: -20,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  backgroundColor: "white",
-                  boxShadow: 2,
-                  "&:hover": { backgroundColor: "grey.100" },
-                  zIndex: 2,
-                }}
-                onClick={() => {
-                  const container = document.getElementById(
-                    "achievements-scroll"
-                  );
-                  container.scrollBy({ left: -300, behavior: "smooth" });
-                }}
-              >
-                <span className="material-icons">chevron_left</span>
-              </IconButton>
-
-              <Box
-                id="achievements-scroll"
-                sx={{
-                  display: "flex",
-                  overflowX: "auto",
-                  gap: 3,
-                  pb: 2,
-                  scrollBehavior: "smooth",
-                  "&::-webkit-scrollbar": { display: "none" },
-                  msOverflowStyle: "none",
-                  scrollbarWidth: "none",
-                }}
-              >
-                {achievements.map((achievement, index) => (
-                  <Card
-                    key={index}
-                    sx={{
-                      minWidth: 300,
-                      maxWidth: 300,
-                      height: "300px",
-                      flex: "0 0 auto",
-                      display: "flex",
-                      flexDirection: "column",
-                      transition: "transform 0.2s",
-                      "&:hover": {
-                        transform: achievement.isViewMore
-                          ? "translateY(-5px)"
-                          : "translateY(-5px)",
-                        // boxShadow: 3,
-                      },
-                      ...(achievement.isViewMore && {
-                        backgroundColor: "#b388ff",
-                        color: "white",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          backgroundColor: "warning.dark",
-                          color: "red",
-                          transform: "translateY(-5px)",
-                          boxShadow: 3,
-                        },
-                      }),
-                    }}
-                  >
-                    {achievement.isViewMore ? (
-                      <CardContent
-                        sx={{
-                          textAlign: "center",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          height: "100%",
-                          padding: "24px",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            backgroundColor: "rgba(255,255,255,0.2)",
-                            borderRadius: "50%",
-                            width: 80,
-                            height: 80,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            mb: 2,
-                            transition: "all 0.3s ease",
-                          }}
-                        >
-                          <span
-                            className="material-icons"
-                            style={{ fontSize: "40px" }}
-                          >
-                            {achievement.icon}
-                          </span>
-                        </Box>
-                        <Typography
-                          variant="h6"
-                          component="div"
-                          sx={{ mt: 2, fontWeight: "bold" }}
-                        >
-                          {achievement.title}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          sx={{ mt: 1, opacity: 0.9 }}
-                        >
-                          Click to explore more achievements
-                        </Typography>
-                      </CardContent>
-                    ) : (
-                      <CardContent
-                        sx={{
-                          flexGrow: 1,
-                          padding: "24px",
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            mb: 2,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              backgroundColor: "#b388ff",
-                              borderRadius: "50%",
-                              p: 1,
-                              mr: 2,
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                          >
-                            <span
-                              className="material-icons"
-                              style={{ color: "white" }}
-                            >
-                              {achievement.icon}
-                            </span>
-                          </Box>
-                          <Typography variant="h6" component="div">
-                            {achievement.title}
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          gutterBottom
-                        >
-                          {achievement.date}
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            display: "-webkit-box",
-                            WebkitLineClamp: 4,
-                            WebkitBoxOrient: "vertical",
-                          }}
-                        >
-                          {achievement.description}
-                        </Typography>
-                      </CardContent>
-                    )}
-                  </Card>
-                ))}
-              </Box>
-
-              <IconButton
-                sx={{
-                  position: "absolute",
-                  right: -20,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  backgroundColor: "white",
-                  boxShadow: 2,
-                  "&:hover": { backgroundColor: "grey.100" },
-                  zIndex: 2,
-                }}
-                onClick={() => {
-                  const container = document.getElementById(
-                    "achievements-scroll"
-                  );
-                  container.scrollBy({ left: 300, behavior: "smooth" });
-                }}
-              >
-                <span className="material-icons">chevron_right</span>
-              </IconButton>
-            </Box>
-          </Container>
-
-          {/* News & Updates */}
-          <Box sx={{ bgcolor: "grey.100", py: { xs: 2, md: 4, lg: 6 } }}>
-            <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                  textAlign: "center",
-                  mb: 4,
-                  position: "relative",
-                  "&:after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: "-10px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "60px",
-                    height: "3px",
-                    backgroundColor: "primary.main",
-                  },
-                }}
-              >
-                News & Updates
-              </Typography>
-              <div>
-                <div className="notification general">
-                  <span className="icon">✔</span> Souviner Book release on 21st
-                  December 2024
-                </div>
-                <div className="notification warning">
-                  <span className="icon">✔</span> Website release on 21st
-                  December 2024
-                </div>
-                <div className="notification general">
-                  <span className="icon">✔</span> ZPHS Kunur Golden Jubilee
-                  celebrations on December 21st & 22nd 2024
-                </div>
-
-                {/* <div className="notification warning">
+              {/* <div className="notification warning">
                 <span className="icon">✔</span> Attention towords every single
                 one
               </div> */}
 
-                <div className="notification warning">
-                  <span className="icon">✔</span> Gathering Previous 50 Years
-                  Students Data to One place
-                </div>
+              <div className="notification warning">
+                <span className="icon">✔</span> Gathering Previous 50 Years
+                Students Data to One place
               </div>
+            </div>
 
-              {/*<Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+            {/*<Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
                     {newsUpdates.map((item, index) => (
                       <Grid item xs={12} key={index}>
                         <Card
@@ -2296,219 +2275,215 @@ const Dashboard = () => {
                       </Grid>
                     ))}
                   </Grid>*/}
-            </Container>
-          </Box>
+          </Container>
+        </Box>
 
-          {/* Gallery Section */}
-          <Box id="photo-gallery" sx={{ py: { xs: 2, md: 4, lg: 6 } }}>
-            <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                gutterBottom
+        {/* Gallery Section */}
+        <Box id="photo-gallery" sx={{ py: { xs: 2, md: 4, lg: 6 } }}>
+          <Container maxWidth="lg">
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{
+                textAlign: "center",
+                mb: 4,
+                position: "relative",
+                "&:after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: "-10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "60px",
+                  height: "3px",
+                  backgroundColor: "primary.main",
+                },
+              }}
+            >
+              Media Gallery
+            </Typography>
+
+            {/* Tabs for Photos and Videos */}
+            <Tabs
+              value={tabValue}
+              onChange={handleTabChange}
+              variant="fullWidth"
+              sx={{
+                borderBottom: 1,
+                borderColor: "divider",
+                marginBottom: 2,
+              }}
+            >
+              <Tab
+                label="Photos"
                 sx={{
-                  textAlign: "center",
-                  mb: 4,
-                  position: "relative",
-                  "&:after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: "-10px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "60px",
-                    height: "3px",
-                    backgroundColor: "primary.main",
+                  fontWeight: tabValue === 0 ? "bold" : "normal",
+                  color: tabValue === 0 ? "primary.main" : "text.secondary",
+                  "&:hover": {
+                    color: "primary.main",
                   },
                 }}
-              >
-                Media Gallery
-              </Typography>
-
-              {/* Tabs for Photos and Videos */}
-              <Tabs
-                value={tabValue}
-                onChange={handleTabChange}
-                variant="fullWidth"
+              />
+              <Tab
+                label="Videos"
                 sx={{
-                  borderBottom: 1,
-                  borderColor: "divider",
-                  marginBottom: 2,
+                  fontWeight: tabValue === 1 ? "bold" : "normal",
+                  color: tabValue === 1 ? "primary.main" : "text.secondary",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
                 }}
-              >
-                <Tab
-                  label="Photos"
-                  sx={{
-                    fontWeight: tabValue === 0 ? "bold" : "normal",
-                    color: tabValue === 0 ? "primary.main" : "text.secondary",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
-                  }}
-                />
-                <Tab
-                  label="Videos"
-                  sx={{
-                    fontWeight: tabValue === 1 ? "bold" : "normal",
-                    color: tabValue === 1 ? "primary.main" : "text.secondary",
-                    "&:hover": {
-                      color: "primary.main",
-                    },
-                  }}
-                />
-              </Tabs>
+              />
+            </Tabs>
 
-              {/* Conditional rendering based on selected tab */}
-              {tabValue === 0 ? (
-                <Grid container spacing={3}>
-                  {galleryImages.slice(0, 3).map((item, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                      <Card
-                        sx={{
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          transition: "all 0.3s ease",
-                          cursor: "pointer",
-                          overflow: "hidden",
-                          borderRadius: "15px",
-                          position: "relative",
-                          "&:hover": {
-                            transform: "translateY(-8px)",
-                            boxShadow: 6,
-                            "& .gallery-image": {
-                              transform: "scale(1.1)",
-                            },
-                            "& .gallery-overlay": {
-                              opacity: 1,
-                            },
-                            "& .gallery-content": {
-                              transform: "translateY(0)",
-                            },
+            {/* Conditional rendering based on selected tab */}
+            {tabValue === 0 ? (
+              <Grid container spacing={3}>
+                {galleryImages.slice(0, 3).map((item, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Card
+                      sx={{
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        transition: "all 0.3s ease",
+                        cursor: "pointer",
+                        overflow: "hidden",
+                        borderRadius: "15px",
+                        position: "relative",
+                        "&:hover": {
+                          transform: "translateY(-8px)",
+                          boxShadow: 6,
+                          "& .gallery-image": {
+                            transform: "scale(1.1)",
                           },
+                          "& .gallery-overlay": {
+                            opacity: 1,
+                          },
+                          "& .gallery-content": {
+                            transform: "translateY(0)",
+                          },
+                        },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: "relative",
+                          paddingTop: "75%", // 4:3 aspect ratio
+                          overflow: "hidden",
                         }}
                       >
-                        <Box
+                        <CardMedia
+                          component="img"
+                          image={item.image}
+                          alt={item.title}
+                          className="gallery-image"
                           sx={{
-                            position: "relative",
-                            paddingTop: "75%", // 4:3 aspect ratio
-                            overflow: "hidden",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            transition: "transform 0.5s ease",
+                          }}
+                        />
+                        <Box
+                          className="gallery-overlay"
+                          sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            bgcolor: "rgba(0, 0, 0, 0.7)",
+                            opacity: 0,
+                            transition: "opacity 0.3s ease",
+                          }}
+                        />
+                        <Box
+                          className="gallery-content"
+                          sx={{
+                            position: "absolute",
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            p: 3,
+                            color: "white",
+                            transform: "translateY(20px)",
+                            transition: "transform 0.3s ease",
+                            zIndex: 1,
                           }}
                         >
-                          <CardMedia
-                            component="img"
-                            image={item.image}
-                            alt={item.title}
-                            className="gallery-image"
+                          <Typography
+                            variant="h6"
                             sx={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover",
-                              transition: "transform 0.5s ease",
-                            }}
-                          />
-                          <Box
-                            className="gallery-overlay"
-                            sx={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              bottom: 0,
-                              bgcolor: "rgba(0, 0, 0, 0.7)",
-                              opacity: 0,
-                              transition: "opacity 0.3s ease",
-                            }}
-                          />
-                          <Box
-                            className="gallery-content"
-                            sx={{
-                              position: "absolute",
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              p: 3,
-                              color: "white",
-                              transform: "translateY(20px)",
-                              transition: "transform 0.3s ease",
-                              zIndex: 1,
+                              mb: 1,
+                              fontWeight: "bold",
+                              textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
                             }}
                           >
-                            <Typography
-                              variant="h6"
-                              sx={{
-                                mb: 1,
-                                fontWeight: "bold",
-                                textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-                              }}
+                            {item.title}
+                          </Typography>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 1,
+                            }}
+                          >
+                            <span
+                              className="material-icons"
+                              style={{ fontSize: "18px" }}
                             >
-                              {item.title}
-                            </Typography>
-                            <Box
-                              sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 1,
-                              }}
-                            >
-                              <span
-                                className="material-icons"
-                                style={{ fontSize: "18px" }}
-                              >
-                                calendar_today
-                              </span>
-                              <Typography variant="body2">
-                                {item.date}
-                              </Typography>
-                            </Box>
-                            <Button
-                              variant="contained"
-                              size="small"
-                              onClick={() => handleOpenGalleryModal(item)}
-                              sx={{
-                                mt: 2,
-                                bgcolor: "primary.main",
-                                "&:hover": {
-                                  bgcolor: "primary.dark",
-                                },
-                              }}
-                              startIcon={
-                                <span className="material-icons">
-                                  visibility
-                                </span>
-                              }
-                            >
-                              View Details
-                            </Button>
+                              calendar_today
+                            </span>
+                            <Typography variant="body2">{item.date}</Typography>
                           </Box>
+                          <Button
+                            variant="contained"
+                            size="small"
+                            onClick={() => handleOpenGalleryModal(item)}
+                            sx={{
+                              mt: 2,
+                              bgcolor: "primary.main",
+                              "&:hover": {
+                                bgcolor: "primary.dark",
+                              },
+                            }}
+                            startIcon={
+                              <span className="material-icons">visibility</span>
+                            }
+                          >
+                            View Details
+                          </Button>
                         </Box>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              ) : (
-                <Grid container spacing={3}>
-                  {youtubeVideos.map((video, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                      <Card>
-                        <CardMedia
-                          component="iframe"
-                          src={`https://www.youtube.com/embed/${video.id}`}
-                          title={video.title}
-                          sx={{ height: "200px" }}
-                        />
-                        <CardContent>
-                          <Typography variant="h6">{video.title}</Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              )}
+                      </Box>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            ) : (
+              <Grid container spacing={3}>
+                {youtubeVideos.map((video, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Card>
+                      <CardMedia
+                        component="iframe"
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        title={video.title}
+                        sx={{ height: "200px" }}
+                      />
+                      <CardContent>
+                        <Typography variant="h6">{video.title}</Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            )}
 
-              {/* <Box sx={{ textAlign: "center", mt: 4 }}>
+            {/* <Box sx={{ textAlign: "center", mt: 4 }}>
               <Button
                 variant="contained"
                 endIcon={<span className="material-icons">arrow_forward</span>}
@@ -2529,126 +2504,126 @@ const Dashboard = () => {
                 View Gallery..
               </Button>
             </Box> */}
-            </Container>
-          </Box>
-          {/* Future Focus Section */}
-          <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, bgcolor: "grey.100" }}>
-            <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                  textAlign: "center",
-                  mb: 4,
-                  position: "relative",
-                  "&:after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: "-10px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "60px",
-                    height: "3px",
-                    backgroundColor: "primary.main",
-                  },
-                }}
-              >
-                Future Focus
-              </Typography>
+          </Container>
+        </Box>
+        {/* Future Focus Section */}
+        <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, bgcolor: "grey.100" }}>
+          <Container maxWidth="lg">
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{
+                textAlign: "center",
+                mb: 4,
+                position: "relative",
+                "&:after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: "-10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "60px",
+                  height: "3px",
+                  backgroundColor: "primary.main",
+                },
+              }}
+            >
+              Future Focus
+            </Typography>
 
-              <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
-                {futureFocus.map((item, index) => (
-                  <Grid item xs={12} sm={6} md={4} key={index}>
-                    <Card
-                      sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        transition: "all 0.3s ease",
-                        position: "relative",
-                        overflow: "visible",
-                        "&:hover": {
-                          transform: "translateY(-8px)",
-                          boxShadow: 6,
-                          "& .hover-effect": {
-                            transform: "rotate(360deg)",
-                          },
+            <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+              {futureFocus.map((item, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "all 0.3s ease",
+                      position: "relative",
+                      overflow: "visible",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: 6,
+                        "& .hover-effect": {
+                          transform: "rotate(360deg)",
                         },
-                      }}
-                    >
-                      <CardContent>
+                      },
+                    }}
+                  >
+                    <CardContent>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          textAlign: "center",
+                          position: "relative",
+                        }}
+                      >
                         <Box
+                          className="hover-effect"
                           sx={{
+                            position: "absolute",
+                            top: -30,
+                            backgroundColor: "primary.main",
+                            borderRadius: "50%",
+                            width: 60,
+                            height: 60,
                             display: "flex",
-                            flexDirection: "column",
                             alignItems: "center",
-                            textAlign: "center",
-                            position: "relative",
+                            justifyContent: "center",
+                            transition: "transform 0.8s ease",
+                            boxShadow: 3,
                           }}
                         >
-                          <Box
-                            className="hover-effect"
+                          <span
+                            className="material-icons"
+                            style={{ color: "white", fontSize: "30px" }}
+                          >
+                            {item.icon}
+                          </span>
+                        </Box>
+                        <Box sx={{ mt: 4 }}>
+                          <Typography
+                            variant="h5"
+                            gutterBottom
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            {item.title}
+                          </Typography>
+                          <Typography
+                            variant="subtitle1"
+                            color="primary.main"
+                            gutterBottom
                             sx={{
-                              position: "absolute",
-                              top: -30,
-                              backgroundColor: "primary.main",
-                              borderRadius: "50%",
-                              width: 60,
-                              height: 60,
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              transition: "transform 0.8s ease",
-                              boxShadow: 3,
+                              fontWeight: "medium",
+                              display: "inline-block",
+                              backgroundColor: "primary.light",
+                              color: "primary.dark",
+                              px: 2,
+                              py: 0.5,
+                              borderRadius: "15px",
+                              mb: 2,
                             }}
                           >
-                            <span
-                              className="material-icons"
-                              style={{ color: "white", fontSize: "30px" }}
-                            >
-                              {item.icon}
-                            </span>
-                          </Box>
-                          <Box sx={{ mt: 4 }}>
-                            <Typography
-                              variant="h5"
-                              gutterBottom
-                              sx={{ fontWeight: "bold" }}
-                            >
-                              {item.title}
-                            </Typography>
-                            <Typography
-                              variant="subtitle1"
-                              color="primary.main"
-                              gutterBottom
-                              sx={{
-                                fontWeight: "medium",
-                                display: "inline-block",
-                                backgroundColor: "primary.light",
-                                color: "primary.dark",
-                                px: 2,
-                                py: 0.5,
-                                borderRadius: "15px",
-                                mb: 2,
-                              }}
-                            >
-                              Target: {item.target}
-                            </Typography>
-                            <Typography variant="body1" color="text.secondary">
-                              {item.description}
-                            </Typography>
-                          </Box>
+                            Target: {item.target}
+                          </Typography>
+                          <Typography variant="body1" color="text.secondary">
+                            {item.description}
+                          </Typography>
                         </Box>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            </Container>
-          </Box>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </Box>
 
-          {/* NRI Stories Section */}
-          {/*<Box id="success-stories" sx={{ py: 6, bgcolor: "grey.50" }}>
+        {/* NRI Stories Section */}
+        {/*<Box id="success-stories" sx={{ py: 6, bgcolor: "grey.50" }}>
           <Container maxWidth="lg">
             <Typography
               variant="h4"
@@ -2745,678 +2720,464 @@ const Dashboard = () => {
           </Container>
         </Box>*/}
 
-          {/* About Us Section */}
-          <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, mb: 4, bgcolor: "grey.100" }}>
-            <Container maxWidth="lg">
-              <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                  textAlign: "center",
-                  mb: 4,
-                  fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" },
-                  position: "relative",
-                  "&:after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: "-10px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "60px",
-                    height: "3px",
-                    backgroundColor: "primary.main",
-                  },
-                }}
-              >
-                About Us
-              </Typography>
+        {/* About Us Section */}
+        <Box sx={{ py: { xs: 2, md: 4, lg: 6 }, mb: 4, bgcolor: "grey.100" }}>
+          <Container maxWidth="lg">
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{
+                textAlign: "center",
+                mb: 4,
+                fontSize: { xs: "1.75rem", sm: "2rem", md: "2.25rem" },
+                position: "relative",
+                "&:after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: "-10px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "60px",
+                  height: "3px",
+                  backgroundColor: "primary.main",
+                },
+              }}
+            >
+              About Us
+            </Typography>
 
-              <Grid
-                container
-                spacing={{ xs: 2, sm: 3, md: 4 }}
-                sx={{
-                  minHeight: {
-                    xs: "400px", // Minimum height for extra small screens
-                    sm: "500px", // Minimum height for small screens
-                    md: "600px", // Minimum height for medium and larger screens
-                  },
-                  height: "100%", // Ensure it takes full height of its container
-                }}
-              >
-                {/* School History */}
-                <Grid item xs={12} md={6}>
-                  <Card
-                    sx={{
-                      // height: "100%",
-                      // height: { xs: 10, sm: 3, md: 4 },
-                      display: "flex",
-                      flexDirection: "column",
-                      p: { xs: 2, sm: 2, md: 3 },
-                      m: { xs: 2, sm: 2, md: 3 },
+            <Grid
+              container
+              spacing={{ xs: 2, sm: 3, md: 4 }}
+              sx={{
+                minHeight: {
+                  xs: "400px", // Minimum height for extra small screens
+                  sm: "500px", // Minimum height for small screens
+                  md: "600px", // Minimum height for medium and larger screens
+                },
+                height: "100%", // Ensure it takes full height of its container
+              }}
+            >
+              {/* School History */}
+              <Grid item xs={12} md={6}>
+                <Card
+                  sx={{
+                    // height: "100%",
+                    // height: { xs: 10, sm: 3, md: 4 },
+                    display: "flex",
+                    flexDirection: "column",
+                    p: { xs: 2, sm: 2, md: 3 },
+                    m: { xs: 2, sm: 2, md: 3 },
 
-                      fontSize: {
-                        xs: "0.875rem", // Extra small screens
-                        sm: "1rem", // Small screens
-                        md: "1.125rem", // Medium and larger screens
-                      },
-                    }}
-                  >
-                    <Typography variant="h5" gutterBottom color="primary">
-                      Our History
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      Established in 1950, ZPHS Kunur has been a beacon of
-                      learning in our community for over 74 years. What started
-                      as a small school with few students has grown into a
-                      prestigious institution serving over 500 students per year
-                      today.
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      Our journey has been marked by continuous growth and
-                      adaptation to modern educational needs while maintaining
-                      our core values of academic excellence and character
-                      building.
-                    </Typography>
-                    <Typography variant="body1">
-                      Through decades of dedicated service, we have shaped
-                      thousands of young minds and produced numerous
-                      distinguished alumni who are making significant
-                      contributions in various fields globally.
-                    </Typography>
-                  </Card>
-                </Grid>
-
-                {/* Google Map */}
-                <Grid item xs={12} md={6}>
-                  <Card
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        flex: 1,
-                        minHeight: "300px",
-                        width: "100%",
-                      }}
-                    >
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15308.310789227932!2d79.4824236!3d17.8419678!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3356bb3a5df671%3A0x791f9bf3757175a2!2sZPHS%20Kunur!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                      ></iframe>
-                    </Box>
-                    <Box sx={{ p: 3 }}>
-                      <Typography variant="h6" gutterBottom>
-                        Our Location
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        ZPHS Kunur, Near Ranganayaka swamy temple, Kunur
-                        Village, Zaffargadh mandal, Jangaon District, Telengana
-                        State india Country
-                      </Typography>
-                    </Box>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Container>
-          </Box>
-
-          {/* Donate Modal */}
-          <Dialog
-            open={openDonateModal}
-            onClose={handleCloseDonateModal}
-            maxWidth="sm"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
+                    fontSize: {
+                      xs: "0.875rem", // Extra small screens
+                      sm: "1rem", // Small screens
+                      md: "1.125rem", // Medium and larger screens
+                    },
+                  }}
                 >
-                  Make a Donation
-                </Typography>
-                <IconButton onClick={handleCloseDonateModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
+                  <Typography variant="h5" gutterBottom color="primary">
+                    Our History
+                  </Typography>
+                  <Typography variant="body1" paragraph>
+                    Established in 1950, ZPHS Kunur has been a beacon of
+                    learning in our community for over 74 years. What started as
+                    a small school with few students has grown into a
+                    prestigious institution serving over 500 students per year
+                    today.
+                  </Typography>
+                  <Typography variant="body1" paragraph>
+                    Our journey has been marked by continuous growth and
+                    adaptation to modern educational needs while maintaining our
+                    core values of academic excellence and character building.
+                  </Typography>
+                  <Typography variant="body1">
+                    Through decades of dedicated service, we have shaped
+                    thousands of young minds and produced numerous distinguished
+                    alumni who are making significant contributions in various
+                    fields globally.
+                  </Typography>
+                </Card>
+              </Grid>
 
-              <Typography variant="body1" sx={{ mb: 3, textAlign: "center" }}>
-                Scan the QR code below to make your donation
+              {/* Google Map */}
+              <Grid item xs={12} md={6}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      flex: 1,
+                      minHeight: "300px",
+                      width: "100%",
+                    }}
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15308.310789227932!2d79.4824236!3d17.8419678!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3356bb3a5df671%3A0x791f9bf3757175a2!2sZPHS%20Kunur!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                    ></iframe>
+                  </Box>
+                  <Box sx={{ p: 3 }}>
+                    <Typography variant="h6" gutterBottom>
+                      Our Location
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      ZPHS Kunur, Near Ranganayaka swamy temple, Kunur Village,
+                      Zaffargadh mandal, Jangaon District, Telengana State india
+                      Country
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+
+        {/* Donate Modal */}
+        <Dialog
+          open={openDonateModal}
+          onClose={handleCloseDonateModal}
+          maxWidth="sm"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+                Make a Donation
               </Typography>
+              <IconButton onClick={handleCloseDonateModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
 
-              {/* QR Code SVG */}
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  mb: 3,
-                  p: 2,
-                  border: "2px dashed",
+            <Typography variant="body1" sx={{ mb: 3, textAlign: "center" }}>
+              Scan the QR code below to make your donation
+            </Typography>
+
+            {/* QR Code SVG */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mb: 3,
+                p: 2,
+                border: "2px dashed",
+                borderColor: "primary.main",
+                borderRadius: 2,
+              }}
+            >
+              <img
+                src="/QRCode.jpg"
+                alt="Donation QR Code removed"
+                style={{
+                  border: "2px solid",
                   borderColor: "primary.main",
                   borderRadius: 2,
+                  width: 200,
+                  height: 200,
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                mb: 1,
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 2,
+                  mt: 4,
+                  borderBottom: "2px solid",
+                  borderColor: "primary.main",
+                  pb: 1,
                 }}
               >
-                <img
-                  src="/QRCode.jpg"
-                  alt="Donation QR Code removed"
-                  style={{
-                    border: "2px solid",
-                    borderColor: "primary.main",
-                    borderRadius: 2,
-                    width: 200,
-                    height: 200,
-                    objectFit: "contain",
+                Donations
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 2,
+                  mt: 4,
+                  borderBottom: "2px solid",
+                  borderColor: "primary.main",
+                  color: "green",
+                  pb: 1,
+                }}
+              >
+                Total:{" "}
+                {new Intl.NumberFormat("en-IN", {
+                  style: "currency",
+                  currency: "INR",
+                }).format(
+                  previousDonations.reduce((acc, ele) => acc + ele.amount, 0)
+                )}
+              </Typography>
+            </Box>
+            <Box sx={{ maxHeight: "200px", overflow: "auto" }}>
+              {previousDonations.reverse().map((donation, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    mb: 2,
+                    p: 2,
+                    bgcolor: "grey.50",
+                    borderRadius: 1,
+                    "&:hover": { bgcolor: "grey.100" },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      mb: 1,
+                    }}
+                  >
+                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                      {donation.name}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      color="primary"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      {/* ₹{donation.amount}*/}
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: "INR",
+                      }).format(donation.amount)}
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      color: "text.secondary",
+                    }}
+                  >
+                    <Typography variant="body2">{donation.purpose}</Typography>
+                    {/*<Typography variant="body2">
+                            {new Date(donation.date).toLocaleDateString()}
+                          </Typography>*/}
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography variant="body2" color="text.secondary">
+                For any queries regarding donations, please contact us at:
+                <br />
+                donations@zphskunur.in | +91 9876543210
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Gallery Modal */}
+        <Dialog
+          open={openGalleryModal}
+          onClose={handleCloseGalleryModal}
+          maxWidth="md"
+          fullWidth
+        >
+          <Box sx={{ position: "relative" }}>
+            <IconButton
+              onClick={handleCloseGalleryModal}
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                color: "white",
+                bgcolor: "rgba(0,0,0,0.5)",
+                zIndex: 1,
+                "&:hover": {
+                  bgcolor: "rgba(0,0,0,0.7)",
+                },
+              }}
+            >
+              <span className="material-icons">close</span>
+            </IconButton>
+
+            <Box sx={{ position: "relative" }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  paddingTop: "56.25%",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={galleryCarouselImages[galleryCarouselIndex]}
+                  alt="Gallery Image"
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "opacity 0.5s ease-in-out",
                   }}
                 />
               </Box>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  mb: 1,
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{
-                    mb: 2,
-                    mt: 4,
-                    borderBottom: "2px solid",
-                    borderColor: "primary.main",
-                    pb: 1,
-                  }}
-                >
-                  Donations
-                </Typography>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    mb: 2,
-                    mt: 4,
-                    borderBottom: "2px solid",
-                    borderColor: "primary.main",
-                    color: "green",
-                    pb: 1,
-                  }}
-                >
-                  Total:{" "}
-                  {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                  }).format(
-                    previousDonations.reduce((acc, ele) => acc + ele.amount, 0)
-                  )}
-                </Typography>
-              </Box>
-              <Box sx={{ maxHeight: "200px", overflow: "auto" }}>
-                {previousDonations.reverse().map((donation, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      mb: 2,
-                      p: 2,
-                      bgcolor: "grey.50",
-                      borderRadius: 1,
-                      "&:hover": { bgcolor: "grey.100" },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        mb: 1,
-                      }}
-                    >
-                      <Typography
-                        variant="subtitle1"
-                        sx={{ fontWeight: "bold" }}
-                      >
-                        {donation.name}
-                      </Typography>
-                      <Typography
-                        variant="subtitle1"
-                        color="primary"
-                        sx={{ fontWeight: "bold" }}
-                      >
-                        {/* ₹{donation.amount}*/}
-                        {new Intl.NumberFormat("en-IN", {
-                          style: "currency",
-                          currency: "INR",
-                        }).format(donation.amount)}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        color: "text.secondary",
-                      }}
-                    >
-                      <Typography variant="body2">
-                        {donation.purpose}
-                      </Typography>
-                      {/*<Typography variant="body2">
-                            {new Date(donation.date).toLocaleDateString()}
-                          </Typography>*/}
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-
-              <Box sx={{ mt: 3, textAlign: "center" }}>
-                <Typography variant="body2" color="text.secondary">
-                  For any queries regarding donations, please contact us at:
-                  <br />
-                  donations@zphskunur.in | +91 9876543210
-                </Typography>
-              </Box>
-            </Box>
-          </Dialog>
-
-          {/* Gallery Modal */}
-          <Dialog
-            open={openGalleryModal}
-            onClose={handleCloseGalleryModal}
-            maxWidth="md"
-            fullWidth
-          >
-            <Box sx={{ position: "relative" }}>
               <IconButton
-                onClick={handleCloseGalleryModal}
                 sx={{
                   position: "absolute",
-                  right: 8,
-                  top: 8,
+                  left: 8,
+                  top: "50%",
+                  transform: "translateY(-50%)",
                   color: "white",
                   bgcolor: "rgba(0,0,0,0.5)",
-                  zIndex: 1,
                   "&:hover": {
                     bgcolor: "rgba(0,0,0,0.7)",
                   },
                 }}
+                onClick={() =>
+                  setGalleryCarouselIndex((prev) =>
+                    prev === 0 ? galleryCarouselImages.length - 1 : prev - 1
+                  )
+                }
               >
-                <span className="material-icons">close</span>
+                <span className="material-icons">chevron_left</span>
               </IconButton>
 
-              <Box sx={{ position: "relative" }}>
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: "100%",
-                    paddingTop: "56.25%",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={galleryCarouselImages[galleryCarouselIndex]}
-                    alt="Gallery Image"
+              <IconButton
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  color: "white",
+                  bgcolor: "rgba(0,0,0,0.5)",
+                  "&:hover": {
+                    bgcolor: "rgba(0,0,0,0.7)",
+                  },
+                }}
+                onClick={() =>
+                  setGalleryCarouselIndex((prev) =>
+                    prev === galleryCarouselImages.length - 1 ? 0 : prev + 1
+                  )
+                }
+              >
+                <span className="material-icons">chevron_right</span>
+              </IconButton>
+
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: 16,
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 1,
+                }}
+              >
+                {galleryCarouselImages.map((_, index) => (
+                  <Box
+                    key={index}
+                    onClick={() => setGalleryCarouselIndex(index)}
                     sx={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "opacity 0.5s ease-in-out",
+                      width: 12,
+                      height: 12,
+                      borderRadius: "50%",
+                      bgcolor:
+                        index === galleryCarouselIndex
+                          ? "white"
+                          : "rgba(255,255,255,0.5)",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        bgcolor: "white",
+                      },
                     }}
                   />
-                </Box>
-
-                <IconButton
-                  sx={{
-                    position: "absolute",
-                    left: 8,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "white",
-                    bgcolor: "rgba(0,0,0,0.5)",
-                    "&:hover": {
-                      bgcolor: "rgba(0,0,0,0.7)",
-                    },
-                  }}
-                  onClick={() =>
-                    setGalleryCarouselIndex((prev) =>
-                      prev === 0 ? galleryCarouselImages.length - 1 : prev - 1
-                    )
-                  }
-                >
-                  <span className="material-icons">chevron_left</span>
-                </IconButton>
-
-                <IconButton
-                  sx={{
-                    position: "absolute",
-                    right: 8,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "white",
-                    bgcolor: "rgba(0,0,0,0.5)",
-                    "&:hover": {
-                      bgcolor: "rgba(0,0,0,0.7)",
-                    },
-                  }}
-                  onClick={() =>
-                    setGalleryCarouselIndex((prev) =>
-                      prev === galleryCarouselImages.length - 1 ? 0 : prev + 1
-                    )
-                  }
-                >
-                  <span className="material-icons">chevron_right</span>
-                </IconButton>
-
-                <Box
-                  sx={{
-                    position: "absolute",
-                    bottom: 16,
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 1,
-                  }}
-                >
-                  {galleryCarouselImages.map((_, index) => (
-                    <Box
-                      key={index}
-                      onClick={() => setGalleryCarouselIndex(index)}
-                      sx={{
-                        width: 12,
-                        height: 12,
-                        borderRadius: "50%",
-                        bgcolor:
-                          index === galleryCarouselIndex
-                            ? "white"
-                            : "rgba(255,255,255,0.5)",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          bgcolor: "white",
-                        },
-                      }}
-                    />
-                  ))}
-                </Box>
+                ))}
               </Box>
             </Box>
-          </Dialog>
+          </Box>
+        </Dialog>
 
-          {/* Students Modal */}
-          <Dialog
-            open={openStudentsModal}
-            onClose={handleCloseStudentsModal}
-            maxWidth="lg"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
+        {/* Students Modal */}
+        <Dialog
+          open={openStudentsModal}
+          onClose={handleCloseStudentsModal}
+          maxWidth="lg"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ fontWeight: "bold", fontSize: "1.25rem" }} // Reduced font size
+              >
+                All Students Directory
+              </Typography>
+              <IconButton onClick={handleCloseStudentsModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            {/* New Student Button */}
+            <Box sx={{ mb: 3, textAlign: "right" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                // href="http://localhost:1954/form"
+                // href="https://sakinalaraju100.github.io/zphs-school/public/addStudentForm.html"
+              >
+                New Student
+              </Button>
+            </Box>
+
+            {/* Filters Section */}
+
+            <Box sx={{ mb: 3 }}>
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
+                  flexDirection: "row",
+                  gap: 2,
+                  flexWrap: "wrap",
+                  mb: 2,
                 }}
               >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold", fontSize: "1.25rem" }} // Reduced font size
-                >
-                  All Students Directory
-                </Typography>
-                <IconButton onClick={handleCloseStudentsModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
-
-              {/* New Student Button */}
-              <Box sx={{ mb: 3, textAlign: "right" }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  // href="http://localhost:1954/form"
-                  // href="https://sakinalaraju100.github.io/zphs-school/public/addStudentForm.html"
-                >
-                  New Student
-                </Button>
-              </Box>
-
-              {/* Filters Section */}
-
-              <Box sx={{ mb: 3 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 2,
-                    flexWrap: "wrap",
-                    mb: 2,
-                  }}
-                >
-                  <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
-                    <Typography
-                      variant="subtitle2"
-                      gutterBottom
-                      sx={{ fontSize: "0.875rem" }}
-                    ></Typography>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        bgcolor: "grey.100",
-                        borderRadius: 1,
-                        px: 2,
-                      }}
-                    >
-                      <span
-                        className="material-icons"
-                        sx={{ color: "grey.500" }}
-                      >
-                        search
-                      </span>
-                      <input
-                        type="text"
-                        value={nameFilter}
-                        onChange={(e) => setNameFilter(e.target.value)}
-                        placeholder="Filter by surname, name, profession, or address..."
-                        style={{
-                          border: "none",
-                          outline: "none",
-                          padding: "8px",
-                          backgroundColor: "transparent",
-                          width: "100%",
-                        }}
-                      />
-                      {nameFilter && (
-                        <IconButton
-                          onClick={() => setNameFilter("")}
-                          sx={{ ml: 1 }}
-                        >
-                          <span
-                            className="material-icons"
-                            style={{ color: "grey.500" }}
-                          >
-                            clear
-                          </span>
-                        </IconButton>
-                      )}
-                    </Box>
-                  </Box>
-
-                  <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
-                    <Typography
-                      variant="subtitle2"
-                      gutterBottom
-                      sx={{ fontSize: "0.875rem" }}
-                    ></Typography>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        bgcolor: "grey.100",
-                        borderRadius: 1,
-                        px: 2,
-                      }}
-                    >
-                      <span
-                        className="material-icons"
-                        sx={{ color: "grey.500" }}
-                      >
-                        school
-                      </span>
-                      <select
-                        value={batchYearFilter}
-                        onChange={(e) => setBatchYearFilter(e.target.value)}
-                        style={{
-                          border: "none",
-                          outline: "none",
-                          padding: "8px",
-                          backgroundColor: "transparent",
-                          width: "100%",
-                        }}
-                      >
-                        <option value="">All Batch Years</option>
-                        {getBatchYears().map((year, yearIndex) => (
-                          <option key={yearIndex} value={year}>
-                            {year}
-                          </option>
-                        ))}
-                      </select>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-
-              <Box sx={{ overflowX: "auto" }}>
-                <Table sx={{ minWidth: 650 }}>
-                  <TableHead>
-                    <TableRow sx={{ bgcolor: "primary.main" }}>
-                      <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                        ID
-                      </TableCell>
-
-                      <TableCell
-                        sx={{
-                          color: "white",
-                          fontWeight: "bold",
-                          position: "sticky",
-                          left: 0,
-                          backgroundColor: "primary.main",
-                          zIndex: 1,
-                        }}
-                      >
-                        Full name
-                      </TableCell>
-
-                      <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                        Contact
-                      </TableCell>
-                      <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                        Village
-                      </TableCell>
-                      <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                        Profession
-                      </TableCell>
-                      <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                        Batch Year
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {getFilteredStudents().map((student, ind) => (
-                      <TableRow
-                        key={student.id} // Changed from `ind` to `student.id` for uniqueness
-                        onClick={() => handleRowClick(student)}
-                        sx={{
-                          "&:nth-of-type(odd)": { bgcolor: "grey.50" },
-                          "&:hover": { bgcolor: "grey.100" },
-                        }}
-                      >
-                        <TableCell>{ind + 1}</TableCell>
-
-                        <TableCell
-                          sx={{
-                            fontWeight: "bold",
-                            position: "sticky",
-                            left: 0,
-                            backgroundColor: "lightblue",
-                            zIndex: 1,
-                          }}
-                        >
-                          {student.name}
-                        </TableCell>
-
-                        <TableCell>{student.contact}</TableCell>
-                        <TableCell>{student.village}</TableCell>
-                        <TableCell>{student.profession}</TableCell>
-                        <TableCell>{`${student.batchYear}`}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Box>
-
-              <Box sx={{ mt: 3, textAlign: "center" }}>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ fontSize: "0.875rem" }}
-                >
-                  For any updates to student information, please contact the
-                  school administration.
-                </Typography>
-              </Box>
-            </Box>
-          </Dialog>
-
-          {/* Teachers Modal */}
-          <Dialog
-            open={openTeachersModal}
-            onClose={handleCloseTeachersModal}
-            maxWidth="lg"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Our Teachers
-                </Typography>
-                <IconButton onClick={handleCloseTeachersModal}>
-                  <span className="material-icons">close</span>
-                </IconButton>
-              </Box>
-
-              {/* Filters Section */}
-              <Box sx={{ mb: 3, display: "flex", gap: 2, flexWrap: "wrap" }}>
                 <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
-                  <Typography variant="subtitle2" gutterBottom>
-                    Name Filter
-                  </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    sx={{ fontSize: "0.875rem" }}
+                  ></Typography>
                   <Box
                     sx={{
                       display: "flex",
@@ -3431,9 +3192,9 @@ const Dashboard = () => {
                     </span>
                     <input
                       type="text"
-                      value={teacherNameFilter}
-                      onChange={(e) => setTeacherNameFilter(e.target.value)}
-                      placeholder="Filter by name..."
+                      value={nameFilter}
+                      onChange={(e) => setNameFilter(e.target.value)}
+                      placeholder="Filter by surname, name, profession, or address..."
                       style={{
                         border: "none",
                         outline: "none",
@@ -3442,254 +3203,448 @@ const Dashboard = () => {
                         width: "100%",
                       }}
                     />
+                    {nameFilter && (
+                      <IconButton
+                        onClick={() => setNameFilter("")}
+                        sx={{ ml: 1 }}
+                      >
+                        <span
+                          className="material-icons"
+                          style={{ color: "grey.500" }}
+                        >
+                          clear
+                        </span>
+                      </IconButton>
+                    )}
+                  </Box>
+                </Box>
+
+                <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    sx={{ fontSize: "0.875rem" }}
+                  ></Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      bgcolor: "grey.100",
+                      borderRadius: 1,
+                      px: 2,
+                    }}
+                  >
+                    <span className="material-icons" sx={{ color: "grey.500" }}>
+                      school
+                    </span>
+                    <select
+                      value={batchYearFilter}
+                      onChange={(e) => setBatchYearFilter(e.target.value)}
+                      style={{
+                        border: "none",
+                        outline: "none",
+                        padding: "8px",
+                        backgroundColor: "transparent",
+                        width: "100%",
+                      }}
+                    >
+                      <option value="">All Batch Years</option>
+                      {getBatchYears().map((year, yearIndex) => (
+                        <option key={yearIndex} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
                   </Box>
                 </Box>
               </Box>
+            </Box>
 
-              <Grid container spacing={3}>
-                {getFilteredTeachers().map((teacher, teacherIndex) => (
-                  <Grid item xs={12} sm={6} md={4} key={teacherIndex}>
-                    <Card
+            <Box sx={{ overflowX: "auto" }}>
+              <Table sx={{ minWidth: 650 }}>
+                <TableHead>
+                  <TableRow sx={{ bgcolor: "primary.main" }}>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      ID
+                    </TableCell>
+
+                    <TableCell
                       sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-8px)",
-                          boxShadow: 6,
-                        },
+                        color: "white",
+                        fontWeight: "bold",
+                        position: "sticky",
+                        left: 0,
+                        backgroundColor: "primary.main",
+                        zIndex: 1,
                       }}
                     >
-                      {/* <CardMedia
+                      Full name
+                    </TableCell>
+
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Contact
+                    </TableCell>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Village
+                    </TableCell>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Profession
+                    </TableCell>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Batch Year
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {getFilteredStudents().map((student, ind) => (
+                    <TableRow
+                      key={student.id} // Changed from `ind` to `student.id` for uniqueness
+                      onClick={() => handleRowClick(student)}
+                      sx={{
+                        "&:nth-of-type(odd)": { bgcolor: "grey.50" },
+                        "&:hover": { bgcolor: "grey.100" },
+                      }}
+                    >
+                      <TableCell>{ind + 1}</TableCell>
+
+                      <TableCell
+                        sx={{
+                          fontWeight: "bold",
+                          position: "sticky",
+                          left: 0,
+                          backgroundColor: "lightblue",
+                          zIndex: 1,
+                        }}
+                      >
+                        {student.name}
+                      </TableCell>
+
+                      <TableCell>{student.contact}</TableCell>
+                      <TableCell>{student.village}</TableCell>
+                      <TableCell>{student.profession}</TableCell>
+                      <TableCell>{`${student.batchYear}`}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Box>
+
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontSize: "0.875rem" }}
+              >
+                For any updates to student information, please contact the
+                school administration.
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Teachers Modal */}
+        <Dialog
+          open={openTeachersModal}
+          onClose={handleCloseTeachersModal}
+          maxWidth="lg"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
+                Our Teachers
+              </Typography>
+              <IconButton onClick={handleCloseTeachersModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+
+            {/* Filters Section */}
+            <Box sx={{ mb: 3, display: "flex", gap: 2, flexWrap: "wrap" }}>
+              <Box sx={{ flexGrow: 1, minWidth: "200px" }}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Name Filter
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    bgcolor: "grey.100",
+                    borderRadius: 1,
+                    px: 2,
+                  }}
+                >
+                  <span className="material-icons" sx={{ color: "grey.500" }}>
+                    search
+                  </span>
+                  <input
+                    type="text"
+                    value={teacherNameFilter}
+                    onChange={(e) => setTeacherNameFilter(e.target.value)}
+                    placeholder="Filter by name..."
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      padding: "8px",
+                      backgroundColor: "transparent",
+                      width: "100%",
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Box>
+
+            <Grid container spacing={3}>
+              {getFilteredTeachers().map((teacher, teacherIndex) => (
+                <Grid item xs={12} sm={6} md={4} key={teacherIndex}>
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    {/* <CardMedia
                       component="img"
                       height="240"
                       image={teacher.photo}
                       alt={teacher.name}
                       sx={{ objectFit: "cover" }}
                     /> */}
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography
-                          variant="h6"
-                          gutterBottom
-                          sx={{ fontWeight: "bold" }}
-                        >
-                          {teacher.name
-                            ? teacher.name.charAt(0).toUpperCase() +
-                              teacher.name.slice(1).toLowerCase() +
-                              " garu"
-                            : ""}
-                        </Typography>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: 1,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 1,
-                            }}
-                          >
-                            <span
-                              className="material-icons"
-                              style={{
-                                fontSize: "18px",
-                                color: "primary.main",
-                              }}
-                            >
-                              school
-                            </span>
-                            <Typography variant="body2">
-                              {teacher.subject}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </CardContent>
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography
+                        variant="h6"
+                        gutterBottom
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        {teacher.name
+                          ? teacher.name.charAt(0).toUpperCase() +
+                            teacher.name.slice(1).toLowerCase() +
+                            " garu"
+                          : ""}
+                      </Typography>
 
                       <Box
                         sx={{
-                          p: 2,
-                          borderTop: "1px solid",
-                          borderColor: "divider",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 1,
                         }}
                       >
-                        <Box sx={{ display: "flex", gap: 1 }}>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">email</span>
-                            }
-                            href={`mailto:${teacher.email}`}
-                            sx={{ flex: 1 }}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                          }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{
+                              fontSize: "18px",
+                              color: "primary.main",
+                            }}
                           >
-                            Email
-                          </Button>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            startIcon={
-                              <span className="material-icons">phone</span>
-                            }
-                            href={`tel:${teacher.phone}`}
-                            sx={{ flex: 1 }}
-                          >
-                            Call
-                          </Button>
+                            school
+                          </span>
+                          <Typography variant="body2">
+                            {teacher.subject}
+                          </Typography>
                         </Box>
                       </Box>
-                    </Card>
-                  </Grid>
-                ))}
+                    </CardContent>
+
+                    <Box
+                      sx={{
+                        p: 2,
+                        borderTop: "1px solid",
+                        borderColor: "divider",
+                      }}
+                    >
+                      <Box sx={{ display: "flex", gap: 1 }}>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">email</span>
+                          }
+                          href={`mailto:${teacher.email}`}
+                          sx={{ flex: 1 }}
+                        >
+                          Email
+                        </Button>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={
+                            <span className="material-icons">phone</span>
+                          }
+                          href={`tel:${teacher.phone}`}
+                          sx={{ flex: 1 }}
+                        >
+                          Call
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Box sx={{ mt: 3, textAlign: "center" }}>
+              <Typography variant="body2" color="text.secondary">
+                For any inquiries about our teaching staff, please contact the
+                school administration.
+              </Typography>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Footer */}
+        <Box
+          component="footer"
+          id="contact-section"
+          sx={{ bgcolor: "primary.light", color: "white" }}
+        >
+          <Container maxWidth="lg">
+            <Grid
+              container
+              spacing={4}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                px: 3,
+              }}
+            >
+              <Grid item xs={12} md={4}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    color: "#FFD700",
+                    fontWeight: "bold",
+                    marginBottom: 3,
+                  }}
+                >
+                  <span className="material-icons">contact_support</span>
+                  Contact Us
+                </Typography>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <span
+                      className="material-icons"
+                      style={{ fontSize: "20px" }}
+                    >
+                      location_on
+                    </span>
+                    <Typography variant="body2">
+                      ZPHS Kunur
+                      <br />
+                      Kunur Village
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <span
+                      className="material-icons"
+                      style={{ fontSize: "20px" }}
+                    >
+                      phone
+                    </span>
+                    <Typography
+                      variant="body2"
+                      component="a"
+                      href="tel:+911234567890"
+                      sx={{
+                        color: "white",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" },
+                      }}
+                    >
+                      +91 8985804256
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <span
+                      className="material-icons"
+                      style={{ fontSize: "20px" }}
+                    >
+                      email
+                    </span>
+                    <Typography
+                      variant="body2"
+                      component="a"
+                      href="mailto:zphskunur1973@gmail.com"
+                      sx={{
+                        color: "white",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" },
+                      }}
+                    >
+                      zphskunur1973@gmail.com
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <span
+                      className="material-icons"
+                      style={{ fontSize: "20px" }}
+                    >
+                      email
+                    </span>
+                    <Typography
+                      variant="body2"
+                      component="a"
+                      href="mailto:zphskunur.goldenjubilee@gmail.com"
+                      sx={{
+                        color: "white",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" },
+                      }}
+                    >
+                      zphskunur.goldenjubilee@gmail.com
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <span
+                      className="material-icons"
+                      style={{ fontSize: "20px" }}
+                    >
+                      schedule
+                    </span>
+                    <Typography variant="body2">
+                      Monday - Saturday
+                      <br />
+                      9:30 AM - 4:40 PM
+                    </Typography>
+                  </Box>
+                </Box>
               </Grid>
 
-              <Box sx={{ mt: 3, textAlign: "center" }}>
-                <Typography variant="body2" color="text.secondary">
-                  For any inquiries about our teaching staff, please contact the
-                  school administration.
-                </Typography>
-              </Box>
-            </Box>
-          </Dialog>
-
-          {/* Footer */}
-          <Box
-            component="footer"
-            id="contact-section"
-            sx={{ bgcolor: "primary.light", color: "white" }}
-          >
-            <Container maxWidth="lg">
-              <Grid
-                container
-                spacing={4}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  px: 3,
-                }}
-              >
-                <Grid item xs={12} md={4}>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      color: "#FFD700",
-                      fontWeight: "bold",
-                      marginBottom: 3,
-                    }}
-                  >
-                    <span className="material-icons">contact_support</span>
-                    Contact Us
-                  </Typography>
-
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 2,
-                    }}
-                  >
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "20px" }}
-                      >
-                        location_on
-                      </span>
-                      <Typography variant="body2">
-                        ZPHS Kunur
-                        <br />
-                        Kunur Village
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "20px" }}
-                      >
-                        phone
-                      </span>
-                      <Typography
-                        variant="body2"
-                        component="a"
-                        href="tel:+911234567890"
-                        sx={{
-                          color: "white",
-                          textDecoration: "none",
-                          "&:hover": { textDecoration: "underline" },
-                        }}
-                      >
-                        +91 8985804256
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "20px" }}
-                      >
-                        email
-                      </span>
-                      <Typography
-                        variant="body2"
-                        component="a"
-                        href="mailto:zphskunur1973@gmail.com"
-                        sx={{
-                          color: "white",
-                          textDecoration: "none",
-                          "&:hover": { textDecoration: "underline" },
-                        }}
-                      >
-                        zphskunur1973@gmail.com
-                      </Typography>
-                    </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "20px" }}
-                      >
-                        email
-                      </span>
-                      <Typography
-                        variant="body2"
-                        component="a"
-                        href="mailto:zphskunur.goldenjubilee@gmail.com"
-                        sx={{
-                          color: "white",
-                          textDecoration: "none",
-                          "&:hover": { textDecoration: "underline" },
-                        }}
-                      >
-                        zphskunur.goldenjubilee@gmail.com
-                      </Typography>
-                    </Box>
-
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <span
-                        className="material-icons"
-                        style={{ fontSize: "20px" }}
-                      >
-                        schedule
-                      </span>
-                      <Typography variant="body2">
-                        Monday - Saturday
-                        <br />
-                        9:30 AM - 4:40 PM
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-
-                {/* <Grid item xs={12} md={4}>
+              {/* <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
                   gutterBottom
@@ -3745,210 +3700,210 @@ const Dashboard = () => {
                 </Box>
               </Grid> */}
 
-                <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={4}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+
+                    color: "#FF69B4",
+                    fontWeight: "bold",
+                    marginBottom: 3,
+                  }}
+                >
+                  <span className="material-icons">share</span>
+                  Follow Us
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 2,
+                    mb: 2,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  {[
+                    {
+                      icon: "facebook",
+                      name: "Facebook",
+                      link: "https://facebook.com",
+                    },
+
+                    {
+                      icon: "photo_camera",
+                      name: "Instagram",
+                      link: "https://instagram.com",
+                    },
+                    {
+                      icon: "play_circle",
+                      name: "YouTube",
+                      link: "https://www.youtube.com/@zphskunur-t7b",
+                    },
+                  ].map((social, socialindex) => (
+                    <Button
+                      key={socialindex}
+                      href={social.link}
+                      target="_blank"
+                      startIcon={
+                        <span className="material-icons">{social.icon}</span>
+                      }
+                      sx={{
+                        color: "white",
+                        border: "2px solid white",
+                        borderRadius: "20px",
+                        px: 2,
+                        py: 0.5,
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "primary.main",
+                        },
+                      }}
+                    >
+                      {social.name}
+                    </Button>
+                  ))}
+                </Box>
+                <Typography variant="body2" sx={{ mt: 1 }}>
+                  Stay connected with us on social media for the latest updates
+                  and news.
+                </Typography>
+              </Grid>
+
+              {/* feedback */}
+
+              <Grid item xs={12} sx={{}}>
+                <Box
+                  sx={{
+                    bgcolor: "white",
+                    color: "black",
+                    m: { xs: 1, md: 2 },
+                    p: { xs: 1, md: 2 },
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 20px gold",
+                  }}
+                >
                   <Typography
                     variant="h6"
-                    gutterBottom
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-
-                      color: "#FF69B4",
-                      fontWeight: "bold",
-                      marginBottom: 3,
+                      fontSize: { xs: "12px", md: "15px", lg: "18px" },
                     }}
                   >
-                    <span className="material-icons">share</span>
-                    Follow Us
+                    Feedback
                   </Typography>
-                  <Box
+                  <Typography
+                    variant="body2"
                     sx={{
-                      display: "flex",
-                      gap: 2,
+                      fontSize: { xs: "8px", md: "12px", lg: "15px" },
+                    }}
+                  >
+                    We value your feedback...
+                  </Typography>
+                  <TextField
+                    label="Your name"
+                    type="text"
+                    size="small"
+                    // defaultValue={0}
+                    variant="standard"
+                    value={feedbackName}
+                    onChange={(e) => {
+                      setFeedbackName(e.target.value);
+                    }}
+                    sx={{
+                      fontSize: { xs: "8px", md: "10px", lg: "12px" },
+                      width: "150px",
+                      color: "blue",
                       mb: 2,
-                      flexWrap: "wrap",
+                      // bgcolor: "red",
+                      // border: "1px solid pink",
+                      borderRadius: "4px",
                     }}
-                  >
-                    {[
-                      {
-                        icon: "facebook",
-                        name: "Facebook",
-                        link: "https://facebook.com",
-                      },
-
-                      {
-                        icon: "photo_camera",
-                        name: "Instagram",
-                        link: "https://instagram.com",
-                      },
-                      {
-                        icon: "play_circle",
-                        name: "YouTube",
-                        link: "https://www.youtube.com/@zphskunur-t7b",
-                      },
-                    ].map((social, socialindex) => (
-                      <Button
-                        key={socialindex}
-                        href={social.link}
-                        target="_blank"
-                        startIcon={
-                          <span className="material-icons">{social.icon}</span>
-                        }
-                        sx={{
-                          color: "white",
-                          border: "2px solid white",
-                          borderRadius: "20px",
-                          px: 2,
-                          py: 0.5,
-                          "&:hover": {
-                            backgroundColor: "white",
-                            color: "primary.main",
-                          },
-                        }}
-                      >
-                        {social.name}
-                      </Button>
-                    ))}
-                  </Box>
-                  <Typography variant="body2" sx={{ mt: 1 }}>
-                    Stay connected with us on social media for the latest
-                    updates and news.
-                  </Typography>
-                </Grid>
-
-                {/* feedback */}
-
-                <Grid item xs={12} sx={{}}>
-                  <Box
+                  ></TextField>
+                  <TextField
                     sx={{
-                      bgcolor: "white",
-                      color: "black",
-                      m: { xs: 1, md: 2 },
-                      p: { xs: 1, md: 2 },
-                      borderRadius: "8px",
-                      boxShadow: "0 4px 20px gold",
+                      fontSize: { xs: "12px", md: "15px", lg: "18px" },
                     }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontSize: { xs: "12px", md: "15px", lg: "18px" },
-                      }}
-                    >
-                      Feedback
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontSize: { xs: "8px", md: "12px", lg: "15px" },
-                      }}
-                    >
-                      We value your feedback...
-                    </Typography>
-                    <TextField
-                      label="Your name"
-                      type="text"
-                      size="small"
-                      // defaultValue={0}
-                      variant="standard"
-                      value={feedbackName}
-                      onChange={(e) => {
-                        setFeedbackName(e.target.value);
-                      }}
-                      sx={{
-                        fontSize: { xs: "8px", md: "10px", lg: "12px" },
-                        width: "150px",
-                        color: "blue",
-                        mb: 2,
-                        // bgcolor: "red",
-                        // border: "1px solid pink",
-                        borderRadius: "4px",
-                      }}
-                    ></TextField>
-                    <TextField
-                      sx={{
-                        fontSize: { xs: "12px", md: "15px", lg: "18px" },
-                      }}
-                      label="Your Feedback"
-                      value={feedback}
-                      onChange={(e) => {
-                        if (feedback.length < 300) {
-                          setFeedback(e.target.value);
-                        }
-                      }}
-                      variant="outlined"
-                      placeholder="Add your feedback here..."
-                      fullWidth
-                      multiline
-                      rows={2}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              color="warning"
-                              size="small"
-                              // onClick={handleSendFeedback}
-                              onClick={() => {
-                                if (
-                                  feedback.length > 0 &&
-                                  feedbackName.length > 0
-                                ) {
-                                  axios
-                                    .post(`${baseURL}/save-feedbacks`, {
-                                      person: feedbackName,
-                                      feedback: feedback,
-                                    })
-                                    .then((res) => {
-                                      console.log("res", res);
-                                      alert("Thanks for feedback..");
-                                    })
-                                    .catch((er) => {
-                                      alert("Not able to submit.");
-                                      console.log("er", er);
-                                    });
-                                  setFeedback("");
-                                  setFeedbackName("");
-                                }
-                              }}
-                              aria-label="send feedback"
-                            >
-                              {/* Submit &nbsp;{" "} */}
-                              <span className="material-icons">send</span>
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </Box>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Box
-                    sx={{
-                      borderTop: "1px solid rgba(255,255,255,0.1)",
-
-                      textAlign: "center",
+                    label="Your Feedback"
+                    value={feedback}
+                    onChange={(e) => {
+                      if (feedback.length < 300) {
+                        setFeedback(e.target.value);
+                      }
                     }}
-                  >
-                    <Typography variant="body2">
-                      © 2024 ZPHS Kunur. All rights reserved.
-                    </Typography>
-                  </Box>
-                </Grid>
+                    variant="outlined"
+                    placeholder="Add your feedback here..."
+                    fullWidth
+                    multiline
+                    rows={2}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            color="warning"
+                            size="small"
+                            // onClick={handleSendFeedback}
+                            onClick={() => {
+                              if (
+                                feedback.length > 0 &&
+                                feedbackName.length > 0
+                              ) {
+                                axios
+                                  .post(`${baseURL}/save-feedbacks`, {
+                                    person: feedbackName,
+                                    feedback: feedback,
+                                  })
+                                  .then((res) => {
+                                    console.log("res", res);
+                                    alert("Thanks for feedback..");
+                                  })
+                                  .catch((er) => {
+                                    alert("Not able to submit.");
+                                    console.log("er", er);
+                                  });
+                                setFeedback("");
+                                setFeedbackName("");
+                              }
+                            }}
+                            aria-label="send feedback"
+                          >
+                            {/* Submit &nbsp;{" "} */}
+                            <span className="material-icons">send</span>
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Box>
               </Grid>
-            </Container>
-          </Box>
 
-          {/* Ads Modal */}
-          <Dialog
-            open={openAdsModal}
-            onClose={handleCloseAdsModal}
-            maxWidth="md"
-            fullWidth
-          >
-            <Box sx={{ p: 3 }}>
-              {/* Sample advertisements 
+              <Grid item xs={12}>
+                <Box
+                  sx={{
+                    borderTop: "1px solid rgba(255,255,255,0.1)",
+
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography variant="body2">
+                    © 2024 ZPHS Kunur. All rights reserved.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+
+        {/* Ads Modal */}
+        <Dialog
+          open={openAdsModal}
+          onClose={handleCloseAdsModal}
+          maxWidth="md"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            {/* Sample advertisements 
                   <Grid container spacing={2}>
                     {addData.map((el, ind) => {
                       return (
@@ -3982,55 +3937,55 @@ const Dashboard = () => {
                       );
                     })}
                   </Grid>*/}
-              {/* Ads Carousel */}
-              <AdCarousel />
-              <Box
+            {/* Ads Carousel */}
+            <AdCarousel />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 3,
+                bgcolor: "primary.light", // Background color for the box
+                p: 2, // Padding for the box
+                borderRadius: 2, // Rounded corners
+                boxShadow: 2, // Subtle shadow for depth
+              }}
+              onClick={handleCloseAdsModal}
+            >
+              <Typography
+                variant="h5"
+                gutterBottom
                 sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 3,
-                  bgcolor: "primary.light", // Background color for the box
-                  p: 2, // Padding for the box
-                  borderRadius: 2, // Rounded corners
-                  boxShadow: 2, // Subtle shadow for depth
+                  fontWeight: "bold",
+                  color: "primary.main", // Text color
+                  fontSize: { xs: "14px", md: "25px" },
                 }}
-                onClick={handleCloseAdsModal}
               >
+                Souviner Advertisements
+              </Typography>
+              <IconButton>
+                {/*<span className="material-icons" style={{ color: "red" }}>
+                        close
+                      </span>{" "}
+                       Close icon color */}
                 <Typography
                   variant="h5"
                   gutterBottom
                   sx={{
                     fontWeight: "bold",
                     color: "primary.main", // Text color
+                    ml: 1, // Margin left for spacing
                     fontSize: { xs: "14px", md: "25px" },
                   }}
                 >
-                  Souviner Advertisements
+                  Click To Close
                 </Typography>
-                <IconButton>
-                  {/*<span className="material-icons" style={{ color: "red" }}>
-                        close
-                      </span>{" "}
-                       Close icon color */}
-                  <Typography
-                    variant="h5"
-                    gutterBottom
-                    sx={{
-                      fontWeight: "bold",
-                      color: "primary.main", // Text color
-                      ml: 1, // Margin left for spacing
-                      fontSize: { xs: "14px", md: "25px" },
-                    }}
-                  >
-                    Click To Close
-                  </Typography>
-                </IconButton>
-              </Box>
+              </IconButton>
             </Box>
-          </Dialog>
-        </Box>
-      )}
+          </Box>
+        </Dialog>
+      </Box>
+
       {/* Modal for Student Details*/}
       {selectedStudent && (
         <Dialog

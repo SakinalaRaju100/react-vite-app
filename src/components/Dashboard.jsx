@@ -2848,13 +2848,13 @@ const Dashboard = () => {
                     m: { xs: 2, sm: 2, md: 3 },
 
                     fontSize: {
-                      xs: "0.875rem", // Extra small screens
+                      xs: "0.6rem", // Extra small screens
                       sm: "1rem", // Small screens
                       md: "1.125rem", // Medium and larger screens
                     },
                   }}
                 >
-                  <Typography variant="h5" gutterBottom color="primary">
+                  {/* <Typography variant="h5" gutterBottom color="primary">
                     Our History
                   </Typography>
                   <Typography variant="body1" paragraph>
@@ -2874,6 +2874,51 @@ const Dashboard = () => {
                     thousands of young minds and produced numerous distinguished
                     alumni who are making significant contributions in various
                     fields globally.
+                  </Typography> */}
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    color="primary"
+                    sx={{ fontSize: { xs: "10px", md: "15px" } }}
+                  >
+                    జిల్లా పరిషత్ ఉన్నత పాఠశాల కూనూరు చరిత్ర
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    paragraph
+                    sx={{ fontSize: { xs: "12px", md: "15px" } }}
+                  >
+                    పశ్చిమాన ఆకేరు నది, తూర్పున శ్రీ రంగనాథుని గుడి, ఉత్తరాన
+                    శ్రీ ఐనవోలు మల్లికార్జునుడు, దక్షిణమున జఫరఘడ్ శ్రీ
+                    లక్ష్మీనరసింహ స్వామి మధ్య భాగాన కోహినూర్ వజ్ర సమాస కూసూరు
+                    జనపదం.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontSize: { xs: "12px", md: "15px" } }}
+                  >
+                    ప్రస్తుత జిల్లా పరిషత్ సెకండరీ పాఠశాల కూనూరు
+                    మొట్టమొదటిసారిగా 1950 సం||లో ప్రాథమిక పాఠశాలగా
+                    ప్రారంభించబడినది. తరువాత కాలంలో ఈ గ్రామ విద్యా అవసరాల
+                    దృష్ట్యా స్థాయిని పెంచుకుంటూ 23 సం||ల తర్వాత దశలవారీగా
+                    అప్డేషన్ 1973-74 విద్యా సంవత్సరంలో ఉన్నత పాఠశాలగా
+                    రూపుదిద్దుకొంది.
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    paragraph
+                    sx={{ fontSize: { xs: "12px", md: "15px" } }}
+                  >
+                    1950 నుండి 1970 ద్విదశాబ్ద కాలంలో, తమ పిల్లలను చదివించాలనే
+                    ఆలోచన తల్లిదండ్రుల్లో పెరిగింది. విద్యార్థుల సంఖ్య కూడా
+                    పెరిగింది. 1970 నుండి 1973 నాటికి పెరిగిన విద్యార్థుల
+                    సంఖ్యకు అనుగుణంగా ఉపాధ్యాయులను ప్రభుత్వం పెంచుతూ వచ్చింది.
+                    దీనిలో విద్యార్థుల చేరిక ఎక్కువవడంతో సత్రంలోని నాలుగు గదులు,
+                    తరగతుల నిర్వహణకు కష్టతరమడంతో ఊరి పెద్దలు ఒక నిర్ణయం
+                    తీసుకుని, పాఠశాలకు ప్రత్యేక స్థలం ఆలయం సమీపాన ఏర్పాటుకు కృషి
+                    చేసి, ఎట్టకేలకు స్థల కేటాయింపు చేయగా, అందులో ప్రభుత్వం
+                    పంచాయతీరాజ్ డిపార్ట్మెంట్ వారు 6వ తరగతి నుండి 10వ తరగతి వరకు
+                    తరగతుల సామర్థ్యానికనుగుణంగా నూతన పాఠశాల నిర్మాణం జరిగింది.
                   </Typography>
                 </Card>
               </Grid>

@@ -1905,18 +1905,18 @@ const Dashboard = () => {
             Pleasant Life & Kaveri Borewells & Krishna Fertilizers Deport & LIC
             Mamidala Srinivas & Lavanya Furnishings & NTIPL & V S Groups & Thota
             Butchilingam Anaj & General Merchants & Prasanna Agencies & Sri
-            Vishwakarma Plywoods & RajuParusharamulu SLV ENERTECH Solutions &
-            Sri Sainath Good Carrier & Neeling Book Links & Dhanalaxmi Matchings
-            GNP & Padhmavati Conventions & Balaji Iron Hardwares & My Paisaa &
-            Kusuma Industries & Sriraksha Dental, Ent, Homoro Clinic & Legal
-            Adept & Special Class civil Contractor T.Baskar Rao & Padhmavati
-            rice & Dry fruits & Srinivasu Jewellery & Mahadev Opticals &
-            Suthri.Ashok Agro Trading & Dr.P Srinivas & Pragathi Graphics &
-            Someswara Stores & Sri Balaji Electronics & Home Needs & Sri
-            Venkateshwara Associates & B.Govindharajan, M.Subhash, Mallaiah,
-            P.Narothham reddy & Sri Donthi.Madhavareddy Narsampet & Sri
-            Yerrabelly.Dhayakar Rao & Jagruthi Creations & Arya Samaj Uppal &
-            Nomula.Ravindar & Y.Subhashini & Mahajan Garments & Belli.Jalender
+            Vishwakarma Plywoods & ArjunRajuParusharamulu & SLV ENERTECH
+            Solutions & Sri Sainath Good Carrier & Neeling Book Links &
+            Dhanalaxmi Matchings GNP & Padhmavati Conventions & Balaji Iron
+            Hardwares & My Paisaa & Kusuma Industries & Sriraksha Dental, Ent,
+            Homoro Clinic & Legal Adept & Special Class civil Contractor
+            T.Baskar Rao & Padhmavati rice & Dry fruits & Srinivasu Jewellery &
+            Mahadev Opticals & Suthri.Ashok Agro Trading & Dr.P Srinivas &
+            Pragathi Graphics & Someswara Stores & Sri Balaji Electronics & Home
+            Needs & Sri Venkateshwara Associates & B.Govindharajan, M.Subhash,
+            Mallaiah, P.Narothham reddy & Sri Donthi.Madhavareddy Narsampet &
+            Sri Yerrabelly.Dhayakar Rao & Jagruthi Creations & Arya Samaj Uppal
+            & Nomula.Ravindar & Y.Subhashini & Mahajan Garments & Belli.Jalender
             Yadav & Pattipaka.Laxman S/o Laxminarsu & Arya Samaj Uppal & Ravi
             Enterprises & Madhu Electricals, Winding Works & Ayyappa Seeds
             Agencies & B.Bikshapati & Dr.Pitta Sathyam & T. Ravinder & denim

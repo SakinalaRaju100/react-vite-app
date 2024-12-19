@@ -50,7 +50,8 @@ h1 {
   animation: bounce 1s infinite;
 }
 #countdown2 {
-  font-size: 8rem;
+  /* font-size: 8rem; */
+  font-size: clamp(3rem, 10vw, 8rem);
   font-weight: bold;
   color: #ffeb3b;
   text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);

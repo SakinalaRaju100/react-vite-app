@@ -3542,6 +3542,34 @@ const Dashboard = () => {
                           </Typography>
                         </Box>
                       </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 1,
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                          }}
+                        >
+                          <span
+                            className="material-icons"
+                            style={{
+                              fontSize: "18px",
+                              color: "primary.main",
+                            }}
+                          >
+                            phone
+                          </span>
+                          <Typography variant="body2">
+                            {teacher.phone}
+                          </Typography>
+                        </Box>
+                      </Box>
                     </CardContent>
 
                     <Box
@@ -3558,7 +3586,7 @@ const Dashboard = () => {
                           startIcon={
                             <span className="material-icons">email</span>
                           }
-                          href={`mailto:${teacher.email}`}
+                          // href={`mailto:${teacher.email}`}
                           sx={{ flex: 1 }}
                         >
                           Email
@@ -3706,7 +3734,7 @@ const Dashboard = () => {
                     </Typography>
                   </Box>
 
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  {/* <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     <span
                       className="material-icons"
                       style={{ fontSize: "20px" }}
@@ -3718,7 +3746,7 @@ const Dashboard = () => {
                       <br />
                       9:30 AM - 4:40 PM
                     </Typography>
-                  </Box>
+                  </Box> */}
                 </Box>
               </Grid>
 
@@ -4333,7 +4361,7 @@ const Dashboard = () => {
                     "&:hover": {
                       transform: "scale(1.05) translateY(-8px)", // Scale up and translate on hover
                       boxShadow: "0 4px 20px gold", // Updated box shadow color
-                      backgroundColor: "gold", // Change background on hover
+                      backgroundColor: "#b388ff", // Change background on hover
                     },
                   }}
                 >
@@ -4356,9 +4384,10 @@ const Dashboard = () => {
                   <Box
                     sx={{
                       p: 2,
-                      borderTop: "1px solid",
+                      mt: 0,
+                      pt: 0,
                       borderColor: "divider",
-                      bgcolor: "primary.light", // Added background color for the button box
+                      bgcolor: "info.light.", // Added background color for the button box
                     }}
                   >
                     <Button

@@ -801,6 +801,7 @@ const Dashboard = () => {
     React.useState(false);
   const [openComingSoonModal, setOpenComingSoonModal] = React.useState(false);
   const [openAdsModal, setOpenAdsModal] = React.useState(false);
+  const [openDownloadsModal, setOpenDownloadsModal] = React.useState(false); // Step 1: State for Downloads Modal
 
   const [nameFilter, setNameFilter] = React.useState("");
   const [NRIFilter, setNRIFilter] = React.useState("");
@@ -1071,6 +1072,15 @@ const Dashboard = () => {
     setTabValue(newValue);
   };
 
+  const handleOpenDownloadsModal = () => {
+    setOpenDownloadsModal(true);
+  };
+
+  const handleCloseDownloadsModal = () => {
+    setOpenDownloadsModal(false);
+    handleClose();
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -1250,6 +1260,15 @@ const Dashboard = () => {
                   </span>
                   Contact us
                 </MenuItem>
+                <MenuItem onClick={handleOpenDownloadsModal}>
+                  <span
+                    className="material-icons"
+                    style={{ marginRight: "8px" }}
+                  >
+                    download
+                  </span>
+                  Downloads & Links
+                </MenuItem>
               </Menu>
             </Box>
 
@@ -1303,6 +1322,9 @@ const Dashboard = () => {
               </Button>
               <Button color="inherit" onClick={scrollToContact}>
                 Contact us
+              </Button>
+              <Button color="inherit" onClick={handleOpenDownloadsModal}>
+                Downloads & Links
               </Button>
             </Box>
           </Toolbar>
@@ -1447,7 +1469,7 @@ const Dashboard = () => {
             },
             { title: "Organization", onClick: handleClose },
             { title: "Alumni Events", onClick: handleClose },
-            { title: "Downloads & Links", onClick: handleClose },
+            { title: "Downloads & Links", onClick: handleOpenDownloadsModal },
           ].map((item, itemIdex) => (
             <MenuItem
               key={itemIdex}
@@ -4214,6 +4236,61 @@ const Dashboard = () => {
                   Click To Close
                 </Typography>
               </IconButton>
+            </Box>
+          </Box>
+        </Dialog>
+
+        {/* Downloads Modal */}
+        <Dialog
+          open={openDownloadsModal}
+          onClose={handleCloseDownloadsModal}
+          maxWidth="sm"
+          fullWidth
+        >
+          <Box sx={{ p: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                m: 2,
+              }}
+            >
+              <Typography variant="h5" gutterBottom>
+                Downloadable PDFs
+              </Typography>
+              <IconButton onClick={handleCloseDownloadsModal}>
+                <span className="material-icons">close</span>
+              </IconButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 2,
+              }}
+            >
+              <Button
+                variant="contained"
+                onClick={() => window.open("link_to_pdf_1.pdf", "_blank")}
+                sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
+              >
+                Download PDF 1
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => window.open("link_to_pdf_2.pdf", "_blank")}
+                sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
+              >
+                Download PDF 2
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => window.open("link_to_pdf_3.pdf", "_blank")}
+                sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
+              >
+                Download PDF 3
+              </Button>
             </Box>
           </Box>
         </Dialog>

@@ -34,7 +34,7 @@ const Counting = ({ setIsReady }) => {
     const timer = setInterval(() => {
       const now = new Date();
       const target = new Date();
-      target.setDate(target.getDate() + 2);
+      target.setDate(target.getDate() + 1);
       console.log("time", time);
 
       target.setHours(

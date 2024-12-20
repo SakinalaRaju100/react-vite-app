@@ -1703,7 +1703,7 @@ const Dashboard = () => {
                           display: "flex",
                           flexDirection: "column",
                           bgcolor: "primary.light",
-                          color: "primary.dark",
+                          color: "white",
                           px: 2,
                           py: 0.5,
                           borderRadius: "15px",
@@ -1712,9 +1712,7 @@ const Dashboard = () => {
                           textAlign: "center", // Centered text
                         }}
                       >
-                        <Typography variant="body2">
-                          Batch {alumni?.role}
-                        </Typography>
+                        <Typography variant="body2">{alumni?.role}</Typography>
                       </Box>
 
                       {/* <Box

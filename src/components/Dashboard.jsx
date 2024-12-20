@@ -1260,7 +1260,7 @@ const Dashboard = () => {
                   </span>
                   Contact us
                 </MenuItem>
-                <MenuItem onClick={handleOpenDownloadsModal}>
+                {/* <MenuItem onClick={handleOpenDownloadsModal}>
                   <span
                     className="material-icons"
                     style={{ marginRight: "8px" }}
@@ -1268,7 +1268,7 @@ const Dashboard = () => {
                     download
                   </span>
                   Downloads & Links
-                </MenuItem>
+                </MenuItem> */}
               </Menu>
             </Box>
 
@@ -1323,9 +1323,9 @@ const Dashboard = () => {
               <Button color="inherit" onClick={scrollToContact}>
                 Contact us
               </Button>
-              <Button color="inherit" onClick={handleOpenDownloadsModal}>
+              {/* <Button color="inherit" onClick={handleOpenDownloadsModal}>
                 Downloads & Links
-              </Button>
+              </Button> */}
             </Box>
           </Toolbar>
         </AppBar>

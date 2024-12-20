@@ -64,11 +64,12 @@ const App = () => {
   return (
     <div>
       <Routes>
-        {!isReady ? (
+        {/* {!isReady ? (
           <Route path="/" element={<Counting setIsReady={setIsReady} />} />
         ) : (
           <Route path="/" element={<Dashboard />} />
-        )}
+        )} */}
+        <Route path="/" element={<Dashboard />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/enrollment" element={<EnrollList />} />
         {/* <Route path="/souviner-book" element={<SouvinerBook />} /> */}

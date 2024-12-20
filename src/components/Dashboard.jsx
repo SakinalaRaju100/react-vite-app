@@ -177,8 +177,8 @@ const youtubeVideos = [
     title: "ZPHS కూనూరు - 50 ఏళ్ల స్వర్ణోత్సవం",
   },
   {
-    id: "3zAYVFjf2n0",
-    title: "ZPHS కూనూరు - 50 ఏళ్ల స్వర్ణోత్సవం",
+    id: "rImqpH-TVBM",
+    title: "ZPHS- కూనూరు బతుకమ్మ సంబరాలు",
   },
 ];
 
@@ -1165,12 +1165,13 @@ const Dashboard = () => {
               >
                 {/* <MenuItem onClick={handleSavineerModal}> */}
                 <MenuItem
-                  onClick={() =>
-                    window.open(
-                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                      "_blank"
-                    )
-                  }
+                  onClick={handleOpenComingSoonModal}
+                  // onClick={() =>
+                  //   window.open(
+                  //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                  //     "_blank"
+                  //   )
+                  // }
                 >
                   <span
                     className="material-icons"
@@ -1297,13 +1298,14 @@ const Dashboard = () => {
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               {/* <Button color="inherit" onClick={handleSavineerModal}> */}
               <Button
+                onClick={handleOpenComingSoonModal}
                 color="inherit"
-                onClick={() =>
-                  window.open(
-                    "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                    "_blank"
-                  )
-                }
+                // onClick={() =>
+                //   window.open(
+                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                //     "_blank"
+                //   )
+                // }
               >
                 souvenir
               </Button>
@@ -1692,7 +1694,7 @@ const Dashboard = () => {
                   } // Update with the actual PDF path
                   sx={{ mr: 2 }}
                 >
-                  Download PDF
+                  PDF
                 </Button>
                 <IconButton onClick={handleCloseAlumniModal}>
                   <span className="material-icons">close</span>
@@ -2084,6 +2086,7 @@ const Dashboard = () => {
             <Container
               maxWidth="md"
               sx={{
+                pt: "180px",
                 position: "relative",
                 height: "100%",
                 display: "flex",
@@ -2099,7 +2102,7 @@ const Dashboard = () => {
                 component="h1"
                 gutterBottom
                 sx={{
-                  fontSize: { xs: "2rem", sm: "3rem", md: "3.75rem" },
+                  fontSize: { xs: "1rem", sm: "3rem", md: "3.75rem" },
                 }}
               >
                 {carouselImages[activeStep].label}
@@ -2108,7 +2111,7 @@ const Dashboard = () => {
                 variant="h5"
                 paragraph
                 sx={{
-                  fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.5rem" },
+                  fontSize: { xs: "1rem", sm: "1.5rem", md: "1.5rem" },
                 }}
               >
                 {carouselImages[activeStep].description}
@@ -3115,7 +3118,7 @@ const Dashboard = () => {
             </Box>
 
             <Typography variant="body1" sx={{ mb: 3, textAlign: "center" }}>
-              Scan the QR code below to make your donation
+              Scan the QR code to make your donations for ZPHS Kunur Alumni
             </Typography>
 
             {/* QR Code SVG */}
@@ -3125,14 +3128,14 @@ const Dashboard = () => {
                 justifyContent: "center",
                 mb: 3,
                 p: 2,
-                border: "2px dashed",
-                borderColor: "primary.main",
-                borderRadius: 2,
+                // border: "2px dashed",
+                // borderColor: "primary.main",
+                // borderRadius: 2,
               }}
             >
               <img
-                src="/QRCode.jpg"
-                alt="Donation QR Code removed"
+                src="/qr.jpeg"
+                alt="Donation QR Code stoped"
                 style={{
                   border: "2px solid",
                   borderColor: "primary.main",
@@ -3793,6 +3796,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
+          // sx={{ bgcolor: "#232e25", color: "white" }}
           sx={{ bgcolor: "#46d05d", color: "white" }}
         >
           <Container maxWidth="lg">
@@ -4293,25 +4297,30 @@ const Dashboard = () => {
             >
               <Button
                 variant="contained"
-                onClick={() => window.open("link_to_pdf_1.pdf", "_blank")}
+                onClick={() =>
+                  window.open(
+                    "https://www.seeliveevents.com/saisree/zphskunurugoldenjubilee",
+                    "_blank"
+                  )
+                }
                 sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
               >
-                Download PDF 1
+                Live links
               </Button>
               <Button
                 variant="contained"
-                onClick={() => window.open("link_to_pdf_2.pdf", "_blank")}
+                onClick={() => window.open("", "_blank")}
                 sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
               >
-                Download PDF 2
+                Download Apk
               </Button>
-              <Button
+              {/* <Button
                 variant="contained"
                 onClick={() => window.open("link_to_pdf_3.pdf", "_blank")}
                 sx={{ mb: 2, flex: 1 }} // Added flex to make buttons responsive
               >
                 Download PDF 3
-              </Button>
+              </Button> */}
             </Box>
           </Box>
         </Dialog>

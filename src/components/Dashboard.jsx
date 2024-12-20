@@ -52,6 +52,53 @@ try {
 }
 
 // Students List
+let alumniMembers = [
+  {
+    name: "Nagamalla.Ashok",
+    father: "S/o Shankaraiah",
+    role: "President",
+  },
+  {
+    name: "Akula.Kumaraswamy",
+    role: "Vice-President-1",
+    father: "S/o Ramaiah",
+  },
+  {
+    name: "Katam.Laxma reddy",
+    role: "Vice-President-2",
+    father: "S/o Narsireddy",
+  },
+  {
+    name: "Mula.Pramod Reddy",
+    role: "General Secretary -1",
+    father: "S/o Somireddy",
+  },
+  {
+    name: "Pitta.Rajaiah",
+    role: "General Secretary -2",
+    father: "S/o Chandraiah",
+  },
+  {
+    name: "Muthadi.Subhash",
+    role: "Treasurer",
+    father: "S/o Venkataiah",
+  },
+  {
+    name: "Amaraju.Srinivas",
+    role: "Joint Secretary",
+    father: "S/o Venkataiah",
+  },
+  {
+    name: "Bandi.Shobharani.Srinivas",
+    role: "Executive Member",
+    father: "W/o Bandi Suresh",
+  },
+  {
+    name: "Dadaboina.Saritha",
+    role: "Executive Member",
+    father: "W/o Srikanth yadav",
+  },
+];
 let studentsList = [];
 try {
   fetch("./students.json")
@@ -1085,14 +1132,22 @@ const Dashboard = () => {
                   horizontal: "left",
                 }}
               >
-                <MenuItem onClick={handleSavineerModal}>
+                {/* <MenuItem onClick={handleSavineerModal}> */}
+                <MenuItem
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                      "_blank"
+                    )
+                  }
+                >
                   <span
                     className="material-icons"
                     style={{ marginRight: "8px" }}
                   >
                     people
                   </span>
-                  Souviner
+                  souvenir
                 </MenuItem>
                 <MenuItem onClick={handleSchoolMenu}>
                   <span
@@ -1200,8 +1255,17 @@ const Dashboard = () => {
 
             {/* Desktop Menu */}
             <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Button color="inherit" onClick={handleSavineerModal}>
-                Souviner
+              {/* <Button color="inherit" onClick={handleSavineerModal}> */}
+              <Button
+                color="inherit"
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                    "_blank"
+                  )
+                }
+              >
+                souvenir
               </Button>
               <Button color="inherit" onClick={handleSchoolMenu}>
                 School ▾
@@ -1574,13 +1638,27 @@ const Dashboard = () => {
               <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
                 Alumni Members
               </Typography>
-              <IconButton onClick={handleCloseAlumniModal}>
-                <span className="material-icons">close</span>
-              </IconButton>
+              <Box>
+                <Button
+                  variant="outlined"
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                      "_blank"
+                    )
+                  } // Update with the actual PDF path
+                  sx={{ mr: 2 }}
+                >
+                  Download PDF
+                </Button>
+                <IconButton onClick={handleCloseAlumniModal}>
+                  <span className="material-icons">close</span>
+                </IconButton>
+              </Box>
             </Box>
 
             <Grid container spacing={3}>
-              {studentsList.map((alumni, alumniIndex) => (
+              {alumniMembers.map((alumni, alumniIndex) => (
                 <Grid item xs={12} sm={6} md={4} key={alumniIndex}>
                   <Card
                     sx={{
@@ -1594,7 +1672,7 @@ const Dashboard = () => {
                       },
                     }}
                   >
-                    <CardMedia
+                    {/* <CardMedia
                       component="img"
                       height="200"
                       image={alumni.photo}
@@ -1603,14 +1681,21 @@ const Dashboard = () => {
                         objectFit: "cover",
                         borderRadius: "8px 8px 0 0", // Rounded top corners
                       }}
-                    />
+                    /> */}
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h6"
                         gutterBottom
                         sx={{ fontWeight: "bold", textAlign: "center" }} // Centered text
                       >
-                        {alumni.fullName}
+                        {alumni.name}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        gutterBottom
+                        sx={{ fontWeight: "bold", textAlign: "center" }} // Centered text
+                      >
+                        {alumni?.father}
                       </Typography>
 
                       <Box
@@ -1623,24 +1708,24 @@ const Dashboard = () => {
                           py: 0.5,
                           borderRadius: "15px",
                           // display: "inline-block",
-                          mb: 2,
+                          // mb: 2,
                           textAlign: "center", // Centered text
                         }}
                       >
                         <Typography variant="body2">
-                          Batch {alumni.batchYear}
+                          Batch {alumni?.role}
                         </Typography>
                       </Box>
 
-                      <Box
+                      {/* <Box
                         sx={{
                           display: "flex",
                           flexDirection: "column",
                           gap: 1,
                           textAlign: "center", // Centered text
                         }}
-                      >
-                        <Box
+                      > */}
+                      {/* <Box
                           sx={{
                             display: "flex",
                             justifyContent: "center", // Centered content
@@ -1658,11 +1743,11 @@ const Dashboard = () => {
                             work
                           </span>
                           <Typography variant="body2">
-                            {alumni.profession}
+                            {alumni?.profession}
                           </Typography>
-                        </Box>
+                        </Box> */}
 
-                        <Box
+                      {/* <Box
                           sx={{
                             display: "flex",
                             justifyContent: "center", // Centered content
@@ -1682,8 +1767,8 @@ const Dashboard = () => {
                           <Typography variant="body2">
                             {alumni.address}
                           </Typography>
-                        </Box>
-                      </Box>
+                        </Box> */}
+                      {/* </Box> */}
                     </CardContent>
 
                     <Box
@@ -1700,7 +1785,7 @@ const Dashboard = () => {
                           startIcon={
                             <span className="material-icons">email</span>
                           }
-                          href={`mailto:${alumni.email}`}
+                          href={`mailto:${alumni?.email}`}
                           sx={{ flex: 1 }}
                         >
                           Email
@@ -1711,7 +1796,7 @@ const Dashboard = () => {
                           startIcon={
                             <span className="material-icons">phone</span>
                           }
-                          href={`tel:${alumni.phone}`}
+                          href={`tel:${alumni?.phone}`}
                           sx={{ flex: 1 }}
                         >
                           Call
@@ -2252,7 +2337,7 @@ const Dashboard = () => {
             </Typography>
             <div>
               <div className="notification general">
-                <span className="icon">✔</span> Souviner Book release on 21st
+                <span className="icon">✔</span> souvenir Book release on 21st
                 December 2024
               </div>
               <div className="notification warning">
@@ -4112,7 +4197,7 @@ const Dashboard = () => {
                   fontSize: { xs: "14px", md: "25px" },
                 }}
               >
-                Souviner Advertisements
+                souvenir Advertisements
               </Typography> */}
               <IconButton>
                 {/*<span className="material-icons" style={{ color: "red" }}>

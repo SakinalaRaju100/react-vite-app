@@ -1145,12 +1145,12 @@ const Dashboard = () => {
               >
                 {/* <MenuItem onClick={handleSavineerModal}> */}
                 <MenuItem
-                  onClick={() =>
-                    window.open(
-                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                      "_blank"
-                    )
-                  }
+                // onClick={() =>
+                //   window.open(
+                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                //     "_blank"
+                //   )
+                // }
                 >
                   <span
                     className="material-icons"
@@ -1278,12 +1278,12 @@ const Dashboard = () => {
               {/* <Button color="inherit" onClick={handleSavineerModal}> */}
               <Button
                 color="inherit"
-                onClick={() =>
-                  window.open(
-                    "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                    "_blank"
-                  )
-                }
+                // onClick={() =>
+                //   window.open(
+                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                //     "_blank"
+                //   )
+                // }
               >
                 souvenir
               </Button>

@@ -103,7 +103,8 @@ const Counting = ({ setIsReady }) => {
               <div>
                 {/* <div style={{ color: "#b388ff" }}>ZPHS KUNUR</div> */}
                 <div style={{ marginBottom: "10px" }}>ZPHS KUNUR</div>
-                {timeLeft.days}Days {timeLeft.hours}Hours
+                {timeLeft.days > 0 && <span>{timeLeft.days}Days</span>}{" "}
+                {timeLeft.hours}Hours
               </div>
             )}
             <div>

@@ -168,6 +168,18 @@ const youtubeVideos = [
     id: "fnzp3QrhGnk",
     title: "Speech",
   },
+  {
+    id: "zwO-uO_57Z0",
+    title: "స్వర్ణోత్సవ సంబరాల సాంగ్",
+  },
+  {
+    id: "3zAYVFjf2n0",
+    title: "ZPHS కూనూరు - 50 ఏళ్ల స్వర్ణోత్సవం",
+  },
+  {
+    id: "3zAYVFjf2n0",
+    title: "ZPHS కూనూరు - 50 ఏళ్ల స్వర్ణోత్సవం",
+  },
 ];
 
 const theme = createTheme({
@@ -188,16 +200,16 @@ const carouselImages = [
     description: "Empowering minds, Building futures",
   },
   {
-    label: "Quality Education",
-    imgPath:
-      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    label: "Welcome to ZPHS Kunur",
+    imgPath: "./home2.JPG",
+    // imgPath:
+    //   "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
     description: "Excellence in Learning",
   },
   {
-    label: "Modern Facilities",
-    imgPath:
-      "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    description: "State-of-the-art Infrastructure",
+    label: "Welcome to ZPHS Kunur",
+    imgPath: "./02.jpg",
+    description: "Empowering minds, Building futures",
   },
 ];
 
@@ -209,40 +221,35 @@ const newsImages = [
 
 const galleryImages = [
   {
-    image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    title: "Annual Day Celebrations",
-    date: "October 15, 2023",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    image: "./gallery01.jpg",
     title: "Sports Day",
     date: "September 20, 2023",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1607453998774-d533f65dac99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    image: "./gallery02.jpg",
+    title: "Bhatukamma Celebrations",
+    date: "October 15, 2024",
+  },
+
+  {
+    image: "./gallery05.jpg",
     title: "Science Exhibition",
     date: "August 25, 2023",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1511732351157-1865efcb7b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    title: "Cultural Events",
-    date: "July 30, 2023",
+    image: "./gallery04.jpg",
+    title: "Science Exhibition",
+    date: "August 25, 2023",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    title: "Reading Competition",
-    date: "July 15, 2023",
+    image: "./gallery03.jpg",
+    title: "Science Exhibition",
+    date: "August 25, 2023",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1445633629932-0029acc44e88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-    title: "Teacher's Day",
-    date: "September 5, 2023",
+    image: "./gallery06.jpg",
+    title: "Science Exhibition",
+    date: "August 25, 2023",
   },
 ];
 
@@ -340,23 +347,31 @@ const nriStories = [
 const developers = [
   {
     name: "Sakinala.Raju",
-    role: "Lead Developement",
+    role: "Developer",
     expertise: "Full Stack Developer",
-    technologies: ["React", "Node.js", "MongoDB"],
-    githubProfile: "https://github.com/raju",
-    linkedinProfile: "https://linkedin.com/in/raju",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    technologies: [],
+    githubProfile:
+      "https://www.instagram.com/rajuparusharamulu/profilecard/?igsh=MTYyNmt6ZDdoMWs3OA==",
+    linkedinProfile: "https://www.linkedin.com/in/raju-sakinala-194803135",
+    image: "./raju.jpeg",
   },
   {
-    name: "Suthri. Murali",
-    role: "Lead Deployment",
+    name: "Muralikrishna.Suthari",
+    role: "Lead Architech",
     expertise: "Full Stack Developer",
-    technologies: ["React", "Material-UI", "CSS"],
-    githubProfile: "https://github.com/murali",
-    linkedinProfile: "https://linkedin.com/in/murali",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    technologies: [],
+    githubProfile: "https://www.facebook.com/muralikrishnass",
+    linkedinProfile: "https://www.linkedin.com/in/muralikrishnas/",
+    image: "./murali.jpeg",
+  },
+  {
+    name: "Amaraju.Srinivas",
+    role: "Plan & Design",
+    expertise: "Product",
+    technologies: [],
+    githubProfile: "https://facebook.com/srinivas.amaroju",
+    linkedinProfile: "",
+    image: "./srinuvas.jpeg",
   },
 ];
 
@@ -1087,7 +1102,7 @@ const Dashboard = () => {
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
         {/* Header */}
-        <AppBar position="sticky" sx={{ bgcolor: "#b388ff", coloe: "gold" }}>
+        <AppBar position="sticky" sx={{ bgcolor: "#25D366", coloe: "gold" }}>
           <Toolbar>
             {/* Add logo */}
             <Box
@@ -1115,8 +1130,12 @@ const Dashboard = () => {
               />
               {/* </svg> */}
             </Box>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              ZPHS Kunur
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, fontWeight: "bold" }}
+            >
+              ZPHS KUNUR
             </Typography>
 
             {/* Mobile Menu */}
@@ -1146,12 +1165,12 @@ const Dashboard = () => {
               >
                 {/* <MenuItem onClick={handleSavineerModal}> */}
                 <MenuItem
-                // onClick={() =>
-                //   window.open(
-                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                //     "_blank"
-                //   )
-                // }
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                      "_blank"
+                    )
+                  }
                 >
                   <span
                     className="material-icons"
@@ -1279,12 +1298,12 @@ const Dashboard = () => {
               {/* <Button color="inherit" onClick={handleSavineerModal}> */}
               <Button
                 color="inherit"
-                // onClick={() =>
-                //   window.open(
-                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                //     "_blank"
-                //   )
-                // }
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                    "_blank"
+                  )
+                }
               >
                 souvenir
               </Button>
@@ -1409,7 +1428,7 @@ const Dashboard = () => {
           }}
         >
           {[
-            { title: "About School", onClick: handleClose },
+            { title: "About School", onClick: scrollToContact },
             {
               title: "Principal's Motive",
               onClick: handleOpenPrincipalMotiveModal,
@@ -1917,10 +1936,10 @@ const Dashboard = () => {
                         {developer.expertise}
                       </Typography>
 
-                      <Box sx={{ mt: 2 }}>
-                        <Typography variant="subtitle2" gutterBottom>
+                      <Box sx={{}}>
+                        {/* <Typography variant="subtitle2" gutterBottom>
                           Technologies:
-                        </Typography>
+                        </Typography> */}
                         <Box
                           sx={{
                             display: "flex",
@@ -1951,7 +1970,7 @@ const Dashboard = () => {
                       }}
                     >
                       <Box sx={{ display: "flex", gap: 1 }}>
-                        <Button
+                        {/* <Button
                           variant="outlined"
                           size="small"
                           startIcon={
@@ -1961,8 +1980,8 @@ const Dashboard = () => {
                           target="_blank"
                           sx={{ flex: 1 }}
                         >
-                          GitHub
-                        </Button>
+                          Facebook
+                        </Button> */}
                         <Button
                           variant="outlined"
                           size="small"
@@ -1995,7 +2014,7 @@ const Dashboard = () => {
           style={{
             fontSize: "12px",
             paddingTop: "6px",
-            backgroundColor: "#b388ff",
+            backgroundColor: "#25D366",
             color: "white",
             // "&:hover": {
             //   fontSize: "12px",
@@ -2059,7 +2078,7 @@ const Dashboard = () => {
                 bottom: 0,
                 right: 0,
                 left: 0,
-                backgroundColor: "rgba(0,0,0,.5)",
+                // backgroundColor: "rgba(0,0,0,.5)",
               }}
             />
             <Container
@@ -2189,7 +2208,7 @@ const Dashboard = () => {
                       // boxShadow: 3,
                     },
                     ...(achievement.isViewMore && {
-                      backgroundColor: "#b388ff",
+                      backgroundColor: "#25D366",
                       color: "white",
                       display: "flex",
                       alignItems: "center",
@@ -2267,7 +2286,7 @@ const Dashboard = () => {
                       >
                         <Box
                           sx={{
-                            backgroundColor: "#b388ff",
+                            backgroundColor: "#25D366",
                             borderRadius: "50%",
                             p: 1,
                             mr: 2,
@@ -2526,7 +2545,7 @@ const Dashboard = () => {
             {/* Conditional rendering based on selected tab */}
             {tabValue === 0 ? (
               <Grid container spacing={3}>
-                {galleryImages.slice(0, 3).map((item, index) => (
+                {galleryImages.map((item, index) => (
                   <Grid item xs={12} sm={6} md={4} key={index}>
                     <Card
                       sx={{
@@ -2540,13 +2559,11 @@ const Dashboard = () => {
                         position: "relative",
                         "&:hover": {
                           transform: "translateY(-8px)",
-                          boxShadow: 6,
+
                           "& .gallery-image": {
                             transform: "scale(1.1)",
                           },
-                          "& .gallery-overlay": {
-                            opacity: 1,
-                          },
+                          "& .gallery-overlay": {},
                           "& .gallery-content": {
                             transform: "translateY(0)",
                           },
@@ -2562,15 +2579,15 @@ const Dashboard = () => {
                       >
                         <CardMedia
                           component="img"
-                          image={item.image}
-                          alt={item.title}
+                          image={item?.image}
+                          alt={item?.title}
                           className="gallery-image"
                           sx={{
                             position: "absolute",
                             top: 0,
                             left: 0,
                             width: "100%",
-                            height: "100%",
+                            height: "105%",
                             objectFit: "cover",
                             transition: "transform 0.5s ease",
                           }}
@@ -2602,7 +2619,7 @@ const Dashboard = () => {
                             zIndex: 1,
                           }}
                         >
-                          <Typography
+                          {/* <Typography
                             variant="h6"
                             sx={{
                               mb: 1,
@@ -2626,13 +2643,13 @@ const Dashboard = () => {
                               calendar_today
                             </span>
                             <Typography variant="body2">{item.date}</Typography>
-                          </Box>
-                          <Button
+                          </Box> */}
+                          {/* <Button
                             variant="contained"
                             size="small"
                             onClick={() => handleOpenGalleryModal(item)}
                             sx={{
-                              mt: 2,
+                              mb: 2,
                               bgcolor: "primary.main",
                               "&:hover": {
                                 bgcolor: "primary.dark",
@@ -2643,7 +2660,7 @@ const Dashboard = () => {
                             }
                           >
                             View Details
-                          </Button>
+                          </Button> */}
                         </Box>
                       </Box>
                     </Card>
@@ -2753,7 +2770,7 @@ const Dashboard = () => {
                           sx={{
                             position: "absolute",
                             top: -30,
-                            backgroundColor: "primary.main",
+                            backgroundColor: "#25D366",
                             borderRadius: "50%",
                             width: 60,
                             height: 60,
@@ -2786,7 +2803,7 @@ const Dashboard = () => {
                             sx={{
                               fontWeight: "medium",
                               display: "inline-block",
-                              backgroundColor: "primary.light",
+                              backgroundColor: "#25D366",
                               color: "primary.dark",
                               px: 2,
                               py: 0.5,
@@ -3776,7 +3793,7 @@ const Dashboard = () => {
         <Box
           component="footer"
           id="contact-section"
-          sx={{ bgcolor: "primary.light", color: "white" }}
+          sx={{ bgcolor: "#46d05d", color: "white" }}
         >
           <Container maxWidth="lg">
             <Grid
@@ -4566,11 +4583,11 @@ const Dashboard = () => {
                     display: "flex",
                     flexDirection: "column",
                     transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition for transform and box-shadow
-                    backgroundColor: "#b388ff", // Added background color
+                    backgroundColor: "#25D366", // Added background color
                     "&:hover": {
                       transform: "scale(1.05) translateY(-8px)", // Scale up and translate on hover
                       boxShadow: "0 4px 20px gold", // Updated box shadow color
-                      backgroundColor: "#b388ff", // Change background on hover
+                      backgroundColor: "#25D366", // Change background on hover
                     },
                   }}
                 >

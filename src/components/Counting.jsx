@@ -5,11 +5,12 @@ import { color } from "@mui/system";
 
 const Counting = ({ setIsReady }) => {
   // let baseURL = "http://localhost:1954";
-  let baseURL = "https://zphs-school.vercel.app";
+  let baseURL = "https://www.zphskunur.in";
+  // let baseURL = "https://zphs-school.vercel.app";
   const [count, setCount] = useState(3); // Lunch countdown starts at 3
   const [isCounting, setIsCounting] = useState(false); // State to track lunch countdown
   const [timer, setTimer] = useState(true); // Track if target timer has expired
-  const [time, setTime] = useState([11, 11]); // Track if target timer has expired
+  const [time, setTime] = useState([10, 30]); // Track if target timer has expired
   // let time = [11, 10]; // Track if target timer has expired
 
   const [timeLeft, setTimeLeft] = useState({

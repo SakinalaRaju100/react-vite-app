@@ -69,7 +69,7 @@ let alumniMembers = [
     father: "S/o Narsireddy",
   },
   {
-    name: "Mula.Pramod Kumar Reddy",
+    name: "Mula.Pramod Kumar",
     role: "General Secretary -1",
     father: "S/o Somireddy",
   },

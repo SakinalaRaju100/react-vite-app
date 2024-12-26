@@ -748,7 +748,7 @@ const AdCarousel = () => {
         <IconButton
           onClick={() =>
             setAdCarouselIndex((prev) =>
-              prev === 0 ? adCarouselImages.length - 1 : prev - 1
+              prev == 0 ? adCarouselImages.length - 1 : prev - 1
             )
           }
           sx={{
@@ -763,7 +763,7 @@ const AdCarousel = () => {
         <IconButton
           onClick={() =>
             setAdCarouselIndex((prev) =>
-              prev === adCarouselImages.length - 1 ? 0 : prev + 1
+              prev == adCarouselImages.length - 1 ? 0 : prev + 1
             )
           }
           sx={{
@@ -1165,13 +1165,13 @@ const Dashboard = () => {
               >
                 {/* <MenuItem onClick={handleSavineerModal}> */}
                 <MenuItem
-                  onClick={handleOpenComingSoonModal}
-                  // onClick={() =>
-                  //   window.open(
-                  //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                  //     "_blank"
-                  //   )
-                  // }
+                  // onClick={handleOpenComingSoonModal}
+                  onClick={() =>
+                    window.open(
+                      "https://drive.google.com/file/d/1OlLJucO7CJcSpWgGiH2CS_wPK3oRRNLQ/view?usp=sharing",
+                      "_blank"
+                    )
+                  }
                 >
                   <span
                     className="material-icons"
@@ -1298,14 +1298,14 @@ const Dashboard = () => {
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               {/* <Button color="inherit" onClick={handleSavineerModal}> */}
               <Button
-                onClick={handleOpenComingSoonModal}
+                // onClick={handleOpenComingSoonModal}
                 color="inherit"
-                // onClick={() =>
-                //   window.open(
-                //     "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
-                //     "_blank"
-                //   )
-                // }
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1OlLJucO7CJcSpWgGiH2CS_wPK3oRRNLQ/view?usp=sharing",
+                    "_blank"
+                  )
+                }
               >
                 souvenir
               </Button>

@@ -1,4 +1,6 @@
 import React from "react";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css"; // Import the gallery styles
 
 import {
   AppBar,
@@ -508,31 +510,6 @@ const educationStandards = [
 ];
 
 const adCarouselImages = [
-  // // {
-  // //   image:
-  // //     "https://images.unsplash.com/photo-1445633629932-0029acc44e88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-  // //   title: "Ad Title 1",
-  // //   description: "This is the description for Ad 1.",
-  // // },
-  // {
-  //   image:
-  //     "https://drive.google.com/thumbnail?id=1eFn94QmBCrW4tRTv9ziwrZ5M32B3vtMp&sz=w1000",
-  //   title: "Ad Title new",
-  //   description: "This is the description for Ad 1.",
-  // },
-  // {
-  //   image:
-  //     "https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-  //   title: "Ad Title 2",
-  //   description: "This is the description for Ad 2.",
-  // },
-  // {
-  //   image:
-  //     "https://images.unsplash.com/photo-1607453998774-d533f65dac99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-  //   title: "Ad Title 3",
-  //   description: "This is the description for Ad 3.",
-  // },
-
   {
     image: "https://neodesigns.in/zphs/ads/adv_1.jpg",
   },
@@ -678,6 +655,196 @@ const adCarouselImages = [
     image: "https://neodesigns.in/zphs/ads/adv_47.jpg",
   },
 ];
+const images = [
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_1.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_1.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_2.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_2.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_3.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_3.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_4.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_4.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_5.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_5.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_6.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_6.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_7.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_7.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_8.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_8.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_9.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_9.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_10.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_10.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_11.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_11.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_12.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_12.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_13.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_13.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_14.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_14.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_15.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_15.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_16.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_16.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_17.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_17.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_18.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_18.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_19.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_19.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_20.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_20.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_21.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_21.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_22.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_22.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_23.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_23.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_24.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_24.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_25.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_25.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_26.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_26.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_27.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_27.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_28.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_28.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_29.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_29.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_30.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_30.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_31.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_31.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_32.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_32.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_33.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_33.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_34.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_34.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_35.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_35.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_36.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_36.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_37.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_37.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_38.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_38.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_39.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_39.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_40.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_40.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_41.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_41.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_42.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_42.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_43.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_43.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_44.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_44.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_45.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_45.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_46.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_46.jpg",
+  },
+  {
+    original: "https://neodesigns.in/zphs/ads/adv_47.jpg",
+    thumbnail: "https://neodesigns.in/zphs/ads/adv_47.jpg",
+  },
+];
 
 // Carousel for Ads
 const AdCarousel = () => {
@@ -695,7 +862,16 @@ const AdCarousel = () => {
 
   return (
     <Box sx={{ position: "relative", my: 0 }}>
-      <Paper
+      <ImageGallery
+        items={images}
+        showThumbnails={true} // Show thumbnail navigation
+        showFullscreenButton={true} // Show fullscreen button
+        showPlayButton={true} // Show play/pause button
+        autoPlay={true} // Automatically play the slideshow
+        slideInterval={3000} // Set slide interval to 3 seconds
+        showIndex={true} // Show image index
+      />
+      {/* <Paper
         square
         onClick={() =>
           setAdCarouselIndex((prev) =>
@@ -704,13 +880,10 @@ const AdCarousel = () => {
         }
         elevation={0}
         sx={{
-          // width: { sm: "210mm", md: "360mm", lg: "520mm" },
-          // height: "300mm",
           height: { xs: "90vh", lg: "90vh" },
 
-          // height: "75vh",
           position: "relative",
-          // backgroundSize: "auto",
+
           backgroundRepeat: "no-repeat",
           backgroundSize: { xs: "70mm ", lg: "90mm " },
           backgroundPosition: "center",
@@ -725,14 +898,7 @@ const AdCarousel = () => {
             left: 20,
             color: "white",
           }}
-        >
-          {/* <Typography variant="h6">
-            {adCarouselImages[adCarouselIndex].title}
-          </Typography> */}
-          {/*<Typography variant="body2">
-              {adCarouselImages[adCarouselIndex].description}
-            </Typography>*/}
-        </Box>
+        ></Box>
         <MobileStepper
           steps={adCarouselImages.length}
           position="static"
@@ -749,10 +915,7 @@ const AdCarousel = () => {
           onClick={() => {
             console.log("adCarouselIndex", adCarouselIndex);
 
-            setAdCarouselIndex((prev) =>
-              // prev == 0 ? adCarouselImages.length - 1 : prev - 1
-              prev == 0 ? 10 : prev - 1
-            );
+            setAdCarouselIndex((prev) => (prev == 0 ? 10 : prev - 1));
           }}
           sx={{
             position: "absolute",
@@ -779,7 +942,7 @@ const AdCarousel = () => {
         >
           <span className="material-icons">chevron_right</span>
         </IconButton>
-      </Paper>
+      </Paper> */}
     </Box>
   );
 };

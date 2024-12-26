@@ -402,7 +402,7 @@ const previousDonations = [
     purpose: "For Golden jubilee",
   },
   {
-    name: "Ganketi.Venkateshwar Reddy",
+    name: "Gankidi.Venkateshwar Reddy",
     amount: 0,
     date: "2023-09-01",
     purpose: "Food for two days",

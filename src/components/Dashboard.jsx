@@ -69,7 +69,7 @@ let alumniMembers = [
     father: "S/o Narsireddy",
   },
   {
-    name: "Mula.Pramod Reddy",
+    name: "Mula.Pramod Kumar Reddy",
     role: "General Secretary -1",
     father: "S/o Somireddy",
   },
@@ -746,11 +746,14 @@ const AdCarousel = () => {
           }}
         />
         <IconButton
-          onClick={() =>
+          onClick={() => {
+            console.log("adCarouselIndex", adCarouselIndex);
+
             setAdCarouselIndex((prev) =>
-              prev == 0 ? adCarouselImages.length - 1 : prev - 1
-            )
-          }
+              // prev == 0 ? adCarouselImages.length - 1 : prev - 1
+              prev == 0 ? 10 : prev - 1
+            );
+          }}
           sx={{
             position: "absolute",
             left: 6,
@@ -761,11 +764,12 @@ const AdCarousel = () => {
           <span className="material-icons">chevron_left</span>
         </IconButton>
         <IconButton
-          onClick={() =>
+          onClick={() => {
+            console.log("adCarouselIndex", adCarouselIndex);
             setAdCarouselIndex((prev) =>
               prev == adCarouselImages.length - 1 ? 0 : prev + 1
-            )
-          }
+            );
+          }}
           sx={{
             position: "absolute",
             right: 6,
@@ -1688,7 +1692,7 @@ const Dashboard = () => {
                   variant="outlined"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/uc?export=download&id=1xj1bWlIbgBPc6Oq1BS9aHj5YHDHcuAJO",
+                      "https://drive.google.com/file/d/1D6nL8ygYoavfplTsg3ajrf4OTubwfg5j/view?usp=sharing",
                       "_blank"
                     )
                   } // Update with the actual PDF path

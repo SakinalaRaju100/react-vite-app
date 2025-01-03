@@ -42,6 +42,7 @@ import Counting from "./components/Counting";
 import NotFound from "./components/NotFound";
 import { Routes, Route } from "react-router-dom";
 import zIndex from "@mui/material/styles/zIndex";
+import GoogleAd from "./components/GoogleAd";
 // import SouvinerBook from "./components/SouvinerBook";
 
 // import { pdfjs } from "react-pdf";
@@ -71,6 +72,7 @@ const App = () => {
         )} */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/home" element={<Dashboard />} />
+        <Route path="/google-ads" element={<GoogleAd />} />
         <Route path="/enrollment" element={<EnrollList />} />
         {/* <Route path="/souviner-book" element={<SouvinerBook />} /> */}
         <Route path="*" element={<NotFound />} />

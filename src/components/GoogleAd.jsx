@@ -10,8 +10,19 @@ const GoogleAd = ({ adSlot }) => {
   }, []);
 
   return (
-    <div>
-      <h3>Goodle ads bellow</h3>
+    <div
+      style={{
+        height: "60px",
+        opacity: 0.1,
+        position: "relative",
+        top: 10,
+        zIndex: 10,
+        display: "flex",
+
+        perspective: "1000px",
+      }}
+    >
+      <h3>Goodle ads</h3>
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}

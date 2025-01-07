@@ -39,6 +39,7 @@ import {
 } from "@mui/material";
 import Counting from "./Counting";
 import axios from "axios";
+import GoogleAd from "./GoogleAd";
 let addData = [];
 try {
   fetch("./ads.json")
@@ -4860,6 +4861,7 @@ const Dashboard = () => {
                 <p>view pdf</p>
               </DialogContent>
             </Dialog>*/}
+      <GoogleAd />
     </ThemeProvider>
   );
 };
